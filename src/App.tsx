@@ -1,23 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {Routes, Route, Navigate, useLocation} from 'react-router-dom';
+import {ThemeProvider} from 'styled-components';
+import HomeApollo from './containers/Home/Home.apollo';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer">
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+import {Main} from './styles/global.styled';
 
+import createTheme from './styles/theme';
+
+const App = () => {
+  const theme = createTheme('light');
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Main>
+        <Routes>
+          <Route path="/" element={<HomeApollo />} />
+
+          <Route path="*" element={<Navigate to="/home" replace />} />
+        </Routes>
+      </Main>
+    </ThemeProvider>
+  );
+};
 export default App;

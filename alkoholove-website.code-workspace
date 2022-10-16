@@ -1,0 +1,68 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#f69352",
+      "activityBar.background": "#f69352",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#e1fdec",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#15202b99",
+      "sash.hoverBorder": "#f69352",
+      "statusBar.background": "#f47521",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#d75c0b",
+      "statusBarItem.remoteBackground": "#f47521",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#f47521",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#f4752199",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#F47521"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "command": "yarn start",
+        "label": "yarnStart",
+        "detail": "react-scripts start",
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        },
+        "isBackground": true, // This prevents the launch.json to wait for the completion of the task
+        "problemMatcher": {
+          "owner": "custom", // This is not needed but, required by the problemMatcher Object
+          "pattern": {
+            "regexp": "^$" // This is not needed but, required by the problemMatcher Object
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Compiling...", // Signals the begin of the Task
+            "endsPattern": "Compiled .*" // Signals that now the initialization of the task is complete
+          }
+        }
+      }
+    ]
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000", // create-react-app's default port 3000
+        "webRoot": "${workspaceRoot}/src",
+        "preLaunchTask": "yarnStart" // Add prelaunch Task npm: start (defined in tasks.json)
+      }
+    ]
+  }
+}
