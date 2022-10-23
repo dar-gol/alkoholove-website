@@ -1,7 +1,8 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {Alcohols} from '../../@types/alcohol';
-import {Col, Img, Row, Text} from '../../styles/global.styled';
+import {Col, ImageContainer, Img, Row, Text} from '../../styles/global.styled';
 import {API, URL} from '../../utils/constant';
 import {createImageName} from '../../utils/utils';
 import Stars from '../Stars/Stars.view';
@@ -10,7 +11,6 @@ import {
   Content,
   Description,
   DescTitle,
-  ImageContainer,
   Name,
   TopListContainer,
   Type,
@@ -22,18 +22,21 @@ interface IProps {
 
 const TopListView = ({alcohols}: IProps) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
+  const navigate = useNavigate();
   return (
     <TopListContainer>
       {alcohols.map(alcohol => {
         const tt = 0;
         return (
-          <AlcoholWrapper key={alcohol.id}>
-            <ImageContainer>
+          <AlcoholWrapper
+            key={alcohol.id}
+            onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}>
+            <ImageContainer zIndex={1}>
               <Img
                 width="150px"
                 height="175px"
                 src={`${URL.GET_IMAGE}/${createImageName(
-                  alcohol.name.toLowerCase(),
+                  alcohol.id.toLowerCase(),
                   'md',
                 )}?t=${new Date().getTime()}`}
               />
