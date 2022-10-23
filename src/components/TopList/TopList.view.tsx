@@ -18,9 +18,10 @@ import {
 
 interface IProps {
   alcohols: Alcohols;
+  increaseLimit: () => void;
 }
 
-const TopListView = ({alcohols}: IProps) => {
+const TopListView = ({alcohols, increaseLimit}: IProps) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
   const navigate = useNavigate();
   return (
@@ -59,8 +60,10 @@ const TopListView = ({alcohols}: IProps) => {
         minWidth="300px"
         height="400px"
         alignItems="center"
-        justifyContent="center">
+        justifyContent="center"
+        onClick={increaseLimit}>
         <Text
+          onClick={increaseLimit}
           href="#"
           as="a"
           type="h5"
