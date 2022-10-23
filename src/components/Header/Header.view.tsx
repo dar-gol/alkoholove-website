@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {
   BtnPrimary,
   BtnSecondary,
@@ -11,14 +12,14 @@ import TextInput from '../Inputs/TextInput';
 import {Logo, Nav, RightSide, Title} from './Header.styled';
 
 const HeaderView = () => {
-  const t = 0;
+  const navigate = useNavigate();
   return (
     <Nav>
-      <Logo>
+      <Logo onClick={() => navigate('/')}>
         <Img
           width="50px"
           height="50px"
-          src="./logo192.png"
+          src="/logo192.png"
           alt="Logo AlkohoLove"
         />
         <Title>

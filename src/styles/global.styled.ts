@@ -33,7 +33,7 @@ export const Main = styled.main`
   position: relative;
 `;
 
-export const borderRadius = '20px';
+export const borderRadiusStandard = '20px';
 
 export type BlockType = {
   flex?: string;
@@ -53,6 +53,7 @@ export type BlockType = {
   maxHeight?: string;
   visible?: boolean;
   backgroundColor?: string;
+  zIndex?: number;
 };
 
 type Button = {
@@ -68,7 +69,7 @@ type ButtonPrimary = {
 
 const Btn = css<Button>`
   border: 0;
-  border-radius: ${borderRadius};
+  border-radius: ${borderRadiusStandard};
   cursor: pointer;
   width: ${({width}) => width || 'unset'};
   height: ${({height}) => height || '48px'};
@@ -120,6 +121,7 @@ export const Div = styled.section<BlockType>`
   max-height: ${({maxHeight}) => maxHeight || 'unset'};
   display: ${({visible = true}) => (visible ? 'flex' : 'none')};
   background-color: ${({backgroundColor}) => backgroundColor || 'transparent'};
+  z-index: ${({zIndex}) => zIndex || 0};
 `;
 
 export const Row = styled(Div)`
@@ -465,8 +467,70 @@ export const Img = styled.img<{
   width?: string;
   height?: string;
   zIndex?: number;
+  borderRadius?: string;
 }>`
   width: ${({width}) => width || 'unset'};
   height: ${({height}) => height || 'unset'};
   z-index: ${({zIndex}) => zIndex || 0};
+  border-radius: ${({borderRadius}) => borderRadius || '0px'};
+`;
+
+export const ImageContainer = styled(Row)`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 20px;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${({theme}) => theme.palette.BackgroundTransparency30};
+    z-index: 1;
+  }
+`;
+
+export const Container = styled.article<{
+  backgroundColor?: string;
+  overflowX?: string;
+  overflowY?: string;
+  margin?: string;
+}>`
+  max-width: 1320px;
+  padding: 0 80px;
+  overflow-x: ${({overflowX}) => overflowX || 'unset'};
+  overflow-y: ${({overflowY}) => overflowY || 'unset'};
+  background-color: ${({backgroundColor, theme}) =>
+    backgroundColor || theme.palette.White};
+  margin: ${({margin}) => margin || '0 auto'};
+  width: 100%;
+  ${WithoutScrollbar}
+  @media (max-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 0 40px;
+    max-width: 960px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 720px;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0 20px;
+    max-width: 540px;
+  }
+`;
+
+export const ScrollContainer = styled(Row)`
+  overflow-x: scroll;
+  width: 100%;
+  ${WithoutScrollbar}
 `;

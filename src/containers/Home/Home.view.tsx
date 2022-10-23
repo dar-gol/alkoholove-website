@@ -16,8 +16,9 @@ import {
   SubTitle,
   Text,
   Title,
+  Container,
+  ScrollContainer,
 } from '../../styles/global.styled';
-import {Container, ScrollContainer} from './Home.styled';
 
 const HomeView = () => {
   const theme = useTheme() as {palette: {[k: string]: string}};

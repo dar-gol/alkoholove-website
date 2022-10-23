@@ -104,14 +104,6 @@ export const categoryImages = [
 
 export const CORE = [
   {
-    name: 'barcode',
-    display_name: 'Kod kreskowy',
-  },
-  {
-    name: 'name',
-    display_name: 'Nazwa',
-  },
-  {
     name: 'kind',
     display_name: 'Rodzaj',
   },
@@ -122,10 +114,6 @@ export const CORE = [
   {
     name: 'alcohol_by_volume',
     display_name: 'Zawartość alkoholu',
-  },
-  {
-    name: 'description',
-    display_name: 'Opis',
   },
   {
     name: 'color',
@@ -143,6 +131,9 @@ export const CORE = [
     name: 'region',
     display_name: 'Region',
   },
+];
+
+export const CORE_LIST = [
   {
     name: 'food',
     display_name: 'Jedzenie',
@@ -158,17 +149,5 @@ export const CORE = [
   {
     name: 'taste',
     display_name: 'Smak',
-  },
-  {
-    name: 'keywords',
-    display_name: 'Słowa kluczowe',
-  },
-  {
-    name: 'avg_rating',
-    display_name: 'Ocena',
-  },
-  {
-    name: 'rate_count',
-    display_name: 'Ilość głosów',
   },
 ];
