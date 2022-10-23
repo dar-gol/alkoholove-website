@@ -35,6 +35,7 @@ const CategoryListView = ({categories}: IProps) => {
         );
       })}
       <Row
+        visible={false}
         height="230px"
         minWidth="300px"
         alignItems="center"
