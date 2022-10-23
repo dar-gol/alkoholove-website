@@ -37,7 +37,7 @@ const FooterView = () => {
             mail: alkoholove.official@gmail.com
           </Text>
         </Col>
-        <Col flex="1" gap="10px">
+        <Col flex="1" gap="10px" visible={false}>
           <Text type="h4" size="small" weight="medium">
             Linki
           </Text>

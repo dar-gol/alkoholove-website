@@ -26,7 +26,7 @@ const HeaderView = () => {
           Alkoho<Primary>Love</Primary>
         </Title>
       </Logo>
-      <RightSide>
+      <RightSide visible={false}>
         <Row flex="1" gap="10px" minWidth="250px">
           <TextInput
             title="Wyszukaj alkohol"

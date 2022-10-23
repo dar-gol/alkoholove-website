@@ -8,7 +8,7 @@ const TopListApollo = () => {
   const [alcohols, setAlcohols] = useState<Alcohols>([]);
   useEffect(() => {
     post({
-      url: `${API}${URL.GET_ALCOHOL}?offset=10&limit=25`,
+      url: `${API}${URL.GET_ALCOHOL}?offset=10&limit=0`,
     })
       .then(value => value.json())
       .then((value: AlcoholsObject) =>

@@ -36,26 +36,12 @@ const HomeView = () => {
             size="large"
             weight="medium"
             margin="50px 0 10px 0">
-            Top lista
-          </Text>
-          <Text type="body" size="large" weight="medium" margin="0 0 20px 0">
-            Lista alkoholi najczęściej komentowanych.
+            Lista Alkoholi
           </Text>
         </Container>
         <ScrollContainer>
           <TopListApollo />
         </ScrollContainer>
-        <Container margin="0 auto 50px auto">
-          <Text
-            as="h4"
-            type="h4"
-            weight="medium"
-            size="large"
-            margin="0 0 10px 0">
-            Top lista to nadal za mało?
-          </Text>
-          <BtnSecondary width="220px">Szukaj alkoholu</BtnSecondary>
-        </Container>
       </Col>
       <Col backgroundColor={theme.palette.Grey5} alignItems="center">
         <Container backgroundColor={theme.palette.Grey5}>
@@ -80,33 +66,6 @@ const HomeView = () => {
         <ScrollContainer>
           <CategoryListApollo />
         </ScrollContainer>
-        <Container margin="0 0 50px 0" backgroundColor={theme.palette.Grey5}>
-          <Text
-            as="h3"
-            type="h4"
-            size="large"
-            weight="medium"
-            margin="0 0 10px 0">
-            Nie znalazłes kategorii której szukałes? Pełną listę kategorii
-            znajdziesz{' '}
-            <Text href="#" as="a" color={theme.palette.Secondary70}>
-              tutaj
-            </Text>
-            .
-          </Text>
-          <Text
-            type="body"
-            weight="regular"
-            size="large"
-            margin="0 0 50px 0"
-            color={theme.palette.Grey60}>
-            Jesli nie posiadamy kategorii której potrzebujesz{' '}
-            <Text href="#" as="a" color={theme.palette.Secondary70}>
-              napisz do nas
-            </Text>
-            .
-          </Text>
-        </Container>
         <Row
           width="100%"
           backgroundColor={theme.palette.White}
