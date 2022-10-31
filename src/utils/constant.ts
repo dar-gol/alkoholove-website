@@ -10,6 +10,7 @@ export const URL = {
   LOGIN: '/auth/token/admin',
   LOGOUT: '/auth/logout',
   GET_CATEGORIES: '/alcohols/metadata/categories',
+  GET_FILTERS: '/alcohols/filters',
   POST_CATEGORIES: '/admin/alcohols/metadata/categories',
   SEARCH_ALCOHOLS: '/admin/alcohols/search',
   GET_ALCOHOL: '/alcohols',

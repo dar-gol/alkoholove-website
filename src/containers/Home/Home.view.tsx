@@ -10,14 +10,15 @@ import TopListApollo from '../../components/TopList/TopList.apollo';
 import {
   BtnSecondary,
   Col,
+  Container,
   LargeSubTitle,
   Row,
+  ScrollContainer,
   SmallTitle,
   SubTitle,
   Text,
   Title,
 } from '../../styles/global.styled';
-import {Container, ScrollContainer} from './Home.styled';
 
 const HomeView = () => {
   const theme = useTheme() as {palette: {[k: string]: string}};
