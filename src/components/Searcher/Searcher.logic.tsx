@@ -1,17 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {ICategory} from '../../@types/category';
 import {ICategoryFilter, IFilter} from '../../@types/filters';
+import useQueryParams from '../../utils/hooks/useQueryParams';
 import SearcherView from './Searcher.view';
 
 interface Props {
   show: boolean;
-  handleShow: () => void;
+  handleShow: (state?: boolean) => void;
   categories: ICategory[];
   filters: ICategoryFilter | null;
   chooseCategoryFilters: (category: string) => void;
   setChoosenFilter: React.Dispatch<
     React.SetStateAction<ICategoryFilter | null>
   >;
+  setPhrase: React.Dispatch<React.SetStateAction<string>>;
+  total: number;
+  search: () => void;
 }
 
 const SearcherLogic = ({
@@ -21,7 +25,13 @@ const SearcherLogic = ({
   filters,
   chooseCategoryFilters,
   setChoosenFilter,
+  total,
+  search,
+  setPhrase,
 }: Props) => {
+  const [phraseValue, setPhraseValue] = useState<string>('');
+  const {query} = useQueryParams();
+
   if (show) {
     document.body.style.overflow = 'hidden';
   } else {
@@ -39,6 +49,18 @@ const SearcherLogic = ({
     }, []);
     setChoosenFilter({...filters, filters: t});
   };
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      setPhrase(phraseValue);
+    }, 3000);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [phraseValue]);
+  useEffect(() => {
+    const {phrase} = query;
+    setPhrase(phrase || '');
+    setPhraseValue(phrase || '');
+  }, []);
   return (
     <SearcherView
       show={show}
@@ -47,6 +69,10 @@ const SearcherLogic = ({
       filters={filters}
       chooseCategoryFilters={chooseCategoryFilters}
       setSelectedFilterValue={setSelectedFilterValue}
+      total={total}
+      search={search}
+      phrase={phraseValue}
+      setPhrase={setPhraseValue}
     />
   );
 };

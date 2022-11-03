@@ -44,11 +44,15 @@ import {
 
 interface Props {
   show: boolean;
-  handleShow: () => void;
+  handleShow: (state?: boolean) => void;
   categories: ICategory[];
   filters: ICategoryFilter | null;
   chooseCategoryFilters: (category: string) => void;
   setSelectedFilterValue: (filterName: string, filterValue: string) => void;
+  total: number;
+  search: () => void;
+  setPhrase: React.Dispatch<React.SetStateAction<string>>;
+  phrase: string;
 }
 
 const SearcherView = ({
@@ -58,6 +62,10 @@ const SearcherView = ({
   chooseCategoryFilters,
   filters,
   setSelectedFilterValue,
+  total,
+  search,
+  phrase,
+  setPhrase,
 }: Props) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
   const getCategoryName = () => {
@@ -108,7 +116,7 @@ const SearcherView = ({
         <StyledAccordionItemHeading>
           <StyledAccordionItemButton>
             <CircleIcon className="icon-search" />
-            <StyledAccordionTextHeading>
+            <StyledAccordionTextHeading isCapitalize>
               {filter.display_name}
             </StyledAccordionTextHeading>
             <CollapseIcon className="icon-chevron-top" />
@@ -149,7 +157,7 @@ const SearcherView = ({
       <LightBox show={show} />
       <SearchView show={show}>
         <SearchContainer>
-          <Title onClick={handleShow}>
+          <Title onClick={() => handleShow()}>
             <Icon className="icon-chevron-left" />
             Wyszukiwarka alkoholi
           </Title>
@@ -160,9 +168,15 @@ const SearcherView = ({
                 state=""
                 placeholder="Harnaś"
                 error=""
+                value={phrase}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPhrase(e.target.value)
+                }
               />
             </Row>
-            <BtnPrimary width="220px">Ilość wyszukiwań (18)</BtnPrimary>
+            <BtnPrimary width="220px" onClick={search}>
+              Ilość wyszukiwań ({total})
+            </BtnPrimary>
           </Row>
           <Row gap="5px" flexWrap="wrap">
             {getSelectedBlock()}

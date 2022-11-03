@@ -30,7 +30,7 @@ export const SearchView = styled.div<{show: boolean}>`
   transition: right 0.2s;
   position: fixed;
   top: 0;
-  right: ${({show}) => (show ? 0 : 'calc(-1 * var(--search-block-width))')};
+  right: ${({show}) => (show ? 0 : '-100%')};
   width: var(--search-block-width);
   height: 100%;
   z-index: 11;
@@ -105,8 +105,8 @@ export const StyledAccordionItemHeading = styled(AccordionItemHeading)`
 `;
 export const StyledAccordionTextHeading = styled(Text)`
   flex: 1;
-  ${Body('regular')};
-  color: ${({theme}) => theme.palette.Grey80};
+  ${Body('medium')};
+  color: ${({theme}) => theme.palette.Grey70};
 `;
 export const StyledAccordionItemButton = styled(AccordionItemButton)`
   display: flex;
@@ -125,9 +125,9 @@ export const StyledAccordionItemHidden = styled.div<{selected?: boolean}>`
   display: flex;
   align-items: center;
   color: ${({theme, selected}) =>
-    selected ? theme.palette.Primary80 : theme.palette.Grey80};
+    selected ? theme.palette.Primary80 : theme.palette.Grey30};
   ${Body('regular', 'medium')}
-  border-bottom: 1px solid ${({theme}) => theme.palette.Grey15};
+  border-bottom: 1px solid ${({theme}) => theme.palette.Grey10};
   cursor: pointer;
   position: relative;
   &:before {
@@ -149,7 +149,7 @@ export const StyledAccordionItemHidden = styled.div<{selected?: boolean}>`
 
 export const Token = styled.div`
   background-color: ${({theme}) => theme.palette.Grey10};
-  padding: 0 5px;
+  padding: 5px 10px;
   display: flex;
   gap: 5px;
   border-radius: 10px;

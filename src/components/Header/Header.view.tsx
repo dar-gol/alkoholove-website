@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {
   BtnPrimary,
   BtnSecondary,
@@ -22,17 +23,19 @@ const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
   return (
     <>
       <Nav>
-        <Logo>
-          <Img
-            width="50px"
-            height="50px"
-            src="./logo192.png"
-            alt="Logo AlkohoLove"
-          />
-          <Title>
-            Alkoho<Primary>Love</Primary>
-          </Title>
-        </Logo>
+        <Link to="/" style={{all: 'unset', cursor: 'pointer'}}>
+          <Logo>
+            <Img
+              width="50px"
+              height="50px"
+              src="./logo192.png"
+              alt="Logo AlkohoLove"
+            />
+            <Title>
+              Alkoho<Primary>Love</Primary>
+            </Title>
+          </Logo>
+        </Link>
         <RightSide>
           <Row flex="1" gap="10px" minWidth="250px" justifyContent="end">
             <SearchButton onClick={handleSearcherBtn}>
