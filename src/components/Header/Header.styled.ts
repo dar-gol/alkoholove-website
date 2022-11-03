@@ -26,6 +26,7 @@ export const Logo = styled(Row)`
   margin-left: 50px;
   gap: 20px;
   align-items: center;
+  cursor: pointer;
 `;
 export const Title = styled.h1`
   margin: 0;

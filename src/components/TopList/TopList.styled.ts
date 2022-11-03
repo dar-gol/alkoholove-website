@@ -52,27 +52,8 @@ export const Description = styled.p`
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  height: 130px;
+  height: 120px;
   ${Body('regular', 'small')}
-`;
-
-export const ImageContainer = styled(Row)`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  border-radius: 20px;
-  overflow: hidden;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: ${({theme}) => theme.palette.BackgroundTransparency30};
-    z-index: 1;
-  }
 `;
 
 export const AlcoholWrapper = styled(Row)`

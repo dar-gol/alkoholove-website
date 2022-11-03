@@ -94,7 +94,7 @@ export const Heading5Large = (weight: headingWeight = 'bold') => css`
   font-size: 20px;
   font-family: Roboto;
   font-weight: ${setHeadingWeight(weight)};
-  line-height: 24px;
+  line-height: 36px;
   letter-spacing: 0.3px;
 `;
 
@@ -102,7 +102,7 @@ export const Heading6Large = (weight: headingWeight = 'bold') => css`
   font-size: 16px;
   font-family: Roboto;
   font-weight: ${setHeadingWeight(weight)};
-  line-height: 20px;
+  line-height: 32px;
   letter-spacing: 0.3px;
 `;
 

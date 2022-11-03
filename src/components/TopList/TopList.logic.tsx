@@ -6,11 +6,12 @@ import TopListView from './TopList.view';
 
 interface IProps {
   alcohols: Alcohols;
+  increaseLimit: () => void;
 }
 
-const TopListLogic = ({alcohols}: IProps) => {
+const TopListLogic = ({alcohols, increaseLimit}: IProps) => {
   const t = 0;
-  return <TopListView alcohols={alcohols} />;
+  return <TopListView alcohols={alcohols} increaseLimit={increaseLimit} />;
 };
 
 export default TopListLogic;

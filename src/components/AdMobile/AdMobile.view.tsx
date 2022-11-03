@@ -7,18 +7,12 @@ const AdMobile = () => {
   return (
     <Row padding="50px 0" width="100%" responsive>
       <LeftSection>
-        <H2>Jest już dostępna!</H2>
+        <H2>Już wkrótce!</H2>
         <H3>
-          Aplikacja Alkoho<Primary>Love</Primary> dostępna na telefony z
-          systemem Android.{' '}
+          Aplikacja Alkoho<Primary>Love</Primary> już wkrótce będzie dostępna na
+          telefony systemem Android.{' '}
         </H3>
-        <H4>
-          Pobierz aplikację, zarejestruj się i ciesz się wszystkimi
-          możliwosciami AlkohoLove.
-        </H4>
-        <BtnPrimary width="220px" isCTA>
-          Pobierz aplikację
-        </BtnPrimary>
+        <H4>Wszystkie Twoje ulubione alkohole w jednym miejscu!</H4>
       </LeftSection>
       <Col
         minWidth="350px"

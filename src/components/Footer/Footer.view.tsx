@@ -8,7 +8,7 @@ const FooterView = () => {
   return (
     <Row margin="50px 0" responsive>
       <Col minWidth="200px" gap="10px" alignItems="center">
-        <Img src="./logo192.png" width="60px" height="60px" />
+        <Img src="/logo192.png" width="60px" height="60px" />
         <Text isNoWrap type="h3" size="small" weight="medium">
           Alkoho
           <Text as="span" color={theme.palette.Primary80}>
@@ -37,7 +37,7 @@ const FooterView = () => {
             mail: alkoholove.official@gmail.com
           </Text>
         </Col>
-        <Col flex="1" gap="10px">
+        <Col flex="1" gap="10px" visible={false}>
           <Text type="h4" size="small" weight="medium">
             Linki
           </Text>

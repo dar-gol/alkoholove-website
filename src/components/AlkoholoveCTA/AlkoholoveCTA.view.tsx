@@ -71,9 +71,6 @@ const AlkoholoveCTAView = () => {
             width="120px"
             height="120px"
           />
-          <BtnPrimary width="220px" isCTA>
-            Zarejestruj się
-          </BtnPrimary>
         </Col>
         <Col flex="1" gap="60px">
           <Advantage>
