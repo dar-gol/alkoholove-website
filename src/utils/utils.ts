@@ -46,3 +46,31 @@ export const getDate = (date: Date | string) => {
     day < 10 ? `0${day}` : day
   }`;
 };
+
+export const formater = (value: any): string => {
+  if (value === null || (typeof value === 'object' && value.length === 0))
+    return '';
+  if (typeof value === 'object' && value !== null) return value.join(', ');
+  if (typeof value === 'boolean') return value ? 'TAK' : 'NIE';
+  return value;
+};
+
+export const getIcon = (name: string) => {
+  if (name === 'kind') return 'icon-Category';
+  if (name === 'type') return 'icon-Info';
+  if (name === 'alcohol_by_volume') return 'icon-Bottle';
+  if (name === 'color') return 'icon-Info';
+  if (name === 'manufacturer') return 'icon-Manufacturer';
+  if (name === 'country') return 'icon-Globe';
+  if (name === 'region') return 'icon-Globe';
+  if (name === 'food') return 'icon-Bottle';
+  if (name === 'finish') return 'icon-Food';
+  if (name === 'aroma') return 'icon-Bottle';
+  if (name === 'taste') return 'icon-Food';
+  return 'icon-Info';
+};
+
+export const getRate = (value: number, count: number) => {
+  if (count === 0) return 0;
+  return parseFloat((value / count).toFixed(2));
+};

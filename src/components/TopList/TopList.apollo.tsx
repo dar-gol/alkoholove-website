@@ -6,17 +6,20 @@ import TopListLogic from './TopList.logic';
 
 const TopListApollo = () => {
   const [alcohols, setAlcohols] = useState<Alcohols>([]);
+  const [limit, setLimit] = useState<number>(10);
   useEffect(() => {
     post({
-      url: `${API}${URL.GET_ALCOHOL}?offset=10&limit=25`,
+      url: `${API}${URL.GET_ALCOHOL}?offset=10&limit=${limit}`,
     })
       .then(value => value.json())
       .then((value: AlcoholsObject) =>
         setAlcohols(value.alcohols ? value.alcohols : []),
       );
-  }, []);
+  }, [limit]);
 
-  return <TopListLogic alcohols={alcohols} />;
+  const increaseLimit = () => setLimit(prev => prev + 10);
+
+  return <TopListLogic alcohols={alcohols} increaseLimit={increaseLimit} />;
 };
 
 export default TopListApollo;

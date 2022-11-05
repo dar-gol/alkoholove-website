@@ -24,7 +24,7 @@ const CategoryListView = ({categories}: IProps) => {
           ? category.title
           : 'other';
         return (
-          <CategoryWrapper>
+          <CategoryWrapper key={category.id}>
             <CategoryImage
               src={`./img/${imageName}-stock.png`}
               height="230px"
@@ -35,6 +35,7 @@ const CategoryListView = ({categories}: IProps) => {
         );
       })}
       <Row
+        visible={false}
         height="230px"
         minWidth="300px"
         alignItems="center"

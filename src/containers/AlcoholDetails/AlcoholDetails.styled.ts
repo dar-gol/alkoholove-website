@@ -1,4 +1,4 @@
 import styled from 'styled-components';
+import {Col} from '../../styles/global.styled';
 
-const t = 0;
 const tt = 0;
