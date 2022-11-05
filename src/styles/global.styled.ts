@@ -31,6 +31,12 @@ export const Main = styled.main`
   padding-top: 100px;
   background-color: ${({theme}) => theme.palette.Grey5};
   position: relative;
+  @media (max-width: 768px) {
+    padding-top: 160px;
+  }
+  @media (max-width: 576px) {
+    padding-top: 220px;
+  }
 `;
 
 export const borderRadiusStandard = '20px';

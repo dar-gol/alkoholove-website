@@ -26,7 +26,7 @@ export const LightBox = styled.div<{show: boolean}>`
 
 export const SearchView = styled.div<{show: boolean}>`
   --search-block-width: 70%;
-  min-width: 800px;
+  /* min-width: 800px; */
   transition: right 0.2s;
   position: fixed;
   top: 0;
@@ -36,6 +36,10 @@ export const SearchView = styled.div<{show: boolean}>`
   z-index: 11;
   padding: 20px;
   padding-right: 0;
+  @media (max-width: 768px) {
+    --search-block-width: 100%;
+    padding: 0px;
+  }
 `;
 
 export const SearchContainer = styled(Col)`
@@ -49,6 +53,18 @@ export const SearchContainer = styled(Col)`
   border-top-left-radius: 40px;
   padding: 40px;
   gap: 20px;
+  @media (max-width: 768px) {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    padding: 20px;
+  }
+`;
+
+export const FilterWrapper = styled(Row)`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
 `;
 
 export const Title = styled(Text)`
