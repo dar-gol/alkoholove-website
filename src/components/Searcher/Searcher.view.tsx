@@ -40,6 +40,7 @@ import {
   StyledAccordionTextHeading,
   Title,
   Token,
+  FilterWrapper,
 } from './Searcher.styled';
 
 interface Props {
@@ -161,7 +162,7 @@ const SearcherView = ({
             <Icon className="icon-chevron-left" />
             Wyszukiwarka alkoholi
           </Title>
-          <Row gap="20px">
+          <Row gap="20px" responsive>
             <Row minWidth="350px">
               <TextInput
                 title={`Wyszukaj w kategorii: ${getCategoryName()}`}
@@ -181,7 +182,7 @@ const SearcherView = ({
           <Row gap="5px" flexWrap="wrap">
             {getSelectedBlock()}
           </Row>
-          <Row flexBasis="100%" overflowY="hidden">
+          <FilterWrapper flexBasis="100%" overflowY="hidden">
             <Col flex="1" height="100%" gap="10px">
               <Row>
                 <Text
@@ -216,7 +217,7 @@ const SearcherView = ({
                 </Row>
               </ScrollContent>
             </Col>
-          </Row>
+          </FilterWrapper>
         </SearchContainer>
       </SearchView>
     </>

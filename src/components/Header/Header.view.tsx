@@ -37,14 +37,16 @@ const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
           </Logo>
         </Link>
         <RightSide>
-          <Row flex="1" gap="10px" minWidth="250px" justifyContent="end">
+          <Row flex="1" gap="10px" minWidth="250px" justifyContent="center">
             <SearchButton onClick={handleSearcherBtn}>
               <Icon className="icon-search" />
               Wyszukaj alkohol
             </SearchButton>
           </Row>
-          <BtnPrimary padding="0 20px">Zarejestruj się</BtnPrimary>
-          <BtnSecondary padding="0 20px">Zaloguj się</BtnSecondary>
+          <Row gap="20px">
+            <BtnPrimary padding="0 20px">Zarejestruj się</BtnPrimary>
+            <BtnSecondary padding="0 20px">Zaloguj się</BtnSecondary>
+          </Row>
         </RightSide>
       </Nav>
       <SearcherApollo show={showSearcher} handleShow={handleSearcherBtn} />
