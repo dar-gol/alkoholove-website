@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {
   BtnPrimary,
   BtnSecondary,
@@ -29,7 +28,7 @@ const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
             <Img
               width="50px"
               height="50px"
-              src="./logo192.png"
+              src="/logo192.png"
               alt="Logo AlkohoLove"
             />
             <Title>

@@ -52,7 +52,7 @@ const SearcherLogic = ({
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setPhrase(phraseValue);
-    }, 3000);
+    }, 500);
 
     return () => clearTimeout(delayDebounceFn);
   }, [phraseValue]);
@@ -60,7 +60,7 @@ const SearcherLogic = ({
     const {phrase} = query;
     setPhrase(phrase || '');
     setPhraseValue(phrase || '');
-  }, []);
+  }, [JSON.stringify(query)]);
   return (
     <SearcherView
       show={show}

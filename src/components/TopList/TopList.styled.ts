@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {Col, Row} from '../../styles/global.styled';
 import {
   Body,
-  Heading4Large,
   Heading5Large,
   Heading6Large,
 } from '../../styles/typography.styled';

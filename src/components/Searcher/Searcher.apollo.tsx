@@ -29,6 +29,15 @@ const SearcherApollo = ({show, handleShow}: Props) => {
   const {query} = useQueryParams();
 
   const getFilterFromQuery = (name: string, value?: string) => {
+    if (name === 'kind') {
+      if (!query.kind) return 'all';
+      const kind = JSON.parse(decodeURIComponent(query.kind)) as {
+        value: string;
+      };
+      return kind.value;
+    }
+
+    if (!query.filters && value) return '';
     if (!query.filters) return {};
 
     const rawFilters = JSON.parse(decodeURIComponent(query.filters)) as {
@@ -37,15 +46,8 @@ const SearcherApollo = ({show, handleShow}: Props) => {
       values: {value: string; selected: boolean}[];
     }[];
 
-    if (name === 'kind') {
-      if (!query.kind) return undefined;
-      const kind = JSON.parse(decodeURIComponent(query.kind)) as {
-        value: string;
-      };
-      return kind.value;
-    }
-
     const rawFilter = rawFilters.find(filter => filter.name === name);
+    if (!rawFilter && value) return '';
     if (!rawFilter) return {};
     if (value) return rawFilter.values.find(v => v.value === value);
     return rawFilter;
@@ -159,7 +161,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
         setFilters(value.filters || []);
         chooseCategoryFilters('all', value.filters, true);
       });
-  }, []);
+  }, [JSON.stringify(query)]);
   return (
     <SearcherLogic
       show={show}

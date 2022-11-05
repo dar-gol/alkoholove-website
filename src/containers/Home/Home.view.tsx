@@ -18,8 +18,6 @@ import {
   SubTitle,
   Text,
   Title,
-  Container,
-  ScrollContainer,
 } from '../../styles/global.styled';
 
 const HomeView = () => {
