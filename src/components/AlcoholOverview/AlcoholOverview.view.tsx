@@ -10,7 +10,7 @@ import {
   Text,
 } from '../../styles/global.styled';
 import {URL} from '../../utils/constant';
-import {createImageName} from '../../utils/utils';
+import {createImageName, getRate} from '../../utils/utils';
 import Stars from '../Stars/Stars.view';
 import {ColorBlock, DescContainer, Wrapper} from './AlcoholOverview.styled';
 
@@ -73,10 +73,10 @@ const AlcoholOverviewView = ({alcohol}: IProps) => {
                   weight="medium"
                   size="large"
                   color={theme.palette.Grey80}>
-                  {alcohol.rate_value}
+                  {getRate(alcohol.rate_value, alcohol.rate_count)}
                 </Text>
                 <Stars
-                  rate={alcohol.rate_value}
+                  rate={getRate(alcohol.rate_value, alcohol.rate_count)}
                   onlyStars={false}
                   rateCount={alcohol.rate_count}
                 />

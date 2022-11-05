@@ -69,3 +69,8 @@ export const getIcon = (name: string) => {
   if (name === 'taste') return 'icon-Food';
   return 'icon-Info';
 };
+
+export const getRate = (value: number, count: number) => {
+  if (count === 0) return 0;
+  return parseFloat((value / count).toFixed(2));
+};

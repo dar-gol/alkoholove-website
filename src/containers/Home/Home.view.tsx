@@ -10,14 +10,14 @@ import TopListApollo from '../../components/TopList/TopList.apollo';
 import {
   BtnSecondary,
   Col,
+  Container,
   LargeSubTitle,
   Row,
+  ScrollContainer,
   SmallTitle,
   SubTitle,
   Text,
   Title,
-  Container,
-  ScrollContainer,
 } from '../../styles/global.styled';
 
 const HomeView = () => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {Row} from '../../styles/global.styled';
-import {Heading3Large} from '../../styles/typography.styled';
+import {BtnPrimary, Row} from '../../styles/global.styled';
+import {Body, Heading3Large} from '../../styles/typography.styled';
 
 export const Nav = styled.nav`
   position: fixed;
@@ -32,4 +32,22 @@ export const Title = styled.h1`
   margin: 0;
   color: ${({theme}) => theme.palette.Grey80};
   ${Heading3Large('bold')}
+`;
+
+export const SearchButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: ${({theme}) => theme.palette.Grey5};
+  color: ${({theme}) => theme.palette.Grey30};
+  ${Body('regular', 'large')}
+  border: none;
+  border-radius: 20px;
+  width: 220px;
+  height: 48px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: none;
+  }
 `;

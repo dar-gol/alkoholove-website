@@ -53,6 +53,9 @@ export type BlockType = {
   maxHeight?: string;
   visible?: boolean;
   backgroundColor?: string;
+  flexBasis?: string;
+  overflowX?: string;
+  overflowY?: string;
   zIndex?: number;
 };
 
@@ -121,6 +124,9 @@ export const Div = styled.section<BlockType>`
   max-height: ${({maxHeight}) => maxHeight || 'unset'};
   display: ${({visible = true}) => (visible ? 'flex' : 'none')};
   background-color: ${({backgroundColor}) => backgroundColor || 'transparent'};
+  ${({flexBasis}) => (flexBasis ? `flex-basis: ${flexBasis}` : '')};
+  overflow-x: ${({overflowX}) => overflowX || 'visible'};
+  overflow-y: ${({overflowY}) => overflowY || 'visible'};
   z-index: ${({zIndex}) => zIndex || 0};
 `;
 
