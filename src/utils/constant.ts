@@ -1,14 +1,20 @@
-export const isProduction = () => true;
-// if (process.env.NODE_ENV === 'development') return false;
-// return true;
+export const isProduction = () => 
+   true
+  // if (process.env.NODE_ENV === 'development') return false;
+  // return true;
+
 
 export const API = !isProduction()
   ? 'http://localhost:8008'
   : 'https://api-alkoholove.herokuapp.com';
 
 export const URL = {
-  LOGIN: '/auth/token/admin',
+  LOGIN: '/auth/token',
   LOGOUT: '/auth/logout',
+  REGISTER: '/auth/register',
+  REFRESH: '/auth/refresh',
+  RESET_PASSWORD: '/auth/reset_password',
+  REQUEST_RESET_PASSWORD: '/auth/request_password_reset',
   GET_CATEGORIES: '/alcohols/metadata/categories',
   GET_FILTERS: '/alcohols/filters',
   POST_CATEGORIES: '/admin/alcohols/metadata/categories',

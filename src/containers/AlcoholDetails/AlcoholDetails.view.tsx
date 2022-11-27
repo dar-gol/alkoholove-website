@@ -1,6 +1,7 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {IAlcohol} from '../../@types/alcohol';
+import AlcoholCommentsApollo from '../../components/AlcoholComments/AlcoholComments.apollo';
 import AlcoholOverviewApollo from '../../components/AlcoholOverview/AlcoholOverview.apollo';
 import AlcoholPropertiesApollo from '../../components/AlcoholProperties/AlcoholProperties.apollo';
 import FooterView from '../../components/Footer/Footer.view';
@@ -18,6 +19,7 @@ const AlcoholDetailsView = ({alcohol}: IProps) => {
       <HeaderApollo />
       <AlcoholOverviewApollo alcohol={alcohol} />
       <AlcoholPropertiesApollo alcohol={alcohol} />
+      <AlcoholCommentsApollo alcohol={alcohol} />
       <Row width="100%" padding="50px 0">
         <Container backgroundColor={theme.palette.Grey5}>
           <FooterView />

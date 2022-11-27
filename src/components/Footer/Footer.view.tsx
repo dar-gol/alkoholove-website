@@ -21,7 +21,7 @@ const FooterView = () => {
           <Text type="h4" size="small" weight="medium">
             O nas
           </Text>
-          <Text type="footer" weight="regular">
+          <Text type="caption" size="small" weight="regular">
             Aplikacja AlkohoLove powstała w celu ułatwienia wyboru alkoholu oraz
             zarządzania sporzytymi trunkami. Wszystkie alkohole w jednym
             miejscu. Zainstaluj aplikację alkohoLove już teraz!
@@ -31,13 +31,13 @@ const FooterView = () => {
           <Text type="h4" size="small" weight="medium">
             Skontaktuj się z nami
           </Text>
-          <Text type="footer" weight="regular">
+          <Text type="caption" size="small" weight="regular">
             Z wszelkimi ofertami, problemami, lub sugestiami zmiany naszej
             strony lub dodania kolejnego trunku zachęcamy do pisania na nasz
             mail: alkoholove.official@gmail.com
           </Text>
         </Col>
-        <Col flex="1" gap="10px" visible={false}>
+        <Col flex="1" gap="10px">
           <Text type="h4" size="small" weight="medium">
             Linki
           </Text>
@@ -46,7 +46,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
@@ -55,7 +56,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
@@ -64,7 +66,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
@@ -75,7 +78,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
@@ -84,7 +88,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
@@ -93,7 +98,8 @@ const FooterView = () => {
               <Text
                 as="a"
                 href="#"
-                type="footer"
+                type="caption"
+                size="small"
                 weight="regular"
                 color={theme.palette.Secondary70}
                 isNoWrap>
