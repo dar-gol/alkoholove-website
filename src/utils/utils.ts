@@ -74,3 +74,14 @@ export const getRate = (value: number, count: number) => {
   if (count === 0) return 0;
   return parseFloat((value / count).toFixed(2));
 };
+
+export const isValidEmail = (email: string) =>
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+
+export const isCorrectPassword = (password: string) => 
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password)
+
+export const isPasswordEqual = (pass: string, passAgain: string) =>
+  pass === passAgain;

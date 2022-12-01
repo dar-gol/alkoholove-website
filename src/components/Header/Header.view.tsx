@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {useTheme} from 'styled-components';
 import {
   BtnPrimary,
   BtnSecondary,
@@ -16,10 +17,12 @@ import {Logo, Nav, RightSide, SearchButton, Title} from './Header.styled';
 interface Props {
   showSearcher: boolean;
   handleSearcherBtn: () => void;
+  isLogged: boolean;
 }
 
-const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
-  const t = 0;
+const HeaderView = ({showSearcher, handleSearcherBtn, isLogged}: Props) => {
+  const navigate = useNavigate();
+  const theme = useTheme() as {palette: {[k: string]: string}};
   return (
     <>
       <Nav>
@@ -36,7 +39,7 @@ const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
             </Title>
           </Logo>
         </Link>
-        <RightSide>
+        <RightSide visible={isLogged}>
           <Row flex="1" gap="10px" minWidth="250px" justifyContent="center">
             <SearchButton onClick={handleSearcherBtn}>
               <Icon className="icon-search" />
@@ -44,8 +47,36 @@ const HeaderView = ({showSearcher, handleSearcherBtn}: Props) => {
             </SearchButton>
           </Row>
           <Row gap="20px">
-            <BtnPrimary padding="0 20px">Zarejestruj się</BtnPrimary>
-            <BtnSecondary padding="0 20px">Zaloguj się</BtnSecondary>
+            <BtnSecondary padding="0 20px" onClick={() => navigate('/social')}>
+              <Icon
+                fontSize="20px"
+                className="icon-Social"
+                color={theme.palette.Grey80}
+              />
+            </BtnSecondary>
+            <BtnPrimary padding="0 20px" onClick={() => navigate('/profil')}>
+              <Icon
+                fontSize="20px"
+                className="icon-Profil"
+                color={theme.palette.White}
+              />
+            </BtnPrimary>
+          </Row>
+        </RightSide>
+        <RightSide visible={!isLogged}>
+          <Row flex="1" gap="10px" minWidth="250px" justifyContent="center">
+            <SearchButton onClick={handleSearcherBtn}>
+              <Icon className="icon-search" />
+              Wyszukaj alkohol
+            </SearchButton>
+          </Row>
+          <Row gap="20px">
+            <BtnPrimary padding="0 20px" onClick={() => navigate('/register')}>
+              Zarejestruj się
+            </BtnPrimary>
+            <BtnSecondary padding="0 20px" onClick={() => navigate('/login')}>
+              Zaloguj się
+            </BtnSecondary>
           </Row>
         </RightSide>
       </Nav>

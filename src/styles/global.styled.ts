@@ -385,12 +385,16 @@ export const ContentWrapper = styled(Row)`
   justify-content: center;
 `;
 
-export const Icon = styled.span<{color?: string; visible?: boolean}>`
-  display: ${({visible = true}) => (visible ? 'block' : 'none')};
+export const Icon = styled.span<{visible?: boolean; color?: string, fontSize?:string}>`
+  display: ${({visible = true}) => (visible ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  width: ${({fontSize}) => fontSize || "16px"};
+  height: ${({fontSize}) => fontSize || "16px"};
   &:before {
     color: ${({theme, color}) => color || theme.palette.Grey20};
-    ${Body('regular', 'large')};
     font-family: icomoon;
+    font-size: ${({fontSize}) => fontSize || '16px'};
   }
 `;
 
@@ -545,4 +549,18 @@ export const ScrollContainer = styled(Row)`
   overflow-x: scroll;
   width: 100%;
   ${WithoutScrollbar}
+`;
+
+export const Form = styled.form`
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.palette.White};
+  border: 2px solid
+    ${({ theme }) =>
+      theme.isHighContrast ? theme.palette.Grey80 : "transparent"};
+  padding: 80px 80px;
+  gap: 20px;
+  border-radius: 20px;
+  align-items: center;
 `;
