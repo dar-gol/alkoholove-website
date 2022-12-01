@@ -1,40 +1,32 @@
 import {useMutation} from '@tanstack/react-query';
 import {AxiosError} from 'axios';
 import React from 'react';
-import {toast} from 'react-hot-toast';
 import {useNavigate} from 'react-router-dom';
 import {LoginData, Tokens} from '../../@types/user';
 import LoadingModal from '../../components/modal/LoadingModal';
-import Toast from '../../components/Toast/Toast';
 import {setCookie} from '../../utils/cookies';
+import useToast from '../../utils/hooks/useToast';
 import {login} from './Login.api';
 import LoginLogic from './Login.logic';
 
 const LoginApollo = () => {
+  const toast = useToast();
   const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: login,
     onSuccess: (data, variables) => {
       setCookie('auth', data.data);
-      toast.custom(t => (
-        <Toast
-          type="success"
-          title="Logowanie powiodło się"
-          text="Zostałeś przekierowany na stronę główną."
-          t={t}
-        />
-      ));
+      toast.pushSuccess(
+        'Logowanie powiodło się',
+        'Zostałeś przekierowany na stronę główną.',
+      );
       navigate('/home');
     },
     onError: () => {
-      toast.custom(t => (
-        <Toast
-          type="error"
-          title="Logowanie nie powiodło się"
-          text="Niepoprawne dane logowania."
-          t={t}
-        />
-      ));
+      toast.pushError(
+        'Logowanie nie powiodło się',
+        'Niepoprawne dane logowania.',
+      );
     },
   });
 

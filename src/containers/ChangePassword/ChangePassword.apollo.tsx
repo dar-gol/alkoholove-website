@@ -1,38 +1,24 @@
 import {useMutation} from '@tanstack/react-query';
 import React from 'react';
-import {toast} from 'react-hot-toast';
 import {useNavigate, useParams} from 'react-router-dom';
 import {ResetPasswordData} from '../../@types/user';
 import LoadingModal from '../../components/modal/LoadingModal';
-import Toast from '../../components/Toast/Toast';
+import useToast from '../../utils/hooks/useToast';
 import {resetPassword} from './ChangePassword.api';
 import ChangePasswordLogic from './ChangePassword.logic';
 
 const ChangePasswordApollo = () => {
+  const toast = useToast();
   const {token} = useParams();
   const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: resetPassword,
     onSuccess: (data, variables) => {
-      toast.custom(t => (
-        <Toast
-          type="success"
-          title="Resetowanie hasła"
-          text="Hasło zostało zresetowanie."
-          t={t}
-        />
-      ));
+      toast.pushSuccess('Resetowanie hasła', 'Hasło zostało zresetowanie.');
       navigate('/login');
     },
     onError: (e: unknown) => {
-      toast.custom(t => (
-        <Toast
-          type="error"
-          title="Resetowanie hasła"
-          text="Coś poszło nie tak."
-          t={t}
-        />
-      ));
+      toast.pushSuccess('Resetowanie hasła', 'Coś poszło nie tak.');
     },
   });
 

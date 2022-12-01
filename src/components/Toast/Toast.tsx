@@ -8,11 +8,12 @@ import {ExitWrapper, ToastContainer} from './Toast.styled';
 interface IProps {
   type: ToastType;
   title: string;
+  icon: string;
   text: string;
   t: TType;
 }
 
-const Toast = ({type, title, text, t}: IProps) => {
+const Toast = ({type, title, text, icon, t}: IProps) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
   const getColor = () => {
     if (type === 'error') return theme.palette.Red100;
@@ -32,7 +33,7 @@ const Toast = ({type, title, text, t}: IProps) => {
     <ToastContainer backgroundColor={getBackgroundColor()}>
       <Row gap="10px">
         <Row>
-          <Icon className="icon-Success" color={getColor()} fontSize="30px" />
+          <Icon className={icon} color={getColor()} fontSize="30px" />
         </Row>
         <Col flex="1">
           <Text
@@ -48,12 +49,13 @@ const Toast = ({type, title, text, t}: IProps) => {
             type="body"
             weight="regular"
             size="medium"
-            color={getColor()}>
+            color={theme.palette.Grey70}>
             {text}
           </Text>
         </Col>
         <ExitWrapper onClick={() => toast.remove(t.id)}>
           <Icon
+            cursor="pointer"
             className="icon-Exit"
             color={theme.palette.Grey100}
             fontSize="8px"

@@ -40,6 +40,7 @@ export const CheckBoxContainer = styled(Row)`
 `;
 
 export const Indicator = styled.div`
+    z-index: 1;
   height: 34px;
   width: 34px;
   position: absolute;

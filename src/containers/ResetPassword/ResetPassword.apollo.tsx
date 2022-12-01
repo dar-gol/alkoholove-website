@@ -1,35 +1,27 @@
 import {useMutation} from '@tanstack/react-query';
 import React from 'react';
-import {toast} from 'react-hot-toast';
 import {useNavigate} from 'react-router-dom';
-import Toast from '../../components/Toast/Toast';
+import useToast from '../../utils/hooks/useToast';
 import {resetPassword} from './ResetPassword.api';
 import ResetPasswordLogic from './ResetPassword.logic';
 
 const ResetPasswordApollo = () => {
+  const toast = useToast();
   const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: resetPassword,
     onSuccess: (data, variables) => {
-      toast.custom(t => (
-        <Toast
-          type="success"
-          title="Mail został wysłany"
-          text="Wykonaj kolejne kroki, w celu resetu hasła."
-          t={t}
-        />
-      ));
+      toast.pushSuccess(
+        'Mail został wysłany',
+        'Wykonaj kolejne kroki, w celu resetu hasła.',
+      );
       navigate('/confirm_reset_password');
     },
     onError: (e: unknown) => {
-      toast.custom(t => (
-        <Toast
-          type="error"
-          title="Mail nie został wysłany"
-          text="Nie istnieje podany mail w AlkohoLove."
-          t={t}
-        />
-      ));
+      toast.pushError(
+        'Mail nie został wysłany',
+        'Nie istnieje podany mail w AlkohoLove.',
+      );
     },
   });
 

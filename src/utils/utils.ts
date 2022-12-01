@@ -1,7 +1,17 @@
+import axios, {
+  AxiosResponse,
+  AxiosError,
+  AxiosRequestConfig,
+  RawAxiosRequestHeaders,
+} from 'axios';
+import {toast} from 'react-hot-toast';
+import {getCookie} from './cookies';
 /* eslint-disable no-unreachable */
 import {Type} from '../@types/category';
 import {inputType} from '../@types/inputs';
+import Toast from '../components/Toast/Toast';
 import {INPUT_TYPE} from './constant';
+import {Tokens} from '../@types/user';
 
 export const unloadType = (type: Type): [string, boolean] => {
   if (typeof type === 'string') return [type, true];
@@ -38,13 +48,12 @@ export const autoCompleteHandler = (fn: () => void) => {
 };
 
 export const getDate = (date: Date | string) => {
-  const prepDate = typeof date === 'string' ? new Date(date) : date;
-  const year = prepDate.getFullYear();
-  const month = prepDate.getMonth() + 1;
-  const day = prepDate.getDate();
-  return `${year}-${month < 10 ? `0${month}` : month}-${
-    day < 10 ? `0${day}` : day
-  }`;
+  if (!date) return null;
+  return new Date(date).toLocaleDateString(undefined, {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
 };
 
 export const formater = (value: any): string => {
@@ -77,11 +86,34 @@ export const getRate = (value: number, count: number) => {
 
 export const isValidEmail = (email: string) =>
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-    email
+    email,
   );
 
-export const isCorrectPassword = (password: string) => 
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password)
+export const isCorrectPassword = (password: string) =>
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
 
 export const isPasswordEqual = (pass: string, passAgain: string) =>
   pass === passAgain;
+
+export const getAuthHeader = (
+  headers?: RawAxiosRequestHeaders,
+  auth?: string,
+  isAuth?: boolean,
+) => {
+  const authHeader = {authorization: `Bearer ${auth}`};
+  const prepHeader = headers || {};
+  if (auth && isAuth) return {headers: {...prepHeader, ...authHeader}};
+  return {headers: {...prepHeader}};
+};
+
+export const request = <ResponseData = any, Data = unknown>(
+  config: AxiosRequestConfig<Data>,
+  isAuth?: boolean,
+) => {
+  const tokens = getCookie<Tokens>('auth') || {};
+  if (!tokens.access_token && isAuth) return Promise.reject();
+  return axios<ResponseData, AxiosResponse<ResponseData, AxiosError>, Data>({
+    ...config,
+    ...getAuthHeader(config.headers, tokens.access_token, isAuth),
+  });
+};
