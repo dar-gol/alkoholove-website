@@ -3,35 +3,33 @@ import {useMutation} from '@tanstack/react-query';
 import {getUserInformation, refreshTokens} from './Header.api';
 import HeaderLogic from './Header.logic';
 import {getCookie, setCookie} from '../../utils/cookies';
-import {Tokens} from '../../@types/user.d';
+import {Tokens} from '../../@types/user';
 
 const HeaderApollo = () => {
-  const authorization = getCookie<Tokens>('auth');
   const refreshMutation = useMutation({
     mutationFn: refreshTokens,
     onSuccess: (data, variables) => {
       setCookie('auth', data.data);
-      const accessToken = data.data.access_token;
-      // eslint-disable-next-line no-use-before-define
-      userMutation.mutate(accessToken);
+      document.location.reload();
     },
     onError: e => {
+      const tokens = getCookie<Tokens>('auth');
+      if (tokens) document.location.reload();
       setCookie('auth', '');
       console.log({e});
     },
   });
   const userMutation = useMutation({
     mutationFn: getUserInformation,
-    onSuccess: (data, variables) => {
-      console.log({data});
-    },
     onError: () => {
-      refreshMutation.mutate(authorization.refresh_token);
+      const tokens = getCookie<Tokens>('auth');
+      refreshMutation.mutate(tokens.refresh_token);
     },
   });
   useEffect(() => {
-    if (!authorization) return;
-    userMutation.mutate(authorization.access_token);
+    const tokens = getCookie<Tokens>('auth');
+    if (!tokens) return;
+    userMutation.mutate();
   }, []);
   return <HeaderLogic isLogged={userMutation.isSuccess} />;
 };

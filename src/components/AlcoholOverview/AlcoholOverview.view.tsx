@@ -1,25 +1,57 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {IAlcohol} from '../../@types/alcohol';
+import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
+import {Tokens} from '../../@types/user';
 import {
+  BtnPrimary,
   Col,
   Container,
+  Icon,
   ImageContainer,
   Img,
   Row,
   Text,
 } from '../../styles/global.styled';
 import {URL} from '../../utils/constant';
+import {getCookie} from '../../utils/cookies';
 import {createImageName, getRate} from '../../utils/utils';
+import AlcoholListModalView from '../AlcoholListModal/AlcoholListModal.view';
+import CreateTagView from '../CreateTag/CreateTag.view';
+import {StyledAccordionTextHeading} from '../Searcher/Searcher.styled';
 import Stars from '../Stars/Stars.view';
-import {ColorBlock, DescContainer, Wrapper} from './AlcoholOverview.styled';
+import {
+  ColorBlock,
+  DescContainer,
+  PlusBtn,
+  Wrapper,
+} from './AlcoholOverview.styled';
 
 interface IProps {
   alcohol: IAlcohol;
+  tags: IdentifyTag[];
+  lists: AlcoholLists;
+  isOpenLists: boolean;
+  handleModalLists: (open: boolean) => void;
+  manageList: (listId: string, isAdd: boolean) => void;
+  createTag: (tag_name: string) => void;
+  isOpenTag: boolean;
+  handleModalTag: (open: boolean) => void;
 }
 
-const AlcoholOverviewView = ({alcohol}: IProps) => {
-  const theme = useTheme() as {palette: {[k: string]: string}};
+const AlcoholOverviewView = ({
+  alcohol,
+  tags,
+  lists,
+  manageList,
+  isOpenLists,
+  handleModalLists,
+  createTag,
+  isOpenTag,
+  handleModalTag,
+}: IProps) => {
+  const theme = useTheme();
+  const tokens = getCookie<Tokens>('auth');
   return (
     <Col position="relative" backgroundColor={theme.palette.White}>
       <ColorBlock />
@@ -83,7 +115,11 @@ const AlcoholOverviewView = ({alcohol}: IProps) => {
               </Row>
             </Row>
           </Col>
-          <Col flex="1" justifyContent="center" alignItems="center">
+          <Col
+            flex="1"
+            justifyContent="center"
+            alignItems="center"
+            position="relative">
             <Img
               borderRadius="50px"
               width="400px"
@@ -92,9 +128,29 @@ const AlcoholOverviewView = ({alcohol}: IProps) => {
                 'md',
               )}?t=${new Date().getTime()}`}
             />
+            <PlusBtn onClick={() => handleModalLists(true)} visible={!!tokens}>
+              <Icon
+                className="icon-Plus"
+                color={theme.palette.White}
+                fontSize="32px"
+              />
+            </PlusBtn>
           </Col>
         </Wrapper>
       </Container>
+      <AlcoholListModalView
+        isOpen={isOpenLists}
+        onClose={() => handleModalLists(false)}
+        tags={tags}
+        lists={lists}
+        manageList={manageList}
+        openTagModal={() => handleModalTag(true)}
+      />
+      <CreateTagView
+        isOpen={isOpenTag}
+        onClose={() => handleModalTag(false)}
+        createTag={createTag}
+      />
     </Col>
   );
 };

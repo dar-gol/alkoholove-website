@@ -1,8 +1,6 @@
-export const isProduction = () => 
-   true
-  // if (process.env.NODE_ENV === 'development') return false;
-  // return true;
-
+export const isProduction = () => true;
+// if (process.env.NODE_ENV === 'development') return false;
+// return true;
 
 export const API = !isProduction()
   ? 'http://localhost:8008'
@@ -15,6 +13,7 @@ export const URL = {
   REFRESH: '/auth/refresh',
   RESET_PASSWORD: '/auth/reset_password',
   REQUEST_RESET_PASSWORD: '/auth/request_password_reset',
+  REVIEWS: '/reviews',
   GET_CATEGORIES: '/alcohols/metadata/categories',
   GET_FILTERS: '/alcohols/filters',
   POST_CATEGORIES: '/admin/alcohols/metadata/categories',
@@ -23,9 +22,15 @@ export const URL = {
   POST_ALCOHOLS: '/admin/alcohols',
   UPLOAD_IMAGE: '/admin/image',
   USERS: '/admin/users',
-  ERRORS: '/admin/errors',
+  ERRORS: '/errors',
   REPORTED_REVIEW: '/admin/reviews',
   ME: '/me',
+  ME_REVIEWS: '/me/reviews',
+  ME_REPORT_REVIEW: '/me/reviews/report',
+  ME_TAGS: '/me/tags',
+  ME_LISTS: '/me/list',
+  ME_WISHLIST: '/me/wishlist',
+  ME_FAVOURITES: '/me/favourites',
   GET_SUGGESTIONS: '/admin/suggestions',
   GET_TOTAL_SUGGESTIONS: '/admin/suggestions/total',
   GET_IMAGE: `https://res.cloudinary.com/alkoholove/${

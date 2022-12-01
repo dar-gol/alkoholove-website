@@ -7,6 +7,7 @@ import {IPageInfo} from '../../@types/pagination';
 import FooterView from '../../components/Footer/Footer.view';
 import HeaderApollo from '../../components/Header/Header.apollo';
 import Stars from '../../components/Stars/Stars.view';
+import TileView from '../../components/Tile/Tile.view';
 import {
   Col,
   Container,
@@ -126,39 +127,9 @@ const AlcoholsView = ({
             gap="20px"
             justifyContent="center"
             margin="0 0 20px 0">
-            {alcohols.map(alcohol => {
-              const tt = 0;
-              return (
-                <AlcoholWrapper
-                  margin="80px 0 0 0"
-                  key={alcohol.id}
-                  onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}>
-                  <ImageContainer zIndex={1}>
-                    <Img
-                      width="150px"
-                      height="175px"
-                      src={`${URL.GET_IMAGE}/${createImageName(
-                        alcohol.id.toLowerCase(),
-                        'md',
-                      )}?t=${new Date().getTime()}`}
-                    />
-                  </ImageContainer>
-                  <Content minWidth="300px" height="300px">
-                    <Name>{alcohol.name}</Name>
-                    <Type>
-                      {alcohol.kind}, {alcohol.type}
-                    </Type>
-                    <DescTitle>Opis:</DescTitle>
-                    <Description>{alcohol.description}</Description>
-                    <Row flex="1" alignItems="center" justifyContent="center">
-                      <Stars
-                        rate={getRate(alcohol.rate_value, alcohol.rate_count)}
-                      />
-                    </Row>
-                  </Content>
-                </AlcoholWrapper>
-              );
-            })}
+            {alcohols.map(alcohol => (
+              <TileView alcohol={alcohol} />
+            ))}
           </Row>
           <Row
             justifyContent="center"

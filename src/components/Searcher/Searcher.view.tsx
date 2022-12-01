@@ -87,7 +87,7 @@ const SearcherView = ({
           active={filters.value === category.title}
           onClick={() => chooseCategoryFilters(category.title)}>
           <CategoryImage
-            src={`./img/${imageName}-stock.png`}
+            src={`/img/${imageName}-stock.png`}
             height="120px"
             width="140px"
           />
@@ -102,7 +102,7 @@ const SearcherView = ({
         key="all"
         active={filters.value === 'all'}
         onClick={() => chooseCategoryFilters('all')}>
-        <CategoryImage src="./img/other-stock.png" width="140px" />
+        <CategoryImage src="/img/other-stock.png" width="140px" />
         <CategoryTitle isCapitalize type="body" size="large" weight="regular">
           Wszystkie
         </CategoryTitle>

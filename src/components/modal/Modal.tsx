@@ -24,8 +24,8 @@ const Modal: React.FC<Props> = ({children, isOpen, onClose, isClosable}) => {
         visible={isClosable}
         size={40}
         backgroundColor={theme.palette.White}
-        top="15px"
-        right="-20px"
+        top="10px"
+        right="10px"
         icon="icon-Exit"
         onClick={onClose}
         type="secondary"

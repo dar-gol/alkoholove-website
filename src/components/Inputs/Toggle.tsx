@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, {useCallback, useEffect} from 'react';
 
 import {
   CheckBoxContainer,
@@ -7,7 +7,7 @@ import {
   IconWrapper,
   Indicator,
   Text,
-} from "./CheckBox.styled";
+} from './CheckBox.styled';
 
 interface Props {
   leftIcon?: string;
@@ -31,9 +31,9 @@ const Toggle: React.FC<Props> = ({
 }) => {
   const handleSpace = (e: any) => {
     if (
-      e.code === "Space" &&
+      e.code === 'Space' &&
       [...e.target.classList].includes(
-        `checkBoxComponent${encodeURIComponent(title)}`
+        `checkBoxComponent${encodeURIComponent(title)}`,
       )
     ) {
       e.preventDefault();
@@ -44,13 +44,13 @@ const Toggle: React.FC<Props> = ({
     (event: any) => {
       handleSpace(event);
     },
-    [handleSpace]
+    [handleSpace],
   );
 
   useEffect(() => {
-    document.addEventListener("keyup", handleKeyUp);
+    document.addEventListener('keyup', handleKeyUp);
     return () => {
-      document.removeEventListener("keyup", handleKeyUp);
+      document.removeEventListener('keyup', handleKeyUp);
     };
   }, [handleKeyUp]);
   return (
@@ -60,21 +60,19 @@ const Toggle: React.FC<Props> = ({
       {...rest}
       role="checkbox"
       title={title}
-      tabIndex={0}
-    >
+      tabIndex={0}>
       <CheckBoxContainer
-        className={rest.value ? "active" : ""}
+        className={rest.value ? 'active' : ''}
         height="40px"
-        width="74px"
-      >
+        maxWidth="74px">
         <Indicator color={rest.value ? rightColor : leftColor}>
-          <Icon className={rest.value ? rightIcon || "" : leftIcon || ""} />
+          <Icon className={rest.value ? rightIcon || '' : leftIcon || ''} />
         </Indicator>
         <IconWrapper>
-          <Icon className={leftIcon || ""} />
+          <Icon className={leftIcon || ''} />
         </IconWrapper>
         <IconWrapper>
-          <Icon className={rightIcon || ""} />
+          <Icon className={rightIcon || ''} />
         </IconWrapper>
       </CheckBoxContainer>
       {title && <Text>{title}</Text>}

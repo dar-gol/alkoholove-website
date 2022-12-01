@@ -1,10 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import Popup from "reactjs-popup";
 import {
-  Heading4Large,
   Body,
-  Heading3,
-  Heading3Large,
+  Heading5Large,
 } from "../../styles/typography.styled";
 
 export const Test1 = styled.p``;
@@ -19,9 +17,6 @@ export const StyledPopup = styled(Popup)`
 export const ModalContainer = styled.article`
   padding: 50px;
   background-color: ${({ theme }) => theme.palette.White};
-  border: 2px solid
-    ${({ theme }) =>
-      theme.isHighContrast ? theme.palette.Grey70 : "transparent"};
   min-width: 300px;
   max-width: 450px;
   border-radius: 20px;
@@ -29,7 +24,7 @@ export const ModalContainer = styled.article`
 `;
 
 export const ModalTitle = styled.p`
-  ${Heading4Large("medium")}
+  ${Heading5Large("medium")}
   text-align: center;
   color: ${({ theme }) => theme.palette.Grey90};
 `;

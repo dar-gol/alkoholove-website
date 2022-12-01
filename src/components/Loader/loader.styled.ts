@@ -40,7 +40,7 @@ export const Dot = styled.div`
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.palette.iconSecondary};
+  background: ${({ theme }) => theme.palette.Primary100};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
   &:nth-child(1) {
     left: 8px;

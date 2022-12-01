@@ -152,7 +152,7 @@ const ChangePasswordView = ({form, onSubmit}: Props) => {
               </Row>
               <Row justifyContent="center">
                 <BtnPrimary type="submit" padding="0 20px">
-                  Wyślij mail w celu resetu hasła.
+                  Zmień hasło
                 </BtnPrimary>
               </Row>
             </Form>

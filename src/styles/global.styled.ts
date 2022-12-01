@@ -6,13 +6,10 @@ import {
   Footer,
   Heading1Large,
   Heading1Small,
-  Heading2,
   Heading2Large,
   Heading2Small,
-  Heading3,
   Heading3Large,
   Heading3Small,
-  Heading4,
   Heading4Large,
   Heading4Small,
   Heading5Large,
@@ -70,6 +67,7 @@ type Button = {
   padding?: string;
   height?: string;
   width?: string;
+  visible?: boolean;
 };
 
 type ButtonPrimary = {
@@ -88,6 +86,7 @@ const Btn = css<Button>`
   transition: 0.2s;
   z-index: 0;
   position: relative;
+  display: ${({visible = true}) => (visible ? 'block' : 'none')};
   ${Body('medium', 'large')};
   &:disabled {
     pointer-events: none;
@@ -385,12 +384,18 @@ export const ContentWrapper = styled(Row)`
   justify-content: center;
 `;
 
-export const Icon = styled.span<{visible?: boolean; color?: string, fontSize?:string}>`
+export const Icon = styled.span<{
+  visible?: boolean;
+  color?: string;
+  fontSize?: string;
+  cursor?: string;
+}>`
   display: ${({visible = true}) => (visible ? 'flex' : 'none')};
+  cursor: ${({cursor}) => cursor || 'inherit'};
   justify-content: center;
   align-items: center;
-  width: ${({fontSize}) => fontSize || "16px"};
-  height: ${({fontSize}) => fontSize || "16px"};
+  width: ${({fontSize}) => fontSize || '16px'};
+  height: ${({fontSize}) => fontSize || '16px'};
   &:before {
     color: ${({theme, color}) => color || theme.palette.Grey20};
     font-family: icomoon;
@@ -400,52 +405,56 @@ export const Icon = styled.span<{visible?: boolean; color?: string, fontSize?:st
 
 export const InfoBar = styled(Row)`
   background-color: ${({theme}) => theme.palette.Secondary20};
-  color: ${({theme}) => theme.palette.Secondary100};
+  color: ${({theme}) => theme.palette.Grey70};
   align-items: center;
   padding: 10px 20px;
   gap: 10px;
   ${Body('regular', 'medium')}
   border-radius: 20px;
   & span::before {
+    color: ${({theme}) => theme.palette.Secondary100};
     font-size: 30px;
   }
 `;
 
 export const WarnBar = styled(Row)`
   background-color: ${({theme}) => theme.palette.Yellow20};
-  color: ${({theme}) => theme.palette.Yellow100};
+  color: ${({theme}) => theme.palette.Grey70};
   align-items: center;
   padding: 10px 20px;
   gap: 10px;
   ${Body('regular', 'medium')}
   border-radius: 20px;
   & span::before {
+    color: ${({theme}) => theme.palette.Yellow100};
     font-size: 30px;
   }
 `;
 
 export const CriticalBar = styled(Row)`
   background-color: ${({theme}) => theme.palette.Red20};
-  color: ${({theme}) => theme.palette.Red100};
+  color: ${({theme}) => theme.palette.Grey70};
   align-items: center;
   padding: 10px 20px;
   gap: 10px;
   ${Body('regular', 'medium')}
   border-radius: 20px;
   & span::before {
+    color: ${({theme}) => theme.palette.Red100};
     font-size: 30px;
   }
 `;
 
 export const GreenBar = styled(Row)`
   background-color: ${({theme}) => theme.palette.Green20};
-  color: ${({theme}) => theme.palette.Green100};
+  color: ${({theme}) => theme.palette.Grey70};
   align-items: center;
   padding: 10px 20px;
   gap: 10px;
   ${Body('regular', 'medium')}
   border-radius: 20px;
   & span::before {
+    color: ${({theme}) => theme.palette.Green100};
     font-size: 30px;
   }
 `;
@@ -555,10 +564,10 @@ export const Form = styled.form`
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.palette.White};
+  background-color: ${({theme}) => theme.palette.White};
   border: 2px solid
-    ${({ theme }) =>
-      theme.isHighContrast ? theme.palette.Grey80 : "transparent"};
+    ${({theme}) =>
+      theme.isHighContrast ? theme.palette.Grey80 : 'transparent'};
   padding: 80px 80px;
   gap: 20px;
   border-radius: 20px;

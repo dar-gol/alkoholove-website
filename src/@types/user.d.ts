@@ -1,8 +1,14 @@
 export interface IUser {
-  username: string;
-  email: string;
-  accessToken: string;
-  refreshToken: string;
+  username: string, 
+  id: string, 
+  email: string, 
+  created_on: string, 
+  avg_rating: number,
+  wishlist_count: number,
+  rate_count: number,
+  favourites_count: number,
+  followers_count: number,
+  following_count: number
 }
 
 export type LoginData  = {

@@ -16,6 +16,7 @@ import RegisterApollo from './containers/Register/Register.apollo';
 import ResetPasswordApollo from './containers/ResetPassword/ResetPassword.apollo';
 import ChangePasswordApollo from './containers/ChangePassword/ChangePassword.apollo';
 import InformationApollo from './containers/Information/Information.apollo';
+import LogoutView from './containers/Logout/Logout.view';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -26,7 +27,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <Toaster position="top-center" gutter={24} />
+        <Toaster position="top-center" gutter={20} />
         <Main>
           <Routes>
             <Route path="/alcohols" element={<AlcoholsApollo />} />
@@ -36,6 +37,7 @@ const App = () => {
               element={<AlcoholDetailsApollo />}
             />
             <Route path="/login" element={<LoginApollo />} />
+            <Route path="/logout" element={<LogoutView />} />
             <Route path="/register" element={<RegisterApollo />} />
             <Route path="/reset_password" element={<ResetPasswordApollo />} />
             <Route

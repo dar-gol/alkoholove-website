@@ -1,3 +1,5 @@
+import { colors } from "react-select/dist/declarations/src/theme";
+
 const Primary = {
   light: {
     Primary100: '#F47521',
@@ -23,7 +25,7 @@ const Primary = {
     Primary20: '#623a1f',
     Primary10: '#4a2b17',
   },
-};
+}
 
 const Secondary = {
   light: {
@@ -50,7 +52,7 @@ const Secondary = {
     Secondary20: '#151515',
     Secondary10: '#131313',
   },
-};
+}
 
 const Green = {
   light: {
@@ -77,7 +79,7 @@ const Green = {
     Green20: '#627D63',
     Green10: '#526953',
   },
-};
+}
 
 const Yellow = {
   light: {
@@ -104,7 +106,7 @@ const Yellow = {
     Yellow20: '#4B4304',
     Yellow10: '#1A1A1A',
   },
-};
+}
 
 const Red = {
   light: {
@@ -131,7 +133,7 @@ const Red = {
     Red20: '#540A04',
     Red10: '#400603',
   },
-};
+}
 
 const Grey = {
   light: {
@@ -164,7 +166,7 @@ const Grey = {
     Grey5: '#19191D',
     Grey1: '#141416',
   },
-};
+}
 
 const BackgroundTransparency = {
   light: {
@@ -183,16 +185,7 @@ const BackgroundTransparency = {
     BackgroundTransparency20: '#47474A4D',
     BackgroundTransparency10: '#47474A66',
   },
-};
-
-const Facebook = {
-  light: {
-    Facebook100: '#3B5998',
-  },
-  dark: {
-    Facebook100: '#3B5998',
-  },
-};
+}
 
 const White = {
   light: {
@@ -201,7 +194,7 @@ const White = {
   dark: {
     White: '#0D0D0D',
   },
-};
+}
 
 const Colors = {
   light: {
@@ -212,25 +205,7 @@ const Colors = {
     ...Red.light,
     ...Grey.light,
     ...BackgroundTransparency.light,
-    ...Facebook.light,
     ...White.light,
-    title: '#FFFFFF',
-    heading: '#282727',
-    content: '#949494',
-    mainBg: '#FFFFFF',
-    contentBg: '#F8F8F9',
-    headerBg: '#F47521',
-    menuBg: '#FFFFFF',
-    iconPrimary: '#282727',
-    iconSecondary: '#F47521',
-    btnPrimary: '#F47521',
-    btnSecondary: '#FFF',
-    placeholder: '#C4C4C4',
-    input: '#FFF',
-    black: '#282727',
-    white: '#FFFFFF',
-    grey: '#C4C4C4',
-    primary: '#F47521',
   },
   dark: {
     ...Primary.dark,
@@ -240,25 +215,10 @@ const Colors = {
     ...Red.dark,
     ...Grey.dark,
     ...BackgroundTransparency.dark,
-    ...Facebook.dark,
     ...White.dark,
-    title: '#FFFFFF',
-    heading: '#FFFFFF',
-    content: '#FFFFFF',
-    mainBg: '#1f2842',
-    contentBg: '#1f2842',
-    headerBg: '#F47521',
-    menuBg: '#171d2e',
-    iconPrimary: '#FFFFFF',
-    iconSecondary: '#F47521',
-    btnPrimary: '#F47521',
-    btnSecondary: '#FFF',
-    input: '#FFF',
-    black: '#282727',
-    white: '#FFFFFF',
-    grey: '#C4C4C4',
-    primary: '#F47521',
   },
 };
+
+export type IColors = typeof Colors.light;
 
 export default Colors;
