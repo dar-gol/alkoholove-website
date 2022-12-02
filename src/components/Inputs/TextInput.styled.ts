@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   activeImage,
   activeInput,
@@ -13,9 +13,9 @@ import {
   successImage,
   successInput,
   writtenPlaceholder,
-} from "./CustomInputStyle.styled";
-import { Row } from "../../styles/global.styled";
-import { Body, Footer } from "../../styles/typography.styled";
+} from './CustomInputStyle.styled';
+import {Row} from '../../styles/global.styled';
+import {Body, Footer} from '../../styles/typography.styled';
 
 export const InputContainer = styled(Row)`
   ${inputContainer}
@@ -67,7 +67,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   ${input}
-  top: 25px;
+  top: 20px;
   &::-webkit-resizer {
     display: none;
   }
