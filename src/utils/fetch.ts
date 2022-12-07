@@ -1,4 +1,4 @@
-import {IPost, IGet, Post} from '../@types/fetch';
+import {IPost, IGet, Post} from '../@types/requests';
 
 export const post = ({url, body = '', header = {}}: Post) =>
   fetch(url, {

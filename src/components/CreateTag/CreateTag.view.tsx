@@ -9,10 +9,16 @@ import Modal from '../modal/Modal';
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
   createTag: (tagName: string) => void;
 }
 
-const CreateTagView = ({isOpen, onClose, createTag}: Props) => {
+const CreateTagView = ({
+  isOpen,
+  onClose,
+  createTag,
+  title = 'Tworzenie tagu',
+}: Props) => {
   const theme = useTheme();
   const [tagName, setTagName] = useState('');
   const handleClick = () => {
@@ -30,7 +36,7 @@ const CreateTagView = ({isOpen, onClose, createTag}: Props) => {
             weight="bold"
             size="large"
             color={theme.palette.Grey90}>
-            Tworzenie tagu
+            {title}
           </Text>
           <Row>
             <TextInput

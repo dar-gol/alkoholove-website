@@ -4,7 +4,7 @@ import {IAlcohol} from '../../@types/alcohol';
 import {Tokens} from '../../@types/user';
 import {getCookie} from '../../utils/cookies';
 import useToast from '../../utils/hooks/useToast';
-import {postError} from './AlcoholProperties.api';
+import {postError} from '../../utils/requests/post';
 import AlcoholPropertiesLogic from './AlcoholProperties.logic';
 
 interface IProps {

@@ -10,12 +10,13 @@ import {
   InfoBar,
   Row,
   Text,
+  Tuple,
 } from '../../styles/global.styled';
 import {CORE, CORE_LIST} from '../../utils/constant';
 import {getCookie} from '../../utils/cookies';
 import {formater, getIcon} from '../../utils/utils';
 import SuggestChanges from '../SuggestChanges/SuggestChanges.view';
-import {Circle, CircleIcon, Tuple, TupleIcon} from './AlcoholProperties.styled';
+import {Circle, CircleIcon, TupleIcon} from './AlcoholProperties.styled';
 
 interface IProps {
   alcohol: IAlcohol;

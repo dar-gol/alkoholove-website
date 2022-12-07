@@ -4,7 +4,6 @@ import {Col} from '../../styles/global.styled';
 export const Review = styled(Col)`
   background-color: ${({theme}) => theme.palette.Grey5};
   border-radius: 20px;
-  padding: 20px;
   gap: 10px;
 `;
 

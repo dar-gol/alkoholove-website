@@ -39,7 +39,7 @@ const TopListView = ({alcohols, increaseLimit}: IProps) => {
                 src={`${URL.GET_IMAGE}/${createImageName(
                   alcohol.id.toLowerCase(),
                   'md',
-                )}?t=${new Date().getTime()}`}
+                )}`}
               />
             </ImageContainer>
             <Content minWidth="300px" height="300px">

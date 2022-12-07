@@ -6,7 +6,7 @@ import TextInput from '../Inputs/TextInput';
 import Modal from '../modal/Modal';
 
 interface Props {
-  alcohol: IAlcohol;
+  alcohol?: IAlcohol;
   isOpen: boolean;
   onClose: () => void;
   sendError: (description: string) => void;
@@ -32,13 +32,15 @@ const SuggestChanges = ({alcohol, isOpen, onClose, sendError}: Props) => {
             color={theme.palette.Grey90}>
             Zaproponuj zmiany
           </Text>
-          <Text
-            type="caption"
-            weight="regular"
-            size="large"
-            color={theme.palette.Grey40}>
-            {alcohol.name}
-          </Text>
+          {alcohol && (
+            <Text
+              type="caption"
+              weight="regular"
+              size="large"
+              color={theme.palette.Grey40}>
+              {alcohol.name}
+            </Text>
+          )}
         </Col>
         <Row minWidth="300px">
           <TextInput

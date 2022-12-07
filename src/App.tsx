@@ -3,6 +3,7 @@ import {Routes, Route, Navigate, useLocation} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ThemeProvider} from 'styled-components';
 import {Toaster} from 'react-hot-toast';
+import {useCookies} from 'react-cookie';
 import AlcoholsApollo from './containers/Alcohols/Alcohols.apollo';
 import AlcoholDetailsApollo from './containers/AlcoholDetails/AlcoholDetails.apollo';
 import HomeApollo from './containers/Home/Home.apollo';
@@ -17,12 +18,15 @@ import ResetPasswordApollo from './containers/ResetPassword/ResetPassword.apollo
 import ChangePasswordApollo from './containers/ChangePassword/ChangePassword.apollo';
 import InformationApollo from './containers/Information/Information.apollo';
 import LogoutView from './containers/Logout/Logout.view';
+import ProfilApollo from './containers/Profil/Profil.apollo';
+import UserListsApollo from './containers/UserLists/UserLists.apollo';
 
 // Create a client
 const queryClient = new QueryClient();
 
 const App = () => {
-  const theme = createTheme('light');
+  const [cookie] = useCookies();
+  const theme = createTheme(cookie?.mode, cookie?.isHighContrast === 'true');
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -31,6 +35,12 @@ const App = () => {
         <Main>
           <Routes>
             <Route path="/alcohols" element={<AlcoholsApollo />} />
+            <Route path="/profil" element={<ProfilApollo />} />
+            <Route path="/profil/:id" element={<ProfilApollo />} />
+            <Route
+              path="/user/:userId/lists/:listId/:listName"
+              element={<UserListsApollo />}
+            />
             <Route path="/" element={<HomeApollo />} />
             <Route
               path="/alcohol/:alcoholBarcode"

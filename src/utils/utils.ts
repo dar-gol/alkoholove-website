@@ -26,8 +26,10 @@ export const getType = (type: Type) => {
   };
 };
 
-export const createImageName = (name: string, type?: string): string =>
-  `${name.toLowerCase().replaceAll(' ', '_')}${type ? `_${type}` : ''}`;
+export const createImageName = (name: string, type?: string): string => {
+  if (!name) return '';
+  return `${name.replaceAll(' ', '_')}${type ? `_${type}` : ''}`;
+};
 
 type FormDataType = Array<[string, string | Blob]>;
 
@@ -65,6 +67,11 @@ export const formater = (value: any): string => {
 };
 
 export const getIcon = (name: string) => {
+  if (name === 'favourites') return 'icon-Heart';
+  if (name === 'wishlists') return 'icon-Star';
+  if (name === 'rated') return 'icon-Rate';
+  if (name === 'history') return 'icon-Lists';
+  if (name === 'tag') return 'icon-Tag';
   if (name === 'kind') return 'icon-Category';
   if (name === 'type') return 'icon-Info';
   if (name === 'alcohol_by_volume') return 'icon-Bottle';
@@ -77,6 +84,17 @@ export const getIcon = (name: string) => {
   if (name === 'aroma') return 'icon-Bottle';
   if (name === 'taste') return 'icon-Food';
   return 'icon-Info';
+};
+
+export const getTagOrLists = (name: string) => {
+  const listsName = [
+    'Ulubione',
+    'Ocenione',
+    'Lista życzeń',
+    'Historia wyszukiwań',
+  ];
+  if (listsName.includes(name)) return 'Lista';
+  return 'Tag';
 };
 
 export const getRate = (value: number, count: number) => {

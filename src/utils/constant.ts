@@ -31,6 +31,9 @@ export const URL = {
   ME_LISTS: '/me/list',
   ME_WISHLIST: '/me/wishlist',
   ME_FAVOURITES: '/me/favourites',
+  ME_HISTORY: '/me/search_history',
+  REVIEWS_USER: '/reviews/user',
+  SOCIALS_USER_INFO: '/socials/user_info',
   GET_SUGGESTIONS: '/admin/suggestions',
   GET_TOTAL_SUGGESTIONS: '/admin/suggestions/total',
   GET_IMAGE: `https://res.cloudinary.com/alkoholove/${
