@@ -1,7 +1,18 @@
 import {IModTag} from '../../@types/Lists';
 import {ErrorVariables} from '../../@types/requests';
+import {Tokens} from '../../@types/user';
 import {API, URL} from '../constant';
 import {request} from '../utils';
+
+export const logout = ({access_token, refresh_token}: Tokens) =>
+  request({
+    method: 'POST',
+    url: `${API}${URL.LOGOUT}`,
+    headers: {
+      authorization: `Bearer ${access_token}`,
+      'authorization-refresh': refresh_token,
+    },
+  });
 
 export const addTag = (tag_name: string) =>
   request(

@@ -1,13 +1,17 @@
 import React, {useEffect} from 'react';
 import {Tokens} from '../../@types/user';
 import {getCookie, setCookie} from '../../utils/cookies';
+import {logout} from '../../utils/requests/post';
 import InformationApollo from '../Information/Information.apollo';
 
 const LogoutView = () => {
   useEffect(() => {
     const tokens = getCookie<Tokens>('auth');
     setCookie('auth', '');
-    if (tokens) document.location.reload();
+    if (tokens)
+      logout(tokens).then(() => {
+        document.location.reload();
+      });
   }, []);
 
   return (
