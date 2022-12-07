@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useCookies} from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {Button} from '../../styles/button.styled';
 import {
@@ -17,6 +18,7 @@ import {ISettingsView} from './ProfilComponents.interface';
 
 const SettingsView = ({sendError}: ISettingsView) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [open, setOpen] = useState({
     changes: false,
     remove: false,
@@ -100,6 +102,14 @@ const SettingsView = ({sendError}: ISettingsView) => {
             buttonType="Secondary"
             onClick={() => openPassword(true)}>
             Zmiana hasła
+          </Button>
+        </Row>
+        <Row>
+          <Button
+            width="200px"
+            buttonType="Secondary"
+            onClick={() => navigate('/logout')}>
+            Wyloguj się
           </Button>
         </Row>
         <Row>
