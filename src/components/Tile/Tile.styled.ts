@@ -55,7 +55,6 @@ export const Description = styled.p`
 
 export const Wrapper = styled(Row)`
   min-width: 300px;
-  height: 400px;
   justify-content: end;
   position: relative;
   align-items: center;

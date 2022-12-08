@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {BtnPrimary, Col, Img, Row, Text} from '../../styles/global.styled';
 import {
@@ -9,6 +10,7 @@ import {
 
 const AlkoholoveCTAView = () => {
   const theme = useTheme() as {palette: {[k: string]: string}};
+  const navigate = useNavigate();
   return (
     <Col gap="50px">
       <Text
@@ -20,7 +22,7 @@ const AlkoholoveCTAView = () => {
         Skorzystaj z pełni możliwości
       </Text>
       <CTABlock justifyContent="center" gap="40px">
-        <Col flex="1" gap="60px">
+        <Col flex="1" gap="100px">
           <Advantage>
             <AdvantageTextWrapper>
               <Text
@@ -71,8 +73,11 @@ const AlkoholoveCTAView = () => {
             width="120px"
             height="120px"
           />
+          <BtnPrimary width="220px" isCTA onClick={() => navigate('/register')}>
+            Zarejestruj się
+          </BtnPrimary>
         </Col>
-        <Col flex="1" gap="60px">
+        <Col flex="1" gap="100px">
           <Advantage>
             <AdvantageTextWrapper>
               <Text

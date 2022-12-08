@@ -1,3 +1,4 @@
+import {IReportedReview} from './reportedReview.d';
 import {IPageInfo} from './pagination.d';
 
 export type IAroma = string;
@@ -52,6 +53,7 @@ export interface IAlcohol {
   date: Date | null;
   rate_value: number;
   additional_properties: IAdditionalProperty[];
+  searchDate?: string;
 }
 
 export type Alcohols = IAlcohol[];
@@ -60,3 +62,33 @@ export type AlcoholsObject = {
   alcohols: IAlcohol[] | null;
   page_info: IPageInfo;
 };
+
+export type StandardAlcohols = {
+  type: 'standard';
+  alcohols: IAlcohol[];
+  page_info: IPageInfo;
+};
+
+export type HistoryAlcohols = {
+  type: 'history';
+  alcohols: {alcohol: IAlcohol; date: string}[];
+  page_info: IPageInfo;
+};
+
+export type RatedAlcohols = {
+  type: 'rated';
+  reviews: {
+    alcohol: IAlcohol;
+    review: string;
+    rating: number;
+    id: string;
+    username: string;
+    date: string;
+    alcohol_id: string;
+    helpful_count: number;
+    helpful: boolean;
+  }[];
+  page_info: IPageInfo;
+};
+
+export type ListsAlcohols = StandardAlcohols | HistoryAlcohols | RatedAlcohols;

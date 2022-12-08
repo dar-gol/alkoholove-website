@@ -31,23 +31,52 @@ export const URL = {
   ME_LISTS: '/me/list',
   ME_WISHLIST: '/me/wishlist',
   ME_FAVOURITES: '/me/favourites',
+  ME_HISTORY: '/me/search_history',
+  REVIEWS_USER: '/reviews/user',
+  SOCIALS_USER_INFO: '/socials/user_info',
   GET_SUGGESTIONS: '/admin/suggestions',
   GET_TOTAL_SUGGESTIONS: '/admin/suggestions/total',
   GET_IMAGE: `https://res.cloudinary.com/alkoholove/${
     !isProduction() ? 'test' : 'alcohols'
   }`,
-};
+} as const;
 
-export const NAME_PATH = {
-  home: 'Panel główny',
-  alcohol: 'Alkohole',
-  category: 'Kategorie alkoholu',
-  user: 'Użytkownicy',
-  suggestion: 'Sugestie użytkowników',
-  error: 'Zgłoszone błędy',
-  reportedReview: 'Zgłoszone komentarze',
-  add: 'Formularz',
-  edit: 'Formularz',
+export const LOCATION = {
+  LOGIN: '/login',
+  LOGOUT: '/logout',
+  REGISTER: '/register',
+  PROFILE: '/profile',
+  ALCOHOLS: '/alcohols',
+  ALCOHOL: '/alcohol',
+  USER: '/user',
+  RESET_PASSWORD: '/reset_password',
+  CONFIRM_PASSWORD: '/confirm_register',
+  CONFIRM_RESET_PASSWORD: '/confirm_reset_password',
+  VALID_EMAIL_VERIFICATION: '/valid_email_verification',
+  INVALID_EMAIL_VERIFICATION: '/invalid_email_verification',
+  VALID_PASSWORD_CHANGE: '/valid_password_change',
+  INVALID_PASSWORD_CHANGE: '/invalid_password_change',
+  VALID_ACCOUNT_DELETION: '/valid_account_deletion',
+  INVALID_ACCOUNT_DELETION: '/invalid_account_deletion',
+} as const;
+
+export const icons = {
+  favourites: 'icon-Heart',
+  wishlists: 'icon-Star',
+  rated: 'icon-Rate',
+  history: 'icon-Lists',
+  tag: 'icon-Tag',
+  kind: 'icon-Category',
+  type: 'icon-Info',
+  alcohol_by_volume: 'icon-Bottle',
+  color: 'icon-Info',
+  manufacturer: 'icon-Manufacturer',
+  country: 'icon-Globe',
+  region: 'icon-Globe',
+  food: 'icon-Bottle',
+  finish: 'icon-Food',
+  aroma: 'icon-Bottle',
+  taste: 'icon-Food',
 };
 
 export const CORE_PROPERTY = 'core';

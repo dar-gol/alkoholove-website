@@ -20,9 +20,6 @@ export type Url = string;
 export type Header = object;
 export type Body = string | FormData | URLSearchParams | null;
 
-export interface IReq {
-  method?: Method;
-  url?: Url;
-  header?: Header;
-  body?: Body;
+interface ErrorVariables {
+  description: string;
 }

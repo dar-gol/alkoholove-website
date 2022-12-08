@@ -3,18 +3,18 @@ import React, {useEffect, useState} from 'react';
 import {IAlcohol} from '../../@types/alcohol';
 import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
 import useToast from '../../utils/hooks/useToast';
-import LoadingModal from '../modal/LoadingModal';
 import {
-  addTag,
-  addToFavourites,
-  addToTag,
-  addToWishlist,
-  getAlcoholLists,
-  getTags,
+  removeFromWishlist,
   removeFromFavourites,
   removeFromTag,
-  removeFromWishlist,
-} from './AlcoholOverview.api';
+} from '../../utils/requests/delete';
+import {getAlcoholLists, getTags} from '../../utils/requests/get';
+import {
+  addToFavourites,
+  addTag,
+  addToTag,
+  addToWishlist,
+} from '../../utils/requests/post';
 import AlcoholOverviewLogic from './AlcoholOverview.logic';
 
 const getDefaultListsStatus = (): AlcoholLists => ({

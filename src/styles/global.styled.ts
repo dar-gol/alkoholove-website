@@ -62,7 +62,7 @@ export type BlockType = {
   zIndex?: number;
 };
 
-type Button = {
+export type ButtonType = {
   margin?: string;
   padding?: string;
   height?: string;
@@ -74,7 +74,7 @@ type ButtonPrimary = {
   isCTA?: boolean;
 };
 
-const Btn = css<Button>`
+export const Btn = css<ButtonType>`
   border: 0;
   border-radius: ${borderRadiusStandard};
   cursor: pointer;
@@ -182,7 +182,7 @@ export const LargeSubTitle = styled.p<ITitle>`
   color: ${({theme}) => theme.palette.Grey60};
 `;
 
-export const BtnPrimary = styled.button<Button & ButtonPrimary>`
+export const BtnPrimary = styled.button<ButtonType & ButtonPrimary>`
   ${Btn}
   color: ${({theme}) => theme.palette.White};
   background-color: ${({theme, isCTA}) =>
@@ -213,7 +213,7 @@ export const BtnPrimary = styled.button<Button & ButtonPrimary>`
   }
 `;
 
-export const BtnSecondary = styled.button<Button>`
+export const BtnSecondary = styled.button<ButtonType>`
   ${Btn}
   color: ${({theme}) => theme.palette.Secondary90};
   background-color: ${({theme}) => theme.palette.Secondary20};
@@ -245,7 +245,7 @@ export const BtnSecondary = styled.button<Button>`
   }
 `;
 
-export const BtnGhost = styled.button<Button>`
+export const BtnGhost = styled.button<ButtonType>`
   ${Btn}
   color: ${({theme}) => theme.palette.Grey60};
   background-color: ${({theme}) => theme.palette.Grey5};
@@ -269,8 +269,6 @@ export const BtnGhost = styled.button<Button>`
       left: -2px;
       background-color: ${({theme}) => theme.palette.White};
     }
-  }
-  &:hover {
   }
 `;
 
@@ -572,4 +570,10 @@ export const Form = styled.form`
   gap: 20px;
   border-radius: 20px;
   align-items: center;
+`;
+
+export const Tuple = styled(Row)<{padding?: string}>`
+  justify-content: space-between;
+  border-bottom: 2px solid ${({theme}) => theme.palette.Grey20};
+  padding: ${({padding}) => padding || '20px'};
 `;

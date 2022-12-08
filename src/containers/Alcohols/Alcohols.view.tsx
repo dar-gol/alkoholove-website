@@ -4,6 +4,7 @@ import {useTheme} from 'styled-components';
 import {Alcohols} from '../../@types/alcohol';
 import {IFilter} from '../../@types/filters';
 import {IPageInfo} from '../../@types/pagination';
+import BtnMore from '../../components/BtnMore';
 import FooterView from '../../components/Footer/Footer.view';
 import HeaderApollo from '../../components/Header/Header.apollo';
 import Stars from '../../components/Stars/Stars.view';
@@ -131,14 +132,12 @@ const AlcoholsView = ({
               <TileView alcohol={alcohol} />
             ))}
           </Row>
-          <Row
-            justifyContent="center"
-            margin="0 0 20px 0"
-            visible={(page?.limit || 0) < (page?.total || 0)}>
-            <BtnGhost padding="0 20px" onClick={setLimit}>
-              Pokaż więcej
-            </BtnGhost>
-          </Row>
+          <BtnMore
+            visible={(page?.limit || 0) < (page?.total || 0)}
+            total={page?.total || 0}
+            amount={page?.limit || 0}
+            onClick={setLimit}
+          />
         </Container>
       </Col>
       <Row width="100%" padding="50px 0">

@@ -10,6 +10,7 @@ import {
   Primary,
   Row,
 } from '../../styles/global.styled';
+import {LOCATION} from '../../utils/constant';
 import TextInput from '../Inputs/TextInput';
 import SearcherApollo from '../Searcher/Searcher.apollo';
 import {Logo, Nav, RightSide, SearchButton, Title} from './Header.styled';
@@ -54,7 +55,9 @@ const HeaderView = ({showSearcher, handleSearcherBtn, isLogged}: Props) => {
                 color={theme.palette.Grey80}
               />
             </BtnSecondary>
-            <BtnPrimary padding="0 20px" onClick={() => navigate('/profil')}>
+            <BtnPrimary
+              padding="0 20px"
+              onClick={() => navigate(LOCATION.PROFILE)}>
               <Icon
                 fontSize="20px"
                 className="icon-Profil"

@@ -16,7 +16,15 @@ const AdMobile = () => {
           Pobierz aplikację, zarejestruj się i ciesz się wszystkimi
           możliwosciami AlkohoLove.
         </H4>
-        <BtnPrimary width="220px" isCTA>
+        <BtnPrimary
+          width="220px"
+          isCTA
+          onClick={() =>
+            window.open(
+              'https://play.google.com/store/apps/details?id=com.alkoholove&hl=pl',
+              '_blank',
+            )
+          }>
           Pobierz aplikację
         </BtnPrimary>
       </LeftSection>

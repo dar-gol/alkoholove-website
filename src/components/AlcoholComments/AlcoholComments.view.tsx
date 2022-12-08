@@ -15,6 +15,8 @@ import {
 } from '../../styles/global.styled';
 import {getCookie} from '../../utils/cookies';
 import {getDate, getRate} from '../../utils/utils';
+import BtnMore from '../BtnMore';
+import CommentView from '../Comment';
 import CommentOptionsView from '../CommentOptions/CommentOptions.view';
 import CommentUsabilityView from '../CommentUsability/CommentUsability.view';
 import TextInput from '../Inputs/TextInput';
@@ -59,56 +61,18 @@ const AlcoholCommentsView = ({
   const tokens = getCookie<Tokens>('auth');
   const isShowMoreComments = () =>
     comments.page_info.limit <= comments.page_info.total;
+
   const createReview = (comment: IComment, index: number) => (
-    <Review key={comment.id}>
-      <Row justifyContent="space-between">
-        <Row flex="1" alignItems="center" gap="10px">
-          <UserIconView size="30px" />
-          <Text
-            type="body"
-            size="large"
-            weight="bold"
-            color={theme.palette.Grey90}>
-            {comment.username}
-          </Text>
-        </Row>
-        <Icon
-          className="icon-More"
-          color={theme.palette.Secondary80}
-          cursor="pointer"
-          onClick={() => setCommentModalActive(index)}
-          visible={
-            (tokens && comments.my_review?.id !== comment.id) || !!tokens
-          }
-        />
-      </Row>
-      <Row>
-        <Text
-          type="body"
-          size="large"
-          weight="regular"
-          color={theme.palette.Grey40}>
-          {comment.review}
-        </Text>
-      </Row>
-      <Row justifyContent="space-between" alignItems="center">
-        <Stars rate={comment.rating} />
-        <CommentUsabilityView
-          onClick={() => manageHelpful(comment.id)}
-          amount={comment.helpful_count}
-          isMark={comment.helpful}
-        />
-      </Row>
-      <Row>
-        <Text
-          type="caption"
-          size="large"
-          weight="regular"
-          color={theme.palette.Grey30}>
-          {getDate(comment.date)}
-        </Text>
-      </Row>
-    </Review>
+    <CommentView
+      padding="20px"
+      index={index}
+      setCommentModalActive={setCommentModalActive}
+      manageHelpful={manageHelpful}
+      comment={comment}
+      isYourComment={
+        (tokens && comments.my_review?.id !== comment.id) || !!tokens
+      }
+    />
   );
   return (
     <Row
@@ -130,11 +94,13 @@ const AlcoholCommentsView = ({
             {comments.reviews.map((comment, index) =>
               createReview(comment, index),
             )}
-            <Row justifyContent="center" visible={isShowMoreComments()}>
-              <BtnGhost padding="0 20px" onClick={setLimit}>
-                Pokaż więcej
-              </BtnGhost>
-            </Row>
+            <BtnMore
+              total={comments.page_info.total}
+              amount={comments.page_info.limit}
+              onClick={setLimit}
+              elementsName="Komentarzy"
+              visible={isShowMoreComments()}
+            />
           </Col>
         </Row>
       </Container>

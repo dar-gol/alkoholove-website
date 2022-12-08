@@ -90,9 +90,8 @@ const AlcoholOverviewView = ({
             </Col>
             <DescContainer>
               <Text
-                as="h5"
-                type="h5"
-                weight="medium"
+                type="body"
+                weight="regular"
                 size="large"
                 color={theme.palette.Grey50}>
                 {alcohol.description}
@@ -126,7 +125,7 @@ const AlcoholOverviewView = ({
               src={`${URL.GET_IMAGE}/${createImageName(
                 alcohol.id.toLowerCase(),
                 'md',
-              )}?t=${new Date().getTime()}`}
+              )}`}
             />
             <PlusBtn onClick={() => handleModalLists(true)} visible={!!tokens}>
               <Icon

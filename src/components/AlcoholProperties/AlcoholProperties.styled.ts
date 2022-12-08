@@ -24,10 +24,3 @@ export const TupleIcon = styled(Icon)`
     line-height: 32px;
   }
 `;
-
-export const Tuple = styled(Row)`
-  border-bottom: 2px solid ${({theme}) => theme.palette.Grey20};
-  padding: 20px;
-`;
-
-const tt = 0;
