@@ -1,9 +1,9 @@
-import {IdentifyTags} from '../../@types/Lists.d';
+import {IdentifyTags} from '../../@types/Lists';
 import {IUser} from '../../@types/user';
 
 export type TabType = 'data' | 'lists' | 'settings';
 
-export interface IProfilView {
+export interface IProfileView {
   handleTab: (tab: TabType) => void;
   sendError: (description: string) => void;
   tab: TabType;
@@ -11,7 +11,7 @@ export interface IProfilView {
   tags: IdentifyTags;
 }
 
-export interface IProfilLogic {
+export interface IProfileLogic {
   sendError: (description: string) => void;
   user: IUser;
   tags: IdentifyTags;

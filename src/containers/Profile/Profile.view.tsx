@@ -3,14 +3,14 @@ import {useParams} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import FooterView from '../../components/Footer/Footer.view';
 import HeaderApollo from '../../components/Header/Header.apollo';
-import DataView from '../../components/Profil/Data.view';
-import ListsView from '../../components/Profil/Lists.view';
-import SettingsView from '../../components/Profil/Settings.view';
+import DataView from '../../components/Profile/Data.view';
+import ListsView from '../../components/Profile/Lists.view';
+import SettingsView from '../../components/Profile/Settings.view';
 import {Col, Container, Row, Text} from '../../styles/global.styled';
-import {IProfilView} from './Profil.interface';
-import {BtnTab, Content, Wrapper} from './Profil.styled';
+import {IProfileView} from './Profile.interface';
+import {BtnTab, Content, Wrapper} from './Profile.styled';
 
-const ProfilView = ({tab, handleTab, user, tags, sendError}: IProfilView) => {
+const ProfileView = ({tab, handleTab, user, tags, sendError}: IProfileView) => {
   const theme = useTheme();
   const {id} = useParams();
   const getTab = () => {
@@ -70,4 +70,4 @@ const ProfilView = ({tab, handleTab, user, tags, sendError}: IProfilView) => {
   );
 };
 
-export default ProfilView;
+export default ProfileView;

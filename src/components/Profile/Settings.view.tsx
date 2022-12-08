@@ -14,7 +14,7 @@ import ChangePassword from '../ChangePassword/ChangePassword.view';
 import Toggle from '../Inputs/Toggle';
 import RemoveUser from '../RemoveUser/RemoveUser.view';
 import SuggestChanges from '../SuggestChanges/SuggestChanges.view';
-import {ISettingsView} from './ProfilComponents.interface';
+import {ISettingsView} from './ProfileComponents.interface';
 
 const SettingsView = ({sendError}: ISettingsView) => {
   const theme = useTheme();

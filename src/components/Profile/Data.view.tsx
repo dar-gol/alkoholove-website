@@ -2,7 +2,7 @@ import React from 'react';
 import {useTheme} from 'styled-components';
 import {getDate, getRate} from '../../utils/utils';
 import {Col, Text, Tuple} from '../../styles/global.styled';
-import {IDataView} from './ProfilComponents.interface';
+import {IDataView} from './ProfileComponents.interface';
 
 const DataView = ({user}: IDataView) => {
   const theme = useTheme();

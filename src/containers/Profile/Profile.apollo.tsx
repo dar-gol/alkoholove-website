@@ -6,9 +6,9 @@ import {getCookie} from '../../utils/cookies';
 import useToast from '../../utils/hooks/useToast';
 import {getTags, getUserInfo} from '../../utils/requests/get';
 import {postError} from '../../utils/requests/post';
-import ProfilLogic from './Profil.logic';
+import ProfileLogic from './Profile.logic';
 
-const ProfilApollo = () => {
+const ProfileApollo = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   const {data: user} = useQuery(['userInfo', id], getUserInfo);
@@ -36,8 +36,8 @@ const ProfilApollo = () => {
   if (!user || !tags) return <LoadingModal title="" isOpen />;
 
   return (
-    <ProfilLogic user={user.data} tags={tags.data} sendError={sendError} />
+    <ProfileLogic user={user.data} tags={tags.data} sendError={sendError} />
   );
 };
 
-export default ProfilApollo;
+export default ProfileApollo;

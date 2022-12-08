@@ -1,4 +1,4 @@
-import {IdentifyTags} from '../../@types/Lists.d';
+import {IdentifyTags} from '../../@types/Lists';
 import {IUser} from '../../@types/user';
 
 export interface IDataView {

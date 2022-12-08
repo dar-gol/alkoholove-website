@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {BtnGhost, Btn, Col, Row} from '../../styles/global.styled';
+import {BtnGhost, Col} from '../../styles/global.styled';
 
 export const BtnTab = styled(BtnGhost)<{active: boolean}>`
   background-color: ${({theme, active}) =>

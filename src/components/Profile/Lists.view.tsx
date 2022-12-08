@@ -4,8 +4,8 @@ import {useTheme} from 'styled-components';
 import {IdentifyTags} from '../../@types/Lists';
 import {Col, Icon, Row, Text} from '../../styles/global.styled';
 import {getIcon} from '../../utils/utils';
-import {IListsView} from './ProfilComponents.interface';
-import {BtnList} from './ProfilComponents.styled';
+import {IListsView} from './ProfileComponents.interface';
+import {BtnList} from './ProfileComponents.styled';
 
 const ListsView = ({tags, user}: IListsView) => {
   const theme = useTheme();

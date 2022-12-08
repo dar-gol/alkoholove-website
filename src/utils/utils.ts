@@ -10,7 +10,7 @@ import {getCookie} from './cookies';
 import {Type} from '../@types/category';
 import {inputType} from '../@types/inputs';
 import Toast from '../components/Toast/Toast';
-import {INPUT_TYPE} from './constant';
+import {icons, INPUT_TYPE} from './constant';
 import {Tokens} from '../@types/user';
 
 export const unloadType = (type: Type): [string, boolean] => {
@@ -26,10 +26,8 @@ export const getType = (type: Type) => {
   };
 };
 
-export const createImageName = (name: string, type?: string): string => {
-  if (!name) return '';
-  return `${name.replaceAll(' ', '_')}${type ? `_${type}` : ''}`;
-};
+export const createImageName = (name: string, type?: string): string =>
+  name ? `${name.replaceAll(' ', '_')}${type ? `_${type}` : ''}` : '';
 
 type FormDataType = Array<[string, string | Blob]>;
 
@@ -67,23 +65,9 @@ export const formater = (value: any): string => {
 };
 
 export const getIcon = (name: string) => {
-  if (name === 'favourites') return 'icon-Heart';
-  if (name === 'wishlists') return 'icon-Star';
-  if (name === 'rated') return 'icon-Rate';
-  if (name === 'history') return 'icon-Lists';
-  if (name === 'tag') return 'icon-Tag';
-  if (name === 'kind') return 'icon-Category';
-  if (name === 'type') return 'icon-Info';
-  if (name === 'alcohol_by_volume') return 'icon-Bottle';
-  if (name === 'color') return 'icon-Info';
-  if (name === 'manufacturer') return 'icon-Manufacturer';
-  if (name === 'country') return 'icon-Globe';
-  if (name === 'region') return 'icon-Globe';
-  if (name === 'food') return 'icon-Bottle';
-  if (name === 'finish') return 'icon-Food';
-  if (name === 'aroma') return 'icon-Bottle';
-  if (name === 'taste') return 'icon-Food';
-  return 'icon-Info';
+  const iconName = name as keyof typeof icons;
+  const icon = icons[iconName];
+  return icon || 'icon-Info';
 };
 
 export const getTagOrLists = (name: string) => {

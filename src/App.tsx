@@ -18,8 +18,9 @@ import ResetPasswordApollo from './containers/ResetPassword/ResetPassword.apollo
 import ChangePasswordApollo from './containers/ChangePassword/ChangePassword.apollo';
 import InformationApollo from './containers/Information/Information.apollo';
 import LogoutView from './containers/Logout/Logout.view';
-import ProfilApollo from './containers/Profil/Profil.apollo';
+import ProfilApollo from './containers/Profile/Profile.apollo';
 import UserListsApollo from './containers/UserLists/UserLists.apollo';
+import {LOCATION} from './utils/constant';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -34,28 +35,34 @@ const App = () => {
         <Toaster position="top-center" gutter={20} />
         <Main>
           <Routes>
-            <Route path="/alcohols" element={<AlcoholsApollo />} />
-            <Route path="/profil" element={<ProfilApollo />} />
-            <Route path="/profil/:id" element={<ProfilApollo />} />
+            <Route path={LOCATION.ALCOHOLS} element={<AlcoholsApollo />} />
+            <Route path={LOCATION.PROFILE} element={<ProfilApollo />} />
             <Route
-              path="/user/:userId/lists/:listId/:listName"
+              path={`${LOCATION.PROFILE}/:id`}
+              element={<ProfilApollo />}
+            />
+            <Route
+              path={`${LOCATION.USER}/:userId/lists/:listId/:listName`}
               element={<UserListsApollo />}
             />
             <Route path="/" element={<HomeApollo />} />
             <Route
-              path="/alcohol/:alcoholBarcode"
+              path={`${LOCATION.ALCOHOL}/:alcoholBarcode`}
               element={<AlcoholDetailsApollo />}
             />
-            <Route path="/login" element={<LoginApollo />} />
-            <Route path="/logout" element={<LogoutView />} />
-            <Route path="/register" element={<RegisterApollo />} />
-            <Route path="/reset_password" element={<ResetPasswordApollo />} />
+            <Route path={LOCATION.LOGIN} element={<LoginApollo />} />
+            <Route path={LOCATION.LOGOUT} element={<LogoutView />} />
+            <Route path={LOCATION.REGISTER} element={<RegisterApollo />} />
             <Route
-              path="/reset_password/:token"
+              path={LOCATION.RESET_PASSWORD}
+              element={<ResetPasswordApollo />}
+            />
+            <Route
+              path={`${LOCATION.RESET_PASSWORD}/:token`}
               element={<ChangePasswordApollo />}
             />
             <Route
-              path="/confirm_register"
+              path={LOCATION.CONFIRM_PASSWORD}
               element={
                 <InformationApollo
                   title="Potwierdzenie konta"
@@ -68,7 +75,7 @@ const App = () => {
               }
             />
             <Route
-              path="/confirm_reset_password"
+              path={LOCATION.CONFIRM_RESET_PASSWORD}
               element={
                 <InformationApollo
                   title="Zmiana hasła"
@@ -80,7 +87,7 @@ const App = () => {
               }
             />
             <Route
-              path="/valid_email_verification"
+              path={LOCATION.VALID_EMAIL_VERIFICATION}
               element={
                 <InformationApollo
                   title="Weryfikacja emaila"
@@ -94,7 +101,7 @@ const App = () => {
               }
             />
             <Route
-              path="/invalid_email_verification"
+              path={LOCATION.INVALID_EMAIL_VERIFICATION}
               element={
                 <InformationApollo
                   title="Weryfikacja emaila"
@@ -104,7 +111,7 @@ const App = () => {
               }
             />
             <Route
-              path="/valid_password_change"
+              path={LOCATION.VALID_PASSWORD_CHANGE}
               element={
                 <InformationApollo
                   title="Zmiana hasła"
@@ -115,7 +122,7 @@ const App = () => {
               }
             />
             <Route
-              path="/invalid_password_change"
+              path={LOCATION.INVALID_PASSWORD_CHANGE}
               element={
                 <InformationApollo
                   title="Zmiana hasła"
@@ -125,7 +132,7 @@ const App = () => {
               }
             />
             <Route
-              path="/valid_account_deletion"
+              path={LOCATION.VALID_ACCOUNT_DELETION}
               element={
                 <InformationApollo
                   title="Usuwanie konta"
@@ -134,7 +141,7 @@ const App = () => {
               }
             />
             <Route
-              path="/invalid_account_deletion"
+              path={LOCATION.INVALID_ACCOUNT_DELETION}
               element={
                 <InformationApollo
                   title="Usuwanie konta"

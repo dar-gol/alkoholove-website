@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {IProfilLogic, TabType} from './Profil.interface';
-import ProfilView from './Profil.view';
+import {IProfileLogic, TabType} from './Profile.interface';
+import ProfilView from './Profile.view';
 
-const ProfilLogic = ({user, tags, sendError}: IProfilLogic) => {
+const ProfileLogic = ({user, tags, sendError}: IProfileLogic) => {
   const [tab, setTab] = useState<TabType>('data');
   const handleTab = (nextTab: TabType) => {
     setTab(nextTab);
@@ -18,4 +18,4 @@ const ProfilLogic = ({user, tags, sendError}: IProfilLogic) => {
   );
 };
 
-export default ProfilLogic;
+export default ProfileLogic;
