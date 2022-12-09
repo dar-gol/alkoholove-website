@@ -24,7 +24,7 @@ const FooterView = () => {
             </Text>
             <Text type="caption" size="small" weight="regular">
               Aplikacja AlkohoLove powstała w celu ułatwienia wyboru alkoholu
-              oraz zarządzania sporzytymi trunkami. Wszystkie alkohole w jednym
+              oraz zarządzania spożytymi trunkami. Wszystkie alkohole w jednym
               miejscu. Zainstaluj aplikację alkohoLove już teraz!
             </Text>
           </Col>
