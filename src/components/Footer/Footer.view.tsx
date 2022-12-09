@@ -107,7 +107,7 @@ const FooterView = () => {
           weight="bold"
           color={theme.palette.Grey70}
           isNoWrap>
-          Wersja aplikacji: 0.95 (stabilna).
+          Wersja aplikacji: 1.00 (stabilna).
         </Text>
       </Col>
     </Row>
