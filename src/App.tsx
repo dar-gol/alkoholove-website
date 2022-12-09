@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {Routes, Route, Navigate, useLocation} from 'react-router-dom';
+import React from 'react';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ThemeProvider} from 'styled-components';
 import {Toaster} from 'react-hot-toast';
@@ -18,9 +18,10 @@ import ResetPasswordApollo from './containers/ResetPassword/ResetPassword.apollo
 import ChangePasswordApollo from './containers/ChangePassword/ChangePassword.apollo';
 import InformationApollo from './containers/Information/Information.apollo';
 import LogoutView from './containers/Logout/Logout.view';
-import ProfilApollo from './containers/Profile/Profile.apollo';
+import ProfileApollo from './containers/Profile/Profile.apollo';
 import UserListsApollo from './containers/UserLists/UserLists.apollo';
 import {LOCATION} from './utils/constant';
+import SocialsApollo from "./containers/Socials/Socials.apollo";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -36,10 +37,10 @@ const App = () => {
         <Main>
           <Routes>
             <Route path={LOCATION.ALCOHOLS} element={<AlcoholsApollo />} />
-            <Route path={LOCATION.PROFILE} element={<ProfilApollo />} />
+            <Route path={LOCATION.PROFILE} element={<ProfileApollo />} />
             <Route
               path={`${LOCATION.PROFILE}/:id`}
-              element={<ProfilApollo />}
+              element={<ProfileApollo />}
             />
             <Route
               path={`${LOCATION.USER}/:userId/lists/:listId/:listName`}
@@ -66,7 +67,7 @@ const App = () => {
               element={
                 <InformationApollo
                   title="Potwierdzenie konta"
-                  greenContent="Na podany email został wysłany mail weryfilacyjny. Pamiętaj sprawdzić spam."
+                  greenContent="Na podany email został wysłany mail weryfikacyjny. Pamiętaj sprawdzić spam."
                   yellowContent="Nie jest możliwe logowanie do AlkohoLove przed potwierdzeniem
                   konta."
                   buttonText="Przejdź do logowania"
@@ -150,7 +151,10 @@ const App = () => {
                 />
               }
             />
-
+          <Route
+              path={LOCATION.SOCIAL}
+              element={<SocialsApollo/>}
+          />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Main>

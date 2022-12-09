@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useTheme} from 'styled-components';
 import {Button} from '../../styles/button.styled';
 import {Col, CriticalBar, Text} from '../../styles/global.styled';

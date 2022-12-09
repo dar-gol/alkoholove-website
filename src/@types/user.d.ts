@@ -1,3 +1,5 @@
+import {IPageInfo} from "./pagination";
+
 export interface IUser {
   username: string, 
   id: string, 
@@ -38,3 +40,17 @@ export type UserContextType = {
   user: Tokens;
   setAdmin: (admin: Tokens) => void;
 };
+
+export interface IUserSearchResult {
+  username: string;
+  id: string;
+  created_on: string;
+  favourites_count: number;
+}
+
+export type UsersSearchResult = IUserSearchResult[];
+
+export type UsersSearchResultObject = {
+  users: UsersSearchResult,
+  page_info: IPageInfo
+}

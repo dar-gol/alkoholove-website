@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
-import {Col, Icon, Text} from '../../styles/global.styled';
+import {Icon, Text} from '../../styles/global.styled';
 import {CommentUsability} from './CommentUsability.styled';
 
 interface IProps {

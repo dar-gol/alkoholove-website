@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
-import {BtnPrimary, Col, Row, Text} from '../../styles/global.styled';
+import {BtnPrimary, Col, Text} from '../../styles/global.styled';
 import Toggle from '../Inputs/Toggle';
 import Modal from '../modal/Modal';
 

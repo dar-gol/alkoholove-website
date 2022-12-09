@@ -5,24 +5,20 @@ import {IAlcohol} from '../../@types/alcohol';
 import {CommentsData, IComment} from '../../@types/comment';
 import {Tokens} from '../../@types/user';
 import {
-  BtnGhost,
   BtnPrimary,
   Col,
   Container,
-  Icon,
   Row,
   Text,
 } from '../../styles/global.styled';
 import {getCookie} from '../../utils/cookies';
-import {getDate, getRate} from '../../utils/utils';
+import {getRate} from '../../utils/utils';
 import BtnMore from '../BtnMore';
 import CommentView from '../Comment';
 import CommentOptionsView from '../CommentOptions/CommentOptions.view';
-import CommentUsabilityView from '../CommentUsability/CommentUsability.view';
 import TextInput from '../Inputs/TextInput';
 import Stars from '../Stars/Stars.view';
 import StarsAmountView from '../StarsAmount/StarsAmount.view';
-import UserIconView from '../UserIcon/UserIcon.view';
 import {
   AddComment,
   AddCommentContainer,

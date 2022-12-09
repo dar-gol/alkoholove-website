@@ -1,4 +1,3 @@
-import {IReportedReview} from './reportedReview.d';
 import {IPageInfo} from './pagination.d';
 
 export type IAroma = string;

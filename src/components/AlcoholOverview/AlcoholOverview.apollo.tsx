@@ -1,7 +1,7 @@
-import {useMutation, useQuery} from '@tanstack/react-query';
-import React, {useEffect, useState} from 'react';
+import { useQuery} from '@tanstack/react-query';
+import React from 'react';
 import {IAlcohol} from '../../@types/alcohol';
-import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
+import {AlcoholLists} from '../../@types/Lists';
 import useToast from '../../utils/hooks/useToast';
 import {
   removeFromWishlist,

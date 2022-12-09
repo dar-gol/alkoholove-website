@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {Alcohols} from '../../@types/alcohol.d';
 import {IQueryKey} from '../../@types/global.d';
 import {request} from '../../utils/utils';

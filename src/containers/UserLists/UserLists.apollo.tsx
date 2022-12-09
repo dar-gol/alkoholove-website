@@ -1,11 +1,7 @@
-import {useMutation, useQuery} from '@tanstack/react-query';
+import {useMutation} from '@tanstack/react-query';
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
-import {
-  AlcoholsObject,
-  ListsAlcohols,
-  RatedAlcohols,
-} from '../../@types/alcohol';
+import {ListsAlcohols} from '../../@types/alcohol';
 import LoadingModal from '../../components/modal/LoadingModal';
 import useToast from '../../utils/hooks/useToast';
 import {removeTag} from '../../utils/requests/delete';

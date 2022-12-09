@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {AlcoholsObject, IAlcohol} from '../../@types/alcohol';
+import {IAlcohol} from '../../@types/alcohol';
 import LoadingModal from '../../components/modal/LoadingModal';
 import {API, URL} from '../../utils/constant';
 import {get} from '../../utils/fetch';

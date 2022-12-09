@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {useParams} from 'react-router-dom';
 import {ResetPasswordData} from '../../@types/user';
 import ChangePasswordView from './ChangePassword.view';
 

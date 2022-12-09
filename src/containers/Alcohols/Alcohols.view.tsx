@@ -7,30 +7,19 @@ import {IPageInfo} from '../../@types/pagination';
 import BtnMore from '../../components/BtnMore';
 import FooterView from '../../components/Footer/Footer.view';
 import HeaderApollo from '../../components/Header/Header.apollo';
-import Stars from '../../components/Stars/Stars.view';
-import TileView from '../../components/Tile/Tile.view';
+import {TileView} from '../../components/Tile/Tile.view';
 import {
   Col,
   Container,
   Text,
   Row,
-  Icon,
-  BtnSecondary,
-  Img,
-  BtnGhost,
+  Icon, Img,
 } from '../../styles/global.styled';
-import {URL} from '../../utils/constant';
-import {createImageName, getRate} from '../../utils/utils';
-import {
-  AlcoholWrapper,
-  ImageContainer,
-  Content,
-  Description,
-  DescTitle,
-  Filter,
-  Name,
-  Type,
-} from './Alcohols.styled';
+import {Filter} from './Alcohols.styled';
+import {URL} from "../../utils/constant";
+import {createImageName, getDate, getRate} from "../../utils/utils";
+import {AlcoholTileBody} from "../../components/AlcoholTile/AlcoholTileBody.view";
+import {AlcoholTileFooter} from "../../components/AlcoholTile/AlcoholTileFooter.view";
 
 interface Props {
   alcohols: Alcohols;
@@ -127,9 +116,24 @@ const AlcoholsView = ({
             flexWrap="wrap"
             gap="20px"
             justifyContent="center"
-            margin="0 0 20px 0">
+            margin="0 0 20px 0"
+          >
             {alcohols.map(alcohol => (
-              <TileView alcohol={alcohol} />
+              <TileView
+                  key={alcohol.id}
+                  title={alcohol.name}
+                  subtitle={`${alcohol.kind}, ${alcohol.type}`}
+                  onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}
+                  renderImage={() => (
+                      <Img
+                          width="150px"
+                          height="175px"
+                          src={`${URL.GET_IMAGE}/${createImageName(alcohol.id, 'md')}`}
+                      />
+                  )}
+                  renderBody={() => <AlcoholTileBody alcohol={alcohol} />}
+                  renderFooter={() => <AlcoholTileFooter alcohol={alcohol} />}
+              />
             ))}
           </Row>
           <BtnMore

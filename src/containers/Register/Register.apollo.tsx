@@ -3,7 +3,6 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {RegisterData} from '../../@types/user';
 import LoadingModal from '../../components/modal/LoadingModal';
-import {setCookie} from '../../utils/cookies';
 import useToast from '../../utils/hooks/useToast';
 import {register} from './Register.api';
 import RegisterLogic from './Register.logic';

@@ -1,8 +1,7 @@
 import {useMutation} from '@tanstack/react-query';
-import {AxiosError} from 'axios';
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
-import {LoginData, Tokens} from '../../@types/user';
+import {LoginData} from '../../@types/user';
 import LoadingModal from '../../components/modal/LoadingModal';
 import {setCookie} from '../../utils/cookies';
 import useToast from '../../utils/hooks/useToast';

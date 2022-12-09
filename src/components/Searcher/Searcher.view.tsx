@@ -1,17 +1,9 @@
 import React from 'react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-  AccordionItemPanel,
-} from 'react-accessible-accordion';
 import {useTheme} from 'styled-components';
 import {ICategory} from '../../@types/category';
 import {ICategoryFilter} from '../../@types/filters';
 import {
   BtnPrimary,
-  BtnSecondary,
   Col,
   Icon,
   Row,

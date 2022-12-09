@@ -72,7 +72,7 @@ export const Wrapper = styled(Row)`
 `;
 
 export const ImageContainer = styled(Row)`
-  top: -75px;
+  top: ${({top}) => top || "-75px"};
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
@@ -85,7 +85,7 @@ export const ImageContainer = styled(Row)`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({theme}) => theme.palette.BackgroundTransparency30};
+    background-color: ${({theme, backgroundColor}) => backgroundColor || theme.palette.BackgroundTransparency30};
     z-index: 1;
   }
 `;

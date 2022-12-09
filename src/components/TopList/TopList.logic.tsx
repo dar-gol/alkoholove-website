@@ -1,7 +1,5 @@
 import React from 'react';
 import {Alcohols} from '../../@types/alcohol';
-import {API, URL} from '../../utils/constant';
-import {post} from '../../utils/fetch';
 import TopListView from './TopList.view';
 
 interface IProps {

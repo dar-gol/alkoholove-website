@@ -2,8 +2,8 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {Alcohols} from '../../@types/alcohol';
-import {Col, ImageContainer, Img, Row, Text} from '../../styles/global.styled';
-import {API, URL} from '../../utils/constant';
+import {ImageContainer, Img, Row, Text} from '../../styles/global.styled';
+import { URL} from '../../utils/constant';
 import {createImageName} from '../../utils/utils';
 import Stars from '../Stars/Stars.view';
 import {

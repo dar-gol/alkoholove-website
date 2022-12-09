@@ -1,7 +1,6 @@
 import React from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useTheme} from 'styled-components';
-import {IdentifyTags} from '../../@types/Lists';
 import {Col, Icon, Row, Text} from '../../styles/global.styled';
 import {getIcon} from '../../utils/utils';
 import {IListsView} from './ProfileComponents.interface';
