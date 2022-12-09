@@ -4,8 +4,6 @@ import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {Button} from '../../styles/button.styled';
 import {
-  BtnPrimary,
-  BtnSecondary,
   Col,
   Row,
   Text,

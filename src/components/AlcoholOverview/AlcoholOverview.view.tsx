@@ -4,11 +4,9 @@ import {IAlcohol} from '../../@types/alcohol';
 import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
 import {Tokens} from '../../@types/user';
 import {
-  BtnPrimary,
   Col,
   Container,
   Icon,
-  ImageContainer,
   Img,
   Row,
   Text,
@@ -18,7 +16,6 @@ import {getCookie} from '../../utils/cookies';
 import {createImageName, getRate} from '../../utils/utils';
 import AlcoholListModalView from '../AlcoholListModal/AlcoholListModal.view';
 import CreateTagView from '../CreateTag/CreateTag.view';
-import {StyledAccordionTextHeading} from '../Searcher/Searcher.styled';
 import Stars from '../Stars/Stars.view';
 import {
   ColorBlock,

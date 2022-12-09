@@ -1,18 +1,14 @@
 import React from 'react';
 import {
   Controller,
-  FieldValues,
   SubmitHandler,
   UseFormReturn,
 } from 'react-hook-form';
 import {useTheme} from 'styled-components';
-import Spacings from '../../styles/spacings';
 import TextInput from '../../components/Inputs/TextInput';
 import {
-  BtnGhost,
   BtnPrimary,
   Col,
-  Icon,
   Primary,
   Row,
   Text,
@@ -22,7 +18,7 @@ import {
   InfoBar,
 } from '../../styles/global.styled';
 import HeaderApollo from '../../components/Header/Header.apollo';
-import {LoginData, RegisterData} from '../../@types/user';
+import {RegisterData} from '../../@types/user';
 import FooterView from '../../components/Footer/Footer.view';
 import {
   isCorrectPassword,

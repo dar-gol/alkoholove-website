@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useTheme} from 'styled-components';
-import {AlcoholLists, IdentifyTag} from '../@types/Lists';
-import {BtnPrimary, Col, CriticalBar, Row, Text} from '../styles/global.styled';
-import TextInput from './Inputs/TextInput';
-import Toggle from './Inputs/Toggle';
+import {BtnPrimary, Col, CriticalBar, Text} from '../styles/global.styled';
 import Modal from './modal/Modal';
 
 interface Props {

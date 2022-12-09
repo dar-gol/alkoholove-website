@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Icon, Row} from '../../styles/global.styled';
+import {Icon} from '../../styles/global.styled';
 
 export const Circle = styled.div`
   border-radius: 100%;

@@ -4,12 +4,10 @@ import axios, {
   AxiosRequestConfig,
   RawAxiosRequestHeaders,
 } from 'axios';
-import {toast} from 'react-hot-toast';
 import {getCookie} from './cookies';
 /* eslint-disable no-unreachable */
 import {Type} from '../@types/category';
 import {inputType} from '../@types/inputs';
-import Toast from '../components/Toast/Toast';
 import {icons, INPUT_TYPE} from './constant';
 import {Tokens} from '../@types/user';
 

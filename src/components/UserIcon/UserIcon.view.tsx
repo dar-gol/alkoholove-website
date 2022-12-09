@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, Img, Row} from '../../styles/global.styled';
+import {Icon, Img} from '../../styles/global.styled';
 import {UserIcon} from './UserIcon.styled';
 
 interface IProps {

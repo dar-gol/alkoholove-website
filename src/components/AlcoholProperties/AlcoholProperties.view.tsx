@@ -6,7 +6,6 @@ import {
   BtnSecondary,
   Col,
   Container,
-  Icon,
   InfoBar,
   Row,
   Text,
@@ -16,7 +15,7 @@ import {CORE, CORE_LIST} from '../../utils/constant';
 import {getCookie} from '../../utils/cookies';
 import {formater, getIcon} from '../../utils/utils';
 import SuggestChanges from '../SuggestChanges/SuggestChanges.view';
-import {Circle, CircleIcon, TupleIcon} from './AlcoholProperties.styled';
+import {TupleIcon} from './AlcoholProperties.styled';
 
 interface IProps {
   alcohol: IAlcohol;

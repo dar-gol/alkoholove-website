@@ -1,22 +1,22 @@
-import styled, { css } from "styled-components";
+import {css} from 'styled-components';
 
-import { Body } from "../../styles/typography.styled";
+import {Body} from '../../styles/typography.styled';
 
 export const selectStyle = css`
   min-width: 150px;
-  height: 100%;
+  flex: 1;
 `;
 
 export const selectControl = css`
   height: 100%;
   border-radius: 20px !important;
   border: none !important;
-  background: ${({ theme }) => theme.palette.Grey5};
+  background: ${({theme}) => theme.palette.Grey5};
   &::before {
-    content: "${({ placeholder }: any) => placeholder}";
+    content: '${({placeholder}: any) => placeholder}';
     margin: 0;
     position: absolute;
-    color: ${({ theme }) => theme.palette.Grey30};
+    color: ${({theme}) => theme.palette.Grey30};
     transition: 0.2s;
     text-transform: capitalize;
     padding-left: 16px;
@@ -24,7 +24,7 @@ export const selectControl = css`
 `;
 
 export const selectControlFocused = css`
-  box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.Primary70} !important;
+  box-shadow: 0 0 0 2px ${({theme}) => theme.palette.Primary70} !important;
 `;
 
 export const selectSeparator = css`
@@ -32,8 +32,8 @@ export const selectSeparator = css`
 `;
 
 export const selectValue = css`
-  ${Body("regular", "large")}
-  color: ${({ theme }) => theme.palette.Grey80};
+  ${Body('regular', 'large')}
+  color: ${({theme}) => theme.palette.Grey80};
 `;
 
 export const selectValueContainer = css`
@@ -44,21 +44,21 @@ export const selectMenu = css`
   border-radius: 20px;
   margin-top: 5px;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.palette.Grey5};
+  background-color: ${({theme}) => theme.palette.Grey5};
 `;
 
 export const selectOption = css`
-  color: ${({ theme }) => theme.palette.Grey70};
+  color: ${({theme}) => theme.palette.Grey70};
   background-color: unset;
 `;
 
 export const selectOptionHover = css`
-  background-color: ${({ theme }) => theme.palette.Grey10};
+  background-color: ${({theme}) => theme.palette.Grey10};
 `;
 
 export const selectOptionSelected = css`
-  background-color: ${({ theme }) => theme.palette.Secondary30};
-  color: ${({ theme }) => theme.palette.Secondary80};
+  background-color: ${({theme}) => theme.palette.Secondary30};
+  color: ${({theme}) => theme.palette.Secondary80};
 `;
 
 export const selectPlaceholderPlace = css`

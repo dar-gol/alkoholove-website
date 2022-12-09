@@ -1,8 +1,4 @@
-import React from 'react';
 import {
-  RatedAlcohols,
-  Alcohols,
-  AlcoholsObject,
   ListsAlcohols,
 } from '../../@types/alcohol.d';
 

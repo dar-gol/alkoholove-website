@@ -1,23 +1,26 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {useTheme} from 'styled-components';
-import {Alcohols, IAlcohol, ListsAlcohols} from '../../@types/alcohol';
+import {IAlcohol, ListsAlcohols} from '../../@types/alcohol';
 import {IComment} from '../../@types/comment';
 import BtnMore from '../../components/BtnMore';
 import CreateTagView from '../../components/CreateTag/CreateTag.view';
 import FooterView from '../../components/Footer/Footer.view';
 import HeaderApollo from '../../components/Header/Header.apollo';
 import RemoveTagView from '../../components/RemoveTag';
-import TileView from '../../components/Tile/Tile.view';
+import {TileView} from '../../components/Tile/Tile.view';
 import {
   BtnSecondary,
   Col,
-  Container,
+  Container, Img,
   Row,
   Text,
 } from '../../styles/global.styled';
-import {getTagOrLists} from '../../utils/utils';
+import {createImageName, getTagOrLists} from '../../utils/utils';
 import {IUserListsView} from './UserLists.interface';
+import {URL} from "../../utils/constant";
+import {AlcoholTileBody} from "../../components/AlcoholTile/AlcoholTileBody.view";
+import {AlcoholTileFooter} from "../../components/AlcoholTile/AlcoholTileFooter.view";
 
 const UserListsView = ({
   lists,
@@ -31,8 +34,23 @@ const UserListsView = ({
 }: IUserListsView) => {
   const {listName} = useParams();
   const theme = useTheme();
+  const navigate = useNavigate();
   const createTile = (alcohol: IAlcohol, comment?: IComment) => (
-    <TileView alcohol={alcohol} key={alcohol.id} review={comment} />
+      <TileView
+          key={alcohol.id}
+          title={alcohol.name}
+          subtitle={`${alcohol.kind}, ${alcohol.type}`}
+          onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}
+          renderImage={() => (
+              <Img
+                  width="150px"
+                  height="175px"
+                  src={`${URL.GET_IMAGE}/${createImageName(alcohol.id, 'md')}`}
+              />
+          )}
+          renderBody={() => <AlcoholTileBody alcohol={alcohol} />}
+          renderFooter={() => <AlcoholTileFooter alcohol={alcohol} review={comment} />}
+      />
   );
   const createTiles = (alcohols: ListsAlcohols) => {
     const {type} = alcohols;

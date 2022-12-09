@@ -1,18 +1,14 @@
 import React from 'react';
 import {
   Controller,
-  FieldValues,
   SubmitHandler,
   UseFormReturn,
 } from 'react-hook-form';
 import {useTheme} from 'styled-components';
-import Spacings from '../../styles/spacings';
 import TextInput from '../../components/Inputs/TextInput';
 import {
-  BtnGhost,
   BtnPrimary,
   Col,
-  Icon,
   Primary,
   Row,
   Text,
@@ -23,7 +19,7 @@ import {
 } from '../../styles/global.styled';
 import HeaderApollo from '../../components/Header/Header.apollo';
 import FooterView from '../../components/Footer/Footer.view';
-import {isCorrectPassword, isValidEmail} from '../../utils/utils';
+import {isValidEmail} from '../../utils/utils';
 
 interface Props {
   form: UseFormReturn<{

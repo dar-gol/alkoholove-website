@@ -2,12 +2,9 @@ import {IQueryKey} from '../../@types/global.d';
 import {API, URL} from '../constant';
 import {AlcoholLists, IdentifyTags} from '../../@types/Lists';
 import {request} from '../utils';
-import {IUser} from '../../@types/user';
+import {IUser, UsersSearchResultObject} from '../../@types/user';
 import {
-  Alcohols,
-  AlcoholsObject,
   HistoryAlcohols,
-  IAlcohol,
   RatedAlcohols,
   StandardAlcohols,
 } from '../../@types/alcohol';
@@ -35,16 +32,19 @@ export const getFavourites = ({queryKey}: IQueryKey) =>
     {url: `${API}${URL.ME_FAVOURITES}?limit=${queryKey[2] || 10}`},
     true,
   );
+
 export const getWishlist = ({queryKey}: IQueryKey) =>
   request<StandardAlcohols>(
     {url: `${API}${URL.ME_WISHLIST}?limit=${queryKey[2] || 10}`},
     true,
   );
+
 export const getHistory = ({queryKey}: IQueryKey) =>
   request<HistoryAlcohols>(
     {url: `${API}${URL.ME_HISTORY}?limit=${queryKey[2] || 10}`},
     true,
   );
+
 export const getRated = ({queryKey}: IQueryKey) =>
   request<RatedAlcohols>(
     {
@@ -54,3 +54,12 @@ export const getRated = ({queryKey}: IQueryKey) =>
     },
     true,
   );
+
+export const searchUsers = ({queryKey}: IQueryKey) =>
+    request<UsersSearchResultObject>(
+        {
+            method: 'GET',
+            url: `${API}${URL.SEARCH_USERS}?offset=0&limit=${queryKey[0]}${queryKey[1]}&search_type=${queryKey[2]}`,
+        },
+        true,
+    );

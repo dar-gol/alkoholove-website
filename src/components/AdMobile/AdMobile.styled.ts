@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import {Col, Row} from '../../styles/global.styled';
+import {Col} from '../../styles/global.styled';
 import {
   Heading1Large,
   Heading1Small,
-  Heading2Large,
   Heading3Large,
   Heading3Small,
-  Heading4Small,
   Heading5Large,
   Heading5Small,
 } from '../../styles/typography.styled';

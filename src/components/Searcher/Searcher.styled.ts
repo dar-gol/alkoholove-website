@@ -8,10 +8,9 @@ import {
 import styled from 'styled-components';
 import {
   Body,
-  Heading3Large,
   Heading4Large,
 } from '../../styles/typography.styled';
-import {BlockType, Col, Icon, Row, Text} from '../../styles/global.styled';
+import {Col, Icon, Row, Text} from '../../styles/global.styled';
 
 export const LightBox = styled.div<{show: boolean}>`
   transition: left 0.05s;

@@ -19,6 +19,7 @@ export const URL = {
   POST_CATEGORIES: '/admin/alcohols/metadata/categories',
   SEARCH_ALCOHOLS: '/admin/alcohols/search',
   GET_ALCOHOL: '/alcohols',
+  SEARCH_USERS: '/socials/search',
   POST_ALCOHOLS: '/admin/alcohols',
   UPLOAD_IMAGE: '/admin/image',
   USERS: '/admin/users',
@@ -56,6 +57,7 @@ export const LOCATION = {
   INVALID_EMAIL_VERIFICATION: '/invalid_email_verification',
   VALID_PASSWORD_CHANGE: '/valid_password_change',
   INVALID_PASSWORD_CHANGE: '/invalid_password_change',
+  SOCIAL: '/social',
   VALID_ACCOUNT_DELETION: '/valid_account_deletion',
   INVALID_ACCOUNT_DELETION: '/invalid_account_deletion',
 } as const;

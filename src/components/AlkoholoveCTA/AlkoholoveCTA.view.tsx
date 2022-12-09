@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
-import {BtnPrimary, Col, Img, Row, Text} from '../../styles/global.styled';
+import {BtnPrimary, Col, Img, Text} from '../../styles/global.styled';
 import {
   Advantage,
   AdvantageTextWrapper,

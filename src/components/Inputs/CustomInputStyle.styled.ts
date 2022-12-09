@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components';
-import {Body, Caption, Footer} from '../../styles/typography.styled';
+import {css} from 'styled-components';
+import {Body, Caption} from '../../styles/typography.styled';
 
 export const inputContainer = css`
   box-sizing: border-box;

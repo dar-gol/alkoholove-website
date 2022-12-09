@@ -1,9 +1,6 @@
 import React from 'react';
 import HomeLogic from './Home.logic';
 
-const HomeApollo = () => {
-  const t = 0;
-  return <HomeLogic />;
-};
+const HomeApollo = () => <HomeLogic />;
 
 export default HomeApollo;

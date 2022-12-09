@@ -4,7 +4,6 @@ import Loader from '../Loader/loader';
 import {
   LoadingContainer,
   LoadingTitle,
-  ModalTitle,
   StyledPopup,
 } from './Modal.styled';
 

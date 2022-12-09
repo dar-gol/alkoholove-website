@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {BtnPrimary, Row} from '../../styles/global.styled';
+import {Row} from '../../styles/global.styled';
 import {Body, Heading3Large} from '../../styles/typography.styled';
 
 export const Nav = styled.nav`

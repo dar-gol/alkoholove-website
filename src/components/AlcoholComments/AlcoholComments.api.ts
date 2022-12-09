@@ -1,6 +1,5 @@
-import axios, {AxiosError, AxiosResponse} from 'axios';
 import {Tokens, IUser} from '../../@types/user.d';
-import {getAuthHeader, request} from '../../utils/utils';
+import {request} from '../../utils/utils';
 import {CommentsData, IComment} from '../../@types/comment.d';
 import {API, URL} from '../../utils/constant';
 import {getCookie} from '../../utils/cookies';

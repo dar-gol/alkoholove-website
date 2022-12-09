@@ -1,4 +1,4 @@
-import styled, { AnyStyledComponent } from "styled-components";
+import styled from "styled-components";
 import Select from "react-select";
 import Creatable from "react-select/creatable";
 import {
@@ -44,7 +44,7 @@ export const CustomSelect = styled(Select).attrs(() => ({
     ${selectValue}
   }
   & .react-select__value-container {
-    ${input}
+    ${input};
     padding-left: 16px !important;
     ${selectValueContainer}
   }
@@ -95,7 +95,7 @@ export const CustomCreatable = styled(Creatable).attrs(() => ({
     ${selectValue}
   }
   & .react-select__value-container {
-    ${input}
+    ${input};
     top: 15%;
     padding-left: 16px !important;
     ${selectValueContainer}

@@ -1,18 +1,14 @@
 import React from 'react';
 import {
   Controller,
-  FieldValues,
   SubmitHandler,
   UseFormReturn,
 } from 'react-hook-form';
 import {useTheme} from 'styled-components';
-import Spacings from '../../styles/spacings';
 import TextInput from '../../components/Inputs/TextInput';
 import {
-  BtnGhost,
   BtnPrimary,
   Col,
-  Icon,
   Primary,
   Row,
   Text,
@@ -27,7 +23,6 @@ import FooterView from '../../components/Footer/Footer.view';
 import {
   isCorrectPassword,
   isPasswordEqual,
-  isValidEmail,
 } from '../../utils/utils';
 import {ResetPasswordData} from '../../@types/user';
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {ICategory} from '../../@types/category';
-import {Img, Row, Text} from '../../styles/global.styled';
+import {Row, Text} from '../../styles/global.styled';
 import {categoryImages} from '../../utils/constant';
 import {
   CategoryImage,
   CategoryTitle,
   CategoryWrapper,
-  MoreWrapper,
 } from './CategoryList.styled';
 
 interface IProps {

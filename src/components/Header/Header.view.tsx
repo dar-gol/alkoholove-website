@@ -4,14 +4,12 @@ import {useTheme} from 'styled-components';
 import {
   BtnPrimary,
   BtnSecondary,
-  Col,
   Icon,
   Img,
   Primary,
   Row,
 } from '../../styles/global.styled';
 import {LOCATION} from '../../utils/constant';
-import TextInput from '../Inputs/TextInput';
 import SearcherApollo from '../Searcher/Searcher.apollo';
 import {Logo, Nav, RightSide, SearchButton, Title} from './Header.styled';
 
@@ -48,7 +46,7 @@ const HeaderView = ({showSearcher, handleSearcherBtn, isLogged}: Props) => {
             </SearchButton>
           </Row>
           <Row gap="20px">
-            <BtnSecondary padding="0 20px" onClick={() => navigate('/social')}>
+            <BtnSecondary padding="0 20px" onClick={() => navigate('/social?searchType=following')}>
               <Icon
                 fontSize="20px"
                 className="icon-Social"

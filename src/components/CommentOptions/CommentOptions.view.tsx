@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {IComment} from '../../@types/comment';
-import {BtnPrimary, Col, Row, Text, WarnBar} from '../../styles/global.styled';
+import {BtnPrimary, Col, Text, WarnBar} from '../../styles/global.styled';
 import Toggle from '../Inputs/Toggle';
 import Modal from '../modal/Modal';
 

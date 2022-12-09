@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom';
 import styled, {css, createGlobalStyle} from 'styled-components';
 import {
   Body,
@@ -60,6 +59,7 @@ export type BlockType = {
   overflowX?: string;
   overflowY?: string;
   zIndex?: number;
+  top?: string;
 };
 
 export type ButtonType = {
@@ -183,7 +183,7 @@ export const LargeSubTitle = styled.p<ITitle>`
 `;
 
 export const BtnPrimary = styled.button<ButtonType & ButtonPrimary>`
-  ${Btn}
+  ${Btn};
   color: ${({theme}) => theme.palette.White};
   background-color: ${({theme, isCTA}) =>
     isCTA ? theme.palette.Primary100 : theme.palette.Primary80};
@@ -214,7 +214,7 @@ export const BtnPrimary = styled.button<ButtonType & ButtonPrimary>`
 `;
 
 export const BtnSecondary = styled.button<ButtonType>`
-  ${Btn}
+  ${Btn};
   color: ${({theme}) => theme.palette.Secondary90};
   background-color: ${({theme}) => theme.palette.Secondary20};
   &:active {
@@ -246,7 +246,7 @@ export const BtnSecondary = styled.button<ButtonType>`
 `;
 
 export const BtnGhost = styled.button<ButtonType>`
-  ${Btn}
+  ${Btn};
   color: ${({theme}) => theme.palette.Grey60};
   background-color: ${({theme}) => theme.palette.Grey5};
   &:active {
@@ -531,7 +531,7 @@ export const Container = styled.article<{
     backgroundColor || theme.palette.White};
   margin: ${({margin}) => margin || '0 auto'};
   width: 100%;
-  ${WithoutScrollbar}
+  ${WithoutScrollbar};
   @media (max-width: 1200px) {
     max-width: 1140px;
   }

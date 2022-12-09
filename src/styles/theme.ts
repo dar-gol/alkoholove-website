@@ -1,7 +1,3 @@
-import Spacings from './spacings';
-import Weights from './weights';
-import FontSize from './fontSizes';
-import ZIndex from './zIndex';
 import Colors from './colors';
 
 const setMode = (

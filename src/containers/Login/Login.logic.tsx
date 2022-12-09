@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { LoginData } from "../../@types/user";
 import LoginView from "./Login.view";
 

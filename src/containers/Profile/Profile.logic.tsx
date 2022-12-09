@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {IProfileLogic, TabType} from './Profile.interface';
-import ProfilView from './Profile.view';
+import ProfileView from './Profile.view';
 
 const ProfileLogic = ({user, tags, sendError}: IProfileLogic) => {
   const [tab, setTab] = useState<TabType>('data');
@@ -8,7 +8,7 @@ const ProfileLogic = ({user, tags, sendError}: IProfileLogic) => {
     setTab(nextTab);
   };
   return (
-    <ProfilView
+    <ProfileView
       tab={tab}
       handleTab={handleTab}
       user={user}
