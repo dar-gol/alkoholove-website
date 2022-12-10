@@ -31,10 +31,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
   const getFilterFromQuery = (name: string, value?: string) => {
     if (name === 'kind') {
       if (!query.kind) return 'all';
-      const kind = JSON.parse(decodeURIComponent(query.kind)) as {
-        value: string;
-      };
-      return kind.value;
+      return query.kind;
     }
 
     if (!query.filters && value) return '';
@@ -133,12 +130,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
     const params = createSearchParams({
       phrase,
       filters: encodeURIComponent(JSON.stringify(queryFilters)),
-      kind: encodeURIComponent(
-        JSON.stringify({
-          display_name: choosenFilter?.display_name,
-          value: choosenFilter?.value,
-        }),
-      ),
+      kind: choosenFilter?.value || '',
     });
     navigate(`/alcohols?${params}`);
   };
