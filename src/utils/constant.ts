@@ -33,6 +33,8 @@ export const URL = {
   ME_WISHLIST: '/me/wishlist',
   ME_FAVOURITES: '/me/favourites',
   ME_HISTORY: '/me/search_history',
+  LIST_FAVOURITES: '/list/favourites',
+  LIST_WISHLIST: '/list/wishlist',
   REVIEWS_USER: '/reviews/user',
   SOCIALS_USER_INFO: '/socials/user_info',
   GET_SUGGESTIONS: '/admin/suggestions',

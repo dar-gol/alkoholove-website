@@ -16,7 +16,7 @@ import {putTagName} from '../../utils/requests/put';
 import UserListsLogic from './UserLists.logic';
 
 const UserListsApollo = () => {
-  const {listId, userId, listName} = useParams();
+  const {listId, userId} = useParams();
   const toast = useToast();
   const navigate = useNavigate();
   const [lists, setLists] = useState<ListsAlcohols | null>(null);
@@ -29,21 +29,18 @@ const UserListsApollo = () => {
     mutationFn: getLists(),
     onSuccess(data, variables) {
       setLists({...data.data, type: 'standard'});
-      console.log({...data.data, type: 'standard'});
     },
   });
   const ratedMutation = useMutation({
     mutationFn: getRated,
     onSuccess(data) {
       setLists({...data.data, type: 'rated'});
-      console.log({...data.data, type: 'rated'});
     },
   });
   const historyMutation = useMutation({
     mutationFn: getHistory,
     onSuccess(data) {
       setLists({...data.data, type: 'history'});
-      console.log({...data.data, type: 'history'});
     },
   });
 
@@ -83,10 +80,10 @@ const UserListsApollo = () => {
   };
 
   useEffect(() => {
-    if (!listId) return;
+    if (!listId || !userId) return;
     if (listId === 'history') {
       historyMutation.mutate({
-        queryKey: ['', listId, lists?.page_info.limit.toString() || '10'],
+        queryKey: ['', userId, lists?.page_info.limit.toString() || '10'],
       });
     } else if (listId === 'rated') {
       if (!userId) return;
@@ -95,7 +92,7 @@ const UserListsApollo = () => {
       });
     } else
       standardMutation.mutate({
-        queryKey: ['', listId, lists?.page_info.limit.toString() || '10'],
+        queryKey: ['', userId, lists?.page_info.limit.toString() || '10'],
       });
   }, [lists?.page_info.limit]);
 

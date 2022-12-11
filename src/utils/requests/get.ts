@@ -29,13 +29,21 @@ export const getAlcoholLists = ({queryKey}: IQueryKey) =>
 
 export const getFavourites = ({queryKey}: IQueryKey) =>
   request<StandardAlcohols>(
-    {url: `${API}${URL.ME_FAVOURITES}?limit=${queryKey[2] || 10}`},
+    {
+      url: `${API}${URL.LIST_FAVOURITES}/${queryKey[1]}?limit=${
+        queryKey[2] || 10
+      }`,
+    },
     true,
   );
 
 export const getWishlist = ({queryKey}: IQueryKey) =>
   request<StandardAlcohols>(
-    {url: `${API}${URL.ME_WISHLIST}?limit=${queryKey[2] || 10}`},
+    {
+      url: `${API}${URL.LIST_WISHLIST}/${queryKey[1]}?limit=${
+        queryKey[2] || 10
+      }`,
+    },
     true,
   );
 
@@ -56,10 +64,10 @@ export const getRated = ({queryKey}: IQueryKey) =>
   );
 
 export const searchUsers = ({queryKey}: IQueryKey) =>
-    request<UsersSearchResultObject>(
-        {
-            method: 'GET',
-            url: `${API}${URL.SEARCH_USERS}?offset=0&limit=${queryKey[0]}${queryKey[1]}&search_type=${queryKey[2]}`,
-        },
-        true,
-    );
+  request<UsersSearchResultObject>(
+    {
+      method: 'GET',
+      url: `${API}${URL.SEARCH_USERS}?offset=0&limit=${queryKey[0]}${queryKey[1]}&search_type=${queryKey[2]}`,
+    },
+    true,
+  );

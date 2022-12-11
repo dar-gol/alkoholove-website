@@ -16,7 +16,6 @@ const HeaderApollo = () => {
       const tokens = getCookie<Tokens>('auth');
       if (tokens) document.location.reload();
       setCookie('auth', '');
-      console.log({e});
     },
   });
   const userMutation = useMutation({
