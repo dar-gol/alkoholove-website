@@ -66,6 +66,13 @@ const ListsView = ({tags, user}: IListsView) => {
         )}
         <Col visible={!id}>
           {createRow(
+            'Rekomendowane',
+            'recommendation',
+            `/user/${user.id}/lists/recommendations/Rekomendowane`,
+          )}
+        </Col>
+        <Col visible={!id}>
+          {createRow(
             'Historia wyszukiwań',
             'history',
             `/user/${user.id}/lists/history/Historia%20wyszukiwań`,

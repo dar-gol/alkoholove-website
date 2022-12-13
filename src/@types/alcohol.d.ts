@@ -90,4 +90,10 @@ export type RatedAlcohols = {
   page_info: IPageInfo;
 };
 
-export type ListsAlcohols = StandardAlcohols | HistoryAlcohols | RatedAlcohols;
+export type RecommendationAlcohols = {
+  type: 'recommendations';
+  alcohols: IAlcohol[];
+  page_info?: never;
+}
+
+export type ListsAlcohols = StandardAlcohols | HistoryAlcohols | RatedAlcohols | RecommendationAlcohols;

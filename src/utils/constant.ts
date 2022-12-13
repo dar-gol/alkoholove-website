@@ -33,6 +33,7 @@ export const URL = {
   ME_WISHLIST: '/me/wishlist',
   ME_FAVOURITES: '/me/favourites',
   ME_HISTORY: '/me/search_history',
+  ME_RECOMMENDATIONS: '/me/recommendations',
   LIST_FAVOURITES: '/list/favourites',
   LIST_WISHLIST: '/list/wishlist',
   REVIEWS_USER: '/reviews/user',
@@ -81,6 +82,7 @@ export const icons = {
   finish: 'icon-Food',
   aroma: 'icon-Bottle',
   taste: 'icon-Food',
+  recommendation: 'icon-Recomendation',
 };
 
 export const CORE_PROPERTY = 'core';
