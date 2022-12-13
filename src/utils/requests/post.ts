@@ -43,3 +43,12 @@ export const postError = ({description}: ErrorVariables) =>
     {method: 'POST', url: `${API}${URL.ERRORS}`, data: {description}},
     true,
   );
+
+export const addFollowing = (userId: string) =>
+  request(
+    {
+      method: 'POST',
+      url: `${API}${URL.ME_FOLLOWING}/${userId}`,
+    },
+    true,
+  );

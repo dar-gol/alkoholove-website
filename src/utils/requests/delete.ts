@@ -30,3 +30,12 @@ export const removeTag = (tagId: string) =>
     },
     true,
   );
+
+export const deleteFollowing = (userId: string) =>
+  request(
+    {
+      method: 'DELETE',
+      url: `${API}${URL.ME_FOLLOWING}/${userId}`,
+    },
+    true,
+  );
