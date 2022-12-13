@@ -54,7 +54,7 @@ const UserListsView = ({
   );
   const createTiles = (alcohols: ListsAlcohols) => {
     const {type} = alcohols;
-    if (type === 'standard') return alcohols.alcohols.map(a => createTile(a));
+    if (type === 'standard' || type === 'recommendations') return alcohols.alcohols.map(a => createTile(a));
     if (type === 'history')
       return alcohols.alcohols.map(a =>
         createTile({...a.alcohol, searchDate: a.date}),

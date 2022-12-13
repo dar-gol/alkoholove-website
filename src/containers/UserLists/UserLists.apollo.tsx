@@ -8,7 +8,7 @@ import {removeTag} from '../../utils/requests/delete';
 import {
   getFavourites,
   getHistory,
-  getRated,
+  getRated, getRecommendations,
   getTagAlcohols,
   getWishlist,
 } from '../../utils/requests/get';
@@ -25,22 +25,32 @@ const UserListsApollo = () => {
     if (listId === 'wishlists') return getWishlist;
     return getTagAlcohols;
   };
+
   const standardMutation = useMutation({
     mutationFn: getLists(),
     onSuccess(data, variables) {
       setLists({...data.data, type: 'standard'});
     },
   });
+
   const ratedMutation = useMutation({
     mutationFn: getRated,
     onSuccess(data) {
       setLists({...data.data, type: 'rated'});
     },
   });
+
   const historyMutation = useMutation({
     mutationFn: getHistory,
     onSuccess(data) {
       setLists({...data.data, type: 'history'});
+    },
+  });
+
+  const recommendationsMutation = useMutation({
+    mutationFn: getRecommendations,
+    onSuccess(data) {
+      setLists({...data.data, type: 'recommendations'});
     },
   });
 
@@ -69,7 +79,7 @@ const UserListsApollo = () => {
   };
 
   const setLimit = () => {
-    if (!lists) return;
+    if (!lists || lists.type === 'recommendations') return;
     setLists(() => ({
       ...lists,
       page_info: {
@@ -81,20 +91,25 @@ const UserListsApollo = () => {
 
   useEffect(() => {
     if (!listId || !userId) return;
-    if (listId === 'history') {
+    if (listId === 'recommendations') {
+      if (!userId) return;
+      recommendationsMutation.mutate();
+      console.log(lists)
+    }
+    else if (listId === 'history') {
       historyMutation.mutate({
-        queryKey: ['', userId, lists?.page_info.limit.toString() || '10'],
+        queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
       });
     } else if (listId === 'rated') {
       if (!userId) return;
       ratedMutation.mutate({
-        queryKey: ['', userId, lists?.page_info.limit.toString() || '10'],
+        queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
       });
     } else
       standardMutation.mutate({
-        queryKey: ['', userId, lists?.page_info.limit.toString() || '10'],
+        queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
       });
-  }, [lists?.page_info.limit]);
+  }, [lists?.page_info?.limit]);
 
   if (!lists) return <LoadingModal title="" isOpen />;
 

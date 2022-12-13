@@ -74,6 +74,7 @@ export const getTagOrLists = (name: string) => {
     'Ocenione',
     'Lista życzeń',
     'Historia wyszukiwań',
+    'Rekomendowane',
   ];
   if (listsName.includes(name)) return 'Lista';
   return 'Tag';

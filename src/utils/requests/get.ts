@@ -5,7 +5,7 @@ import {request} from '../utils';
 import {IUser, UsersSearchResultObject} from '../../@types/user';
 import {
   HistoryAlcohols,
-  RatedAlcohols,
+  RatedAlcohols, RecommendationAlcohols,
   StandardAlcohols,
 } from '../../@types/alcohol';
 
@@ -68,6 +68,15 @@ export const searchUsers = ({queryKey}: IQueryKey) =>
     {
       method: 'GET',
       url: `${API}${URL.SEARCH_USERS}?offset=0&limit=${queryKey[0]}${queryKey[1]}&search_type=${queryKey[2]}`,
+    },
+    true,
+  );
+
+export const getRecommendations = () =>
+  request<RecommendationAlcohols>(
+    {
+      method: 'GET',
+      url: `${API}${URL.ME_RECOMMENDATIONS}`
     },
     true,
   );
