@@ -26,6 +26,7 @@ export const URL = {
   ERRORS: '/errors',
   REPORTED_REVIEW: '/admin/reviews',
   ME: '/me',
+  ME_FOLLOWING: '/me/following',
   ME_REVIEWS: '/me/reviews',
   ME_REPORT_REVIEW: '/me/reviews/report',
   ME_TAGS: '/me/tags',
