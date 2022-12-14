@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useTheme} from 'styled-components';
+import {useParams} from 'react-router-dom';
 import {getDate} from '../../utils/utils';
 import {Col, Row, Text, Tuple} from '../../styles/global.styled';
 import {IDataView} from './ProfileComponents.interface';
@@ -11,6 +12,7 @@ import useToast from '../../utils/hooks/useToast';
 
 const DataView = ({user}: IDataView) => {
   const theme = useTheme();
+  const {id} = useParams();
   const [isFollowing, setIsFollowing] = useState<boolean | null>(null);
   const toast = useToast();
 
@@ -80,7 +82,7 @@ const DataView = ({user}: IDataView) => {
       {createTuple('Ilość ulubionych', user.favourites_count)}
       {createTuple('Ilość obserwowanych', user.following_count)}
       {createTuple('Ilość obserwujących', user.followers_count)}
-      <Row padding="10px 0 0 0" visible={isFollowing !== null}>
+      <Row padding="10px 0 0 0" visible={!!id && isFollowing !== null}>
         <Button buttonType="Primary" padding="0 20px" onClick={setFollow}>
           {isFollowing ? 'Przestań obserwować' : 'Obserwuj'}
         </Button>
