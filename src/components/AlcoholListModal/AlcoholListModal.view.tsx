@@ -1,9 +1,10 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
-import {BtnPrimary, Col, Text} from '../../styles/global.styled';
+import {BtnPrimary, Col, Row, Text} from '../../styles/global.styled';
 import Toggle from '../Inputs/Toggle';
 import Modal from '../modal/Modal';
+import {Wrapper} from './AlcoholListModal.styled';
 
 interface Props {
   isOpen: boolean;
@@ -40,7 +41,7 @@ const AlcoholListModalView = ({
     });
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <Col gap="10px">
+      <Wrapper gap="10px">
         <Col gap="5px">
           <Text
             as="h4"
@@ -78,10 +79,12 @@ const AlcoholListModalView = ({
           </Text>
           {createTags()}
         </Col>
-        <BtnPrimary margin="10px 0 0 0" onClick={() => openTagModal(true)}>
-          Utwórz tag
-        </BtnPrimary>
-      </Col>
+        <Col>
+          <BtnPrimary margin="10px 0 0 0" onClick={() => openTagModal(true)}>
+            Utwórz tag
+          </BtnPrimary>
+        </Col>
+      </Wrapper>
     </Modal>
   );
 };
