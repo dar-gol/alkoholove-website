@@ -7,10 +7,12 @@ import {
   AdvantageTextWrapper,
   CTABlock,
 } from './AlkoholoveCTA.styled';
+import {getCookie} from '../../utils/cookies';
 
 const AlkoholoveCTAView = () => {
   const theme = useTheme() as {palette: {[k: string]: string}};
   const navigate = useNavigate();
+  const isLogged = getCookie('auth');
   return (
     <Col gap="50px">
       <Text
@@ -73,7 +75,11 @@ const AlkoholoveCTAView = () => {
             width="120px"
             height="120px"
           />
-          <BtnPrimary width="220px" isCTA onClick={() => navigate('/register')}>
+          <BtnPrimary
+            width="220px"
+            isCTA
+            onClick={() => navigate('/register')}
+            visible={!isLogged}>
             Zarejestruj się
           </BtnPrimary>
         </Col>
