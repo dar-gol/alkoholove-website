@@ -52,7 +52,7 @@ const SearcherLogic = ({
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setPhrase(phraseValue);
-    }, 500);
+    }, 100);
 
     return () => clearTimeout(delayDebounceFn);
   }, [phraseValue]);

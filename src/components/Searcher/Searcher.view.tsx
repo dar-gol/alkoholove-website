@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useTheme} from 'styled-components';
 import {ICategory} from '../../@types/category';
 import {ICategoryFilter} from '../../@types/filters';
@@ -61,11 +61,18 @@ const SearcherView = ({
   setPhrase,
 }: Props) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
+  const input = useRef<HTMLInputElement>();
   const getCategoryName = () => {
     if (!filters) return 'wszystkie';
     if (filters.value === 'all') return 'wszystkie';
     return filters.value;
   };
+  const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') search();
+  };
+  useEffect(() => {
+    if (input && show) input.current?.focus();
+  }, [show]);
   const categoryBlock = () => {
     if (!filters) return null;
     const categoryElements = categories.map(category => {
@@ -162,9 +169,11 @@ const SearcherView = ({
                 placeholder="Harnaś"
                 error=""
                 value={phrase}
+                onKeyDown={handleEnter}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setPhrase(e.target.value)
                 }
+                inputRef={input}
               />
             </Row>
             <BtnPrimary width="220px" onClick={search}>

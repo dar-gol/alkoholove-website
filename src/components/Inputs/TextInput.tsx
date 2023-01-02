@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Icon } from "../../styles/global.styled";
-import { autoCompleteHandler } from "../../utils/utils";
-import { CustomInputProps, RightIcon, Type } from "./ICustomInput";
+import React, {useEffect, useState} from 'react';
+import {Icon} from '../../styles/global.styled';
+import {autoCompleteHandler} from '../../utils/utils';
+import {CustomInputProps, RightIcon, Type} from './ICustomInput';
 import {
   Input,
   InputContainer,
@@ -9,7 +9,7 @@ import {
   Label,
   Error,
   TextArea,
-} from "./TextInput.styled";
+} from './TextInput.styled';
 
 const TextInput: React.FC<CustomInputProps> = ({
   placeholder,
@@ -19,28 +19,28 @@ const TextInput: React.FC<CustomInputProps> = ({
   isAutoCompleted,
   ...rest
 }) => {
-  const [type, setType] = useState<Type>("default");
-  const [rightIcon, setRightIcon] = useState<RightIcon>("");
+  const [type, setType] = useState<Type>('default');
+  const [rightIcon, setRightIcon] = useState<RightIcon>('');
   const [active, setActive] = useState<boolean>(false);
 
   const activeHandler = () => setActive(true);
   const blurHandler = () => setActive(false);
 
   const stateRightIcon = (): RightIcon => {
-    if (!active && state === "success") return "icon-Success";
-    if (!active && state === "error") return "icon-Error";
-    return "";
+    if (!active && state === 'success') return 'icon-Success';
+    if (!active && state === 'error') return 'icon-Error';
+    return '';
   };
 
   const stateHandler = (): Type => {
-    if (active) return "written active";
+    if (active) return 'written active';
     if (!active && rest.value) return `written ${state}`;
     if (!active && !rest.value) return `default ${state}`;
-    return "default";
+    return 'default';
   };
 
   useEffect(() => {
-    if (isAutoCompleted) autoCompleteHandler(() => setType("written"));
+    if (isAutoCompleted) autoCompleteHandler(() => setType('written'));
   }, []);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const TextInput: React.FC<CustomInputProps> = ({
   const textAreaAdjust = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const element = event.currentTarget;
     const parent = element.parentElement?.parentElement;
-    element.style.height = "1px";
+    element.style.height = '1px';
     element.style.height = `${35 + element.scrollHeight}px`;
     if (parent) {
       parent.style.minHeight = element.style.height;
@@ -62,27 +62,29 @@ const TextInput: React.FC<CustomInputProps> = ({
     }
   };
 
-  const getPlaceholder = () => (active ? placeholder : "");
+  const getPlaceholder = () => (active ? placeholder : '');
 
   const getInputType = () => {
-    if (rest.type === "textarea")
+    if (rest.type === 'textarea')
       return (
         <TextArea
+          ref={rest.inputRef}
           {...rest}
           placeholder={getPlaceholder()}
-          onKeyUp={(event) => textAreaAdjust(event)}
+          onKeyUp={event => textAreaAdjust(event)}
         />
       );
-    return <Input {...rest} placeholder={getPlaceholder()} />;
+    return (
+      <Input ref={rest.inputRef} {...rest} placeholder={getPlaceholder()} />
+    );
   };
 
   return (
     <InputContainer
       onFocus={activeHandler}
       onBlur={blurHandler}
-      className={`${type}`}
-    >
-      <Icon className={`${icon || "icon-search"} left-icon`} />
+      className={`${type}`}>
+      <Icon className={`${icon || 'icon-search'} left-icon`} />
       <InputWrapper>
         <Label>{rest.title}</Label>
         {getInputType()}
