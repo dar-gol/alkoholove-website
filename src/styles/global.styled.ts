@@ -555,7 +555,6 @@ export const Container = styled.article<{
 export const ScrollContainer = styled(Row)`
   overflow-x: scroll;
   width: 100%;
-  ${WithoutScrollbar}
 `;
 
 export const Form = styled.form`

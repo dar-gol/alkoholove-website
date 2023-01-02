@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
+import HorizontalScroll from 'react-horizontal-scrolling';
 import AdMobile from '../../components/AdMobile/AdMobile.view';
 import AlkoholoveCTAView from '../../components/AlkoholoveCTA/AlkoholoveCTA.view';
 import CategoryListApollo from '../../components/CategoryList/CategoryList.apollo';
@@ -37,6 +38,15 @@ const HomeView = () => {
             weight="medium"
             margin="50px 0 10px 0">
             Lista Alkoholi
+          </Text>
+          <Text
+            type="body"
+            weight="medium"
+            size="large"
+            margin="0 0 20px 0"
+            color={theme.palette.Grey60}
+            as="h4">
+            Lista najpopularniejszych alkohol.
           </Text>
         </Container>
         <ScrollContainer>
