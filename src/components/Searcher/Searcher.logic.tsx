@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {ICategory} from '../../@types/category';
-import {ICategoryFilter, IFilter} from '../../@types/filters';
+import {
+  ICategoryFilter,
+  IFetchCategoryFilter,
+  IFilter,
+} from '../../@types/filters';
 import useQueryParams from '../../utils/hooks/useQueryParams';
 import SearcherView from './Searcher.view';
 
@@ -9,7 +13,12 @@ interface Props {
   handleShow: (state?: boolean) => void;
   categories: ICategory[];
   filters: ICategoryFilter | null;
-  chooseCategoryFilters: (category: string) => void;
+  chooseCategoryFilters: (
+    category: string,
+    preFilters?: IFetchCategoryFilter[],
+    isInit?: boolean,
+    isLastSearch?: boolean,
+  ) => void;
   setChoosenFilter: React.Dispatch<
     React.SetStateAction<ICategoryFilter | null>
   >;

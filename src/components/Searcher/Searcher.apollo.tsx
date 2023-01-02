@@ -11,6 +11,7 @@ import {API, URL} from '../../utils/constant';
 import {get, post} from '../../utils/fetch';
 import useQueryParams from '../../utils/hooks/useQueryParams';
 import SearcherLogic from './Searcher.logic';
+import {getCookie, setCookie} from '../../utils/cookies';
 
 interface Props {
   show: boolean;
@@ -28,16 +29,23 @@ const SearcherApollo = ({show, handleShow}: Props) => {
   const [phrase, setPhrase] = useState<string>('');
   const {query} = useQueryParams();
 
-  const getFilterFromQuery = (name: string, value?: string) => {
+  const getFilterFromQuery = (
+    name: string,
+    value?: string,
+    isLastSearch?: boolean,
+  ) => {
+    const filterObject = isLastSearch
+      ? (getCookie('lastSearch') as {[k: string]: string})
+      : query;
     if (name === 'kind') {
-      if (!query.kind) return 'all';
-      return query.kind;
+      if (!filterObject.kind) return 'all';
+      return filterObject.kind;
     }
 
-    if (!query.filters && value) return '';
-    if (!query.filters) return {};
+    if (!filterObject.filters && value) return '';
+    if (!filterObject.filters) return {};
 
-    const rawFilters = JSON.parse(decodeURIComponent(query.filters)) as {
+    const rawFilters = JSON.parse(decodeURIComponent(filterObject.filters)) as {
       name: string;
       display_name: string;
       values: {value: string; selected: boolean}[];
@@ -54,8 +62,9 @@ const SearcherApollo = ({show, handleShow}: Props) => {
     category: string,
     preFilters?: IFetchCategoryFilter[],
     isInit?: boolean,
+    isLastSearch?: boolean,
   ) => {
-    const queryKind = getFilterFromQuery('kind');
+    const queryKind = getFilterFromQuery('kind', undefined, isLastSearch);
     const aFilters = preFilters || filters;
     const oFilter = aFilters.find(filter => {
       if (isInit && filter.value === queryKind) return true;
@@ -66,7 +75,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
     const categoryFilter: IFilter[] = oFilter.filters.reduce<IFilter[]>(
       (prev, curr) => {
         const values = curr.values.map(value => {
-          const isSelected = getFilterFromQuery(curr.name, value);
+          const isSelected = getFilterFromQuery(curr.name, value, isLastSearch);
           return {value, selected: !!(isInit && isSelected)};
         });
         return [...prev, {...curr, values}];
@@ -127,11 +136,13 @@ const SearcherApollo = ({show, handleShow}: Props) => {
       const values = filter.values.filter(value => value.selected);
       return {...filter, values};
     });
-    const params = createSearchParams({
+    const paramObject = {
       phrase,
       filters: encodeURIComponent(JSON.stringify(queryFilters)),
       kind: choosenFilter?.value || '',
-    });
+    };
+    const params = createSearchParams(paramObject);
+    setCookie('lastSearch', JSON.stringify(paramObject));
     navigate(`/alcohols?${params}`);
   };
 
