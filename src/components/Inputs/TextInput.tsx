@@ -71,13 +71,16 @@ const TextInput: React.FC<CustomInputProps> = ({
     if (rest.type === 'textarea')
       return (
         <TextArea
+          ref={rest.inputRef}
           {...rest}
-          placeholder={getPlaceholder()}
           className="textareaInput"
+          placeholder={getPlaceholder()}
           onKeyUp={event => textAreaAdjust(event)}
         />
       );
-    return <Input {...rest} placeholder={getPlaceholder()} />;
+    return (
+      <Input ref={rest.inputRef} {...rest} placeholder={getPlaceholder()} />
+    );
   };
 
   return (

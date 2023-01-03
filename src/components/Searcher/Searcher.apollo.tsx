@@ -82,6 +82,8 @@ const SearcherApollo = ({show, handleShow}: Props) => {
       },
       [],
     );
+    if (isLastSearch)
+      setPhrase(getCookie<{[k: string]: string}>('lastSearch')?.phrase || '');
     setChoosenFilter({...oFilter, filters: categoryFilter});
     return null;
   };
@@ -147,7 +149,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
   };
 
   useEffect(() => {
-    getTotal();
+    if (phrase.length >= 3) getTotal();
   }, [choosenFilter?.value, choosenFilter?.filters, phrase]);
 
   useEffect(() => {
@@ -175,6 +177,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
       setChoosenFilter={setChoosenFilter}
       total={total}
       search={search}
+      phrase={phrase}
       setPhrase={setPhrase}
     />
   );
