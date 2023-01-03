@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Col} from '../../styles/global.styled';
+import {Col, Row} from '../../styles/global.styled';
 
 export const Review = styled(Col)`
   background-color: ${({theme}) => theme.palette.Grey5};
@@ -53,4 +53,10 @@ export const Cap = styled(Col)`
   width: 100%;
   height: 100%;
   background-color: ${({theme}) => theme.palette.BackgroundTransparency60};
+`;
+
+export const StarWrapper = styled(Row)`
+  background-color: ${({theme}) => theme.palette.Grey5};
+  border-radius: 10px;
+  padding: 5px;
 `;

@@ -41,6 +41,9 @@ const TextInput: React.FC<CustomInputProps> = ({
 
   useEffect(() => {
     if (isAutoCompleted) autoCompleteHandler(() => setType('written'));
+    const textarea = document.querySelector('.textareaInput');
+    if (!textarea) return;
+    textarea.dispatchEvent(new Event('keyup', {bubbles: true}));
   }, []);
 
   useEffect(() => {
@@ -70,6 +73,7 @@ const TextInput: React.FC<CustomInputProps> = ({
         <TextArea
           ref={rest.inputRef}
           {...rest}
+          className="textareaInput"
           placeholder={getPlaceholder()}
           onKeyUp={event => textAreaAdjust(event)}
         />

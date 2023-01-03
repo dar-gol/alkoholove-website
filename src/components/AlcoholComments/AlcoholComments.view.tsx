@@ -25,6 +25,7 @@ import {
   Cap,
   ColorBlock,
   Review,
+  StarWrapper,
 } from './AlcoholComments.styled';
 
 interface IProps {
@@ -188,7 +189,9 @@ const AlcoholCommentsView = ({
               color={theme.palette.Grey40}>
               Twoja ogólna ocena tego alkoholu
             </Text>
-            <Stars rate={comments.my_review?.rating || 0} setRate={setRate} />
+            <StarWrapper>
+              <Stars rate={comments.my_review?.rating || 0} setRate={setRate} />
+            </StarWrapper>
           </Col>
           <Row justifyContent="center">
             <BtnPrimary

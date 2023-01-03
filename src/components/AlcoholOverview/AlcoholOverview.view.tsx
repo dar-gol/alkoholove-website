@@ -3,14 +3,7 @@ import {useTheme} from 'styled-components';
 import {IAlcohol} from '../../@types/alcohol';
 import {AlcoholLists, IdentifyTag} from '../../@types/Lists';
 import {Tokens} from '../../@types/user';
-import {
-  Col,
-  Container,
-  Icon,
-  Img,
-  Row,
-  Text,
-} from '../../styles/global.styled';
+import {Col, Container, Icon, Img, Row, Text} from '../../styles/global.styled';
 import {URL} from '../../utils/constant';
 import {getCookie} from '../../utils/cookies';
 import {createImageName, getRate} from '../../utils/utils';
@@ -125,11 +118,7 @@ const AlcoholOverviewView = ({
               )}`}
             />
             <PlusBtn onClick={() => handleModalLists(true)} visible={!!tokens}>
-              <Icon
-                className="icon-Plus"
-                color={theme.palette.White}
-                fontSize="32px"
-              />
+              Zarządzaj alkoholem
             </PlusBtn>
           </Col>
         </Wrapper>
