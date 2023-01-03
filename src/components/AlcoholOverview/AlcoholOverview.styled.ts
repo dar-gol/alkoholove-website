@@ -24,15 +24,16 @@ export const DescContainer = styled.div`
 `;
 
 export const PlusBtn = styled(BtnPrimary)`
-  width: 64px;
-  height: 64px;
+  /* width: 64px;
+  height: 64px; */
+  padding: 0 20px;
   display: ${({visible = true}) => (visible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 30px
     ${({theme}) => theme.palette.BackgroundTransparency20};
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
 `;
