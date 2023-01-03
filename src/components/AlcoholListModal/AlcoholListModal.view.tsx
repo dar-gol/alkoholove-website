@@ -69,14 +69,26 @@ const AlcoholListModalView = ({
           />
         </Col>
         <Col gap="5px">
-          <Text
-            as="h4"
-            type="h5"
-            weight="bold"
-            size="large"
-            color={theme.palette.Grey90}>
-            Tagi
-          </Text>
+          <Row alignItems="end">
+            <Text
+              as="h5"
+              type="h5"
+              size="large"
+              weight="bold"
+              margin="10px 0"
+              color={theme.palette.Grey80}>
+              Tagi
+            </Text>
+            <Text
+              type="caption"
+              padding="0 0 5px 5px"
+              size="large"
+              weight="bold"
+              margin="10px 0"
+              color={theme.palette.Grey50}>
+              Własne listy
+            </Text>
+          </Row>
           {createTags()}
         </Col>
         <Col>
