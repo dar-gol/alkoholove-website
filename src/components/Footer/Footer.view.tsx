@@ -1,10 +1,11 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {Col, Img, Row, Text} from '../../styles/global.styled';
+import {getCookie} from '../../utils/cookies';
 
 const FooterView = () => {
   const theme = useTheme() as {palette: {[k: string]: string}};
-
+  const isLogged = getCookie('auth');
   return (
     <Row margin="50px 0" responsive>
       <Col minWidth="200px" gap="10px" alignItems="center">
@@ -67,6 +68,7 @@ const FooterView = () => {
               </Col>
               <Col gap="10px">
                 <Text
+                  visible={!isLogged}
                   as="a"
                   href="/login"
                   type="caption"
@@ -77,6 +79,7 @@ const FooterView = () => {
                   Zaloguj się
                 </Text>
                 <Text
+                  visible={!isLogged}
                   as="a"
                   href="/register"
                   type="caption"
@@ -87,6 +90,7 @@ const FooterView = () => {
                   Zarejestruj się
                 </Text>
                 <Text
+                  visible={!!isLogged}
                   as="a"
                   href="/logout"
                   type="caption"
@@ -107,7 +111,7 @@ const FooterView = () => {
           weight="bold"
           color={theme.palette.Grey70}
           isNoWrap>
-          Wersja aplikacji: 1.00 (stabilna).
+          Wersja aplikacji: 1.05 (stabilna).
         </Text>
       </Col>
     </Row>

@@ -294,6 +294,7 @@ interface IText {
   color?: string;
   textAlign?: string;
   textDecoration?: string;
+  visible?: boolean;
   zIndex?: number;
 }
 
@@ -342,6 +343,7 @@ const getFontStyle = (
 
 export const Text = styled.p<IText>`
   ${({type, weight, size}) => (type ? getFontStyle(type, weight, size) : '')}
+  display: ${({visible = true}) => (visible ? 'inital' : 'none')};
   white-space: ${({isNoWrap = false}) => (isNoWrap ? 'nowrap' : 'wrap')};
   text-transform: ${({textTransform}) => textTransform || 'none'};
   margin: ${({margin}) => margin || '0'};
