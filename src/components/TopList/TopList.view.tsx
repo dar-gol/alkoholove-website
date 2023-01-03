@@ -2,9 +2,9 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTheme} from 'styled-components';
 import {Alcohols} from '../../@types/alcohol';
-import {ImageContainer, Img, Row, Text} from '../../styles/global.styled';
-import { URL} from '../../utils/constant';
-import {createImageName} from '../../utils/utils';
+import {Btn, ImageContainer, Img, Row, Text} from '../../styles/global.styled';
+import {URL} from '../../utils/constant';
+import {createImageName, getRate} from '../../utils/utils';
 import Stars from '../Stars/Stars.view';
 import {
   AlcoholWrapper,
@@ -15,6 +15,7 @@ import {
   TopListContainer,
   Type,
 } from './TopList.styled';
+import {Button} from '../../styles/button.styled';
 
 interface IProps {
   alcohols: Alcohols;
@@ -50,7 +51,11 @@ const TopListView = ({alcohols, increaseLimit}: IProps) => {
               <DescTitle>Opis:</DescTitle>
               <Description>{alcohol.description}</Description>
               <Row flex="1" alignItems="center" justifyContent="center">
-                <Stars rate={5} />
+                <Stars
+                  rate={getRate(alcohol.rate_value, alcohol.rate_count)}
+                  onlyStars
+                  rateCount={alcohol.rate_count}
+                />
               </Row>
             </Content>
           </AlcoholWrapper>
@@ -62,16 +67,9 @@ const TopListView = ({alcohols, increaseLimit}: IProps) => {
         alignItems="center"
         justifyContent="center"
         onClick={increaseLimit}>
-        <Text
-          onClick={increaseLimit}
-          href="#"
-          as="a"
-          type="h5"
-          size="large"
-          weight="medium"
-          color={theme.palette.Secondary70}>
-          Więcej
-        </Text>
+        <Button buttonType="Ghost" onClick={increaseLimit} padding="0 20px">
+          Więcej alkoholi
+        </Button>
       </Row>
     </TopListContainer>
   );

@@ -42,7 +42,7 @@ export const CategoryImage = styled(Img)`
 `;
 export const CategoryTitle = styled.h5`
   ${Heading3Large('bold')};
-  color: ${({theme}) => theme.palette.White};
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
