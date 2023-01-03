@@ -7,6 +7,7 @@ export interface IDataView {
 export interface IListsView {
   tags: IdentifyTags;
   user: IUser;
+  createTag: (tagName: string) => void;
 }
 export interface ISettingsView {
   sendError: (description: string) => void;

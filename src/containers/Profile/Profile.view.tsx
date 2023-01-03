@@ -10,12 +10,20 @@ import {Col, Container, Row, Text} from '../../styles/global.styled';
 import {IProfileView} from './Profile.interface';
 import {BtnTab, Content, Wrapper} from './Profile.styled';
 
-const ProfileView = ({tab, handleTab, user, tags, sendError}: IProfileView) => {
+const ProfileView = ({
+  tab,
+  handleTab,
+  user,
+  tags,
+  sendError,
+  createTag,
+}: IProfileView) => {
   const theme = useTheme();
   const {id} = useParams();
   const getTab = () => {
     if (tab === 'data') return <DataView user={user} />;
-    if (tab === 'lists') return <ListsView tags={tags} user={user} />;
+    if (tab === 'lists')
+      return <ListsView tags={tags} user={user} createTag={createTag} />;
     if (tab === 'settings') return <SettingsView sendError={sendError} />;
     return null;
   };
