@@ -13,6 +13,7 @@ interface Props {
   handleShow: (state?: boolean) => void;
   categories: ICategory[];
   filters: ICategoryFilter | null;
+  phrase: string;
   chooseCategoryFilters: (
     category: string,
     preFilters?: IFetchCategoryFilter[],
@@ -37,6 +38,7 @@ const SearcherLogic = ({
   total,
   search,
   setPhrase,
+  phrase,
 }: Props) => {
   const [phraseValue, setPhraseValue] = useState<string>('');
   const {query} = useQueryParams();
@@ -59,6 +61,9 @@ const SearcherLogic = ({
     setChoosenFilter({...filters, filters: t});
   };
   useEffect(() => {
+    if (phrase !== phraseValue) setPhraseValue(phrase);
+  }, [phrase]);
+  useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setPhrase(phraseValue);
     }, 100);
@@ -66,9 +71,8 @@ const SearcherLogic = ({
     return () => clearTimeout(delayDebounceFn);
   }, [phraseValue]);
   useEffect(() => {
-    const {phrase} = query;
-    setPhrase(phrase || '');
-    setPhraseValue(phrase || '');
+    setPhrase(query.phrase || '');
+    setPhraseValue(query.phrase || '');
   }, [JSON.stringify(query)]);
   return (
     <SearcherView

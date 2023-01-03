@@ -179,6 +179,7 @@ const SearcherView = ({
                   placeholder="Harnaś"
                   error=""
                   value={phrase}
+                  onKeyUp={handleEnter}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setPhrase(e.target.value)
                   }
