@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
 import {ICategory} from '../../@types/category';
-import {ICategoryFilter} from '../../@types/filters';
+import {ICategoryFilter, IFetchCategoryFilter} from '../../@types/filters';
 import {
   BtnPrimary,
   Col,
@@ -33,14 +33,21 @@ import {
   Title,
   Token,
   FilterWrapper,
+  LastSearch,
 } from './Searcher.styled';
+import {getCookie} from '../../utils/cookies';
 
 interface Props {
   show: boolean;
   handleShow: (state?: boolean) => void;
   categories: ICategory[];
   filters: ICategoryFilter | null;
-  chooseCategoryFilters: (category: string) => void;
+  chooseCategoryFilters: (
+    category: string,
+    preFilters?: IFetchCategoryFilter[],
+    isInit?: boolean,
+    isLastSearch?: boolean,
+  ) => void;
   setSelectedFilterValue: (filterName: string, filterValue: string) => void;
   total: number;
   search: () => void;
@@ -150,23 +157,40 @@ const SearcherView = ({
       <LightBox show={show} />
       <SearchView show={show}>
         <SearchContainer>
-          <Title onClick={() => handleShow()}>
-            <Icon className="icon-chevron-left" />
-            Wyszukiwarka alkoholi
-          </Title>
+          <Row alignItems="center" gap="10px">
+            <Title onClick={() => handleShow()}>
+              <Icon className="icon-chevron-right" />
+            </Title>
+            <Title>Wyszukiwarka alkoholi</Title>
+          </Row>
           <Row gap="20px" responsive>
-            <Row minWidth="350px">
-              <TextInput
-                title={`Wyszukaj w kategorii: ${getCategoryName()}`}
-                state=""
-                placeholder="Harnaś"
-                error=""
-                value={phrase}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setPhrase(e.target.value)
-                }
-              />
-            </Row>
+            <Col>
+              <Row minWidth="350px">
+                <TextInput
+                  title={`Wyszukaj w kategorii: ${getCategoryName()}`}
+                  state=""
+                  placeholder="Harnaś"
+                  error=""
+                  value={phrase}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPhrase(e.target.value)
+                  }
+                />
+              </Row>
+              <Row visible={!!getCookie('lastSearch')}>
+                <LastSearch
+                  onClick={() =>
+                    chooseCategoryFilters(
+                      filters?.value || '',
+                      undefined,
+                      true,
+                      true,
+                    )
+                  }>
+                  Ostatnio wyszukiwane
+                </LastSearch>
+              </Row>
+            </Col>
             <BtnPrimary width="220px" onClick={search}>
               Ilość wyszukiwań ({total})
             </BtnPrimary>
