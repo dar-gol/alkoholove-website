@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
+import {useNavigate} from 'react-router-dom';
 import {ICategory} from '../../@types/category';
 import {Row, Text} from '../../styles/global.styled';
 import {categoryImages} from '../../utils/constant';
@@ -15,6 +16,7 @@ interface IProps {
 
 const CategoryListView = ({categories}: IProps) => {
   const theme = useTheme() as {palette: {[k: string]: string}};
+  const navigate = useNavigate();
   return (
     <Row gap="50px" padding="50px" width="100%">
       {categories.map(category => {
@@ -23,7 +25,9 @@ const CategoryListView = ({categories}: IProps) => {
           ? category.title
           : 'other';
         return (
-          <CategoryWrapper key={category.id}>
+          <CategoryWrapper
+            key={category.id}
+            onClick={() => navigate(`/alcohols?kind=${category.title}`)}>
             <CategoryImage
               src={`./img/${imageName}-stock.png`}
               height="230px"
