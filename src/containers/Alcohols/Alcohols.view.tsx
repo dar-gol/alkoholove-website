@@ -68,7 +68,7 @@ const AlcoholsView = ({
           {value}
         </Text>
       </Col>
-      <Icon className="icon-Exit" />
+      <Icon visible={value !== 'Wszystkie'} className="icon-Exit" />
     </Filter>
   );
 

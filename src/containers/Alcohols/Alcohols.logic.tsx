@@ -34,8 +34,8 @@ const AlcoholsLogic = ({alcohols, filters, page}: Props) => {
       return [...prev, curr];
     }, []);
     const params = createSearchParams({
-      phrase,
-      kind,
+      phrase: phrase || '',
+      kind: kind || '',
       filters: encodeURIComponent(JSON.stringify(changedFilters)),
     });
     navigate(`/alcohols?${params}`);
@@ -44,9 +44,9 @@ const AlcoholsLogic = ({alcohols, filters, page}: Props) => {
     const {phrase, kind} = query;
     query[key] = '';
     const params = createSearchParams({
-      phrase,
-      kind,
-      filters: query.filters,
+      phrase: phrase || '',
+      kind: kind || '',
+      filters: query.filters || encodeURIComponent('[]'),
       [key]: query[key],
     });
     navigate(`/alcohols?${params}`);
