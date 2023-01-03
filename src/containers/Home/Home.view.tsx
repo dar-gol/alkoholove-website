@@ -1,24 +1,17 @@
 import React from 'react';
 import {useTheme} from 'styled-components';
-import HorizontalScroll from 'react-horizontal-scrolling';
 import AdMobile from '../../components/AdMobile/AdMobile.view';
 import AlkoholoveCTAView from '../../components/AlkoholoveCTA/AlkoholoveCTA.view';
 import CategoryListApollo from '../../components/CategoryList/CategoryList.apollo';
 import FooterView from '../../components/Footer/Footer.view';
-// eslint-disable-next-line import/no-unresolved
 import HeaderApollo from '../../components/Header/Header.apollo';
 import TopListApollo from '../../components/TopList/TopList.apollo';
 import {
-  BtnSecondary,
   Col,
   Container,
-  LargeSubTitle,
   Row,
   ScrollContainer,
-  SmallTitle,
-  SubTitle,
   Text,
-  Title,
 } from '../../styles/global.styled';
 
 const HomeView = () => {
