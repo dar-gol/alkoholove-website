@@ -30,7 +30,11 @@ const HeaderApollo = () => {
     if (!tokens) return;
     userMutation.mutate();
   }, []);
-  return <HeaderLogic isLogged={userMutation.isSuccess} />;
+  const isLogged =
+    userMutation.isIdle || userMutation.isLoading
+      ? !!getCookie('auth')
+      : userMutation.isSuccess;
+  return <HeaderLogic isLogged={isLogged} />;
 };
 
 export default HeaderApollo;

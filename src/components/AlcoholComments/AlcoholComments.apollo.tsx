@@ -142,7 +142,7 @@ const AlcoholCommentsApollo = ({alcohol, refresh}: IProps) => {
     commentsMutation.isIdle ||
     addCommentsMutation.isLoading
   )
-    return <LoadingModal isOpen title="" />;
+    return null;
 
   return (
     <AlcoholCommentsLogic
