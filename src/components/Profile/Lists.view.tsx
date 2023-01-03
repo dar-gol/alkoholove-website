@@ -80,15 +80,26 @@ const ListsView = ({tags, user}: IListsView) => {
         </Col>
       </Col>
       <Col visible={!id}>
-        <Text
-          as="h5"
-          type="h5"
-          size="large"
-          weight="bold"
-          margin="10px 0"
-          color={theme.palette.Grey80}>
-          Tagi
-        </Text>
+        <Row alignItems="end">
+          <Text
+            as="h5"
+            type="h5"
+            size="large"
+            weight="bold"
+            margin="10px 0"
+            color={theme.palette.Grey80}>
+            Tagi
+          </Text>
+          <Text
+            type="caption"
+            padding="0 0 5px 5px"
+            size="large"
+            weight="bold"
+            margin="10px 0"
+            color={theme.palette.Grey50}>
+            Własne listy
+          </Text>
+        </Row>
         <Col gap="10px">
           {tags.user_tags.map(tag =>
             createRow(
