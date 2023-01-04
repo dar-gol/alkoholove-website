@@ -149,7 +149,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
   };
 
   useEffect(() => {
-    if (phrase.length >= 3) getTotal();
+    if (phrase.length >= 3 || phrase.length === 0) getTotal();
   }, [choosenFilter?.value, choosenFilter?.filters, phrase]);
 
   useEffect(() => {

@@ -56,7 +56,7 @@ export const Cap = styled(Col)`
 `;
 
 export const StarWrapper = styled(Row)`
-  background-color: ${({theme}) => theme.palette.Grey5};
+  background-color: ${({theme}) => theme.palette.Grey10};
   border-radius: 10px;
   padding: 5px;
 `;

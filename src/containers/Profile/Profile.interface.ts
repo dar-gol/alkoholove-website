@@ -6,6 +6,7 @@ export type TabType = 'data' | 'lists' | 'settings';
 export interface IProfileView {
   handleTab: (tab: TabType) => void;
   sendError: (description: string) => void;
+  createTag: (tagName: string) => void;
   tab: TabType;
   user: IUser;
   tags: IdentifyTags;
@@ -13,6 +14,7 @@ export interface IProfileView {
 
 export interface IProfileLogic {
   sendError: (description: string) => void;
+  createTag: (tagName: string) => void;
   user: IUser;
   tags: IdentifyTags;
 }

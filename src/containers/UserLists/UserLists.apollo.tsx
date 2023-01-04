@@ -8,7 +8,8 @@ import {removeTag} from '../../utils/requests/delete';
 import {
   getFavourites,
   getHistory,
-  getRated, getRecommendations,
+  getRated,
+  getRecommendations,
   getTagAlcohols,
   getWishlist,
 } from '../../utils/requests/get';
@@ -66,7 +67,7 @@ const UserListsApollo = () => {
     mutationFn: removeTag,
     onSuccess(data, variables) {
       toast.pushSuccess('Tag', `Tag został usunięty pomyślnie.`);
-      navigate('/profil');
+      navigate('/profile');
     },
   });
 
@@ -94,9 +95,7 @@ const UserListsApollo = () => {
     if (listId === 'recommendations') {
       if (!userId) return;
       recommendationsMutation.mutate();
-      console.log(lists)
-    }
-    else if (listId === 'history') {
+    } else if (listId === 'history') {
       historyMutation.mutate({
         queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
       });
@@ -107,7 +106,7 @@ const UserListsApollo = () => {
       });
     } else
       standardMutation.mutate({
-        queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
+        queryKey: ['', listId, lists?.page_info?.limit.toString() || '10'],
       });
   }, [lists?.page_info?.limit]);
 
