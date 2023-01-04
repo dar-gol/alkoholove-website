@@ -6,7 +6,6 @@ import {getIcon} from '../../utils/utils';
 import {IListsView} from './ProfileComponents.interface';
 import {BtnList} from './ProfileComponents.styled';
 import {Button} from '../../styles/button.styled';
-import {addTag} from '../../utils/requests/post';
 import CreateTagView from '../CreateTag/CreateTag.view';
 
 const ListsView = ({tags, user, createTag}: IListsView) => {
@@ -86,15 +85,27 @@ const ListsView = ({tags, user, createTag}: IListsView) => {
       </Col>
       <Col visible={!id} margin="10px 0 0 0">
         <Row justifyContent="space-between">
-          <Text
-            as="h5"
-            type="h5"
-            size="large"
-            weight="bold"
-            margin="10px 0"
-            color={theme.palette.Grey80}>
-            Tagi
-          </Text>
+          <Row alignItems="end">
+            <Text
+              as="h5"
+              type="h5"
+              size="large"
+              weight="bold"
+              margin="10px 0"
+              color={theme.palette.Grey80}>
+              Tagi
+            </Text>
+            <Text
+              type="caption"
+              padding="0 0 5px 5px"
+              size="large"
+              weight="bold"
+              margin="10px 0"
+              isNoWrap
+              color={theme.palette.Grey50}>
+              Własne listy
+            </Text>
+          </Row>
           <Button
             buttonType="Primary"
             padding="0 20px"

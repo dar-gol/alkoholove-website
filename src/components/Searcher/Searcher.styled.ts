@@ -6,7 +6,7 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 import styled from 'styled-components';
-import {Body, Heading4Large} from '../../styles/typography.styled';
+import {Body, Caption, Heading4Large} from '../../styles/typography.styled';
 import {Col, Icon, Row, Text} from '../../styles/global.styled';
 
 export const LightBox = styled.div<{show: boolean}>`
@@ -172,8 +172,7 @@ export const Token = styled.div`
 `;
 
 export const LastSearch = styled(Text)`
-  ${Body('regular', 'medium')};
-  color: ${({theme}) => theme.palette.Grey50};
-  text-decoration: underline;
+  ${Body('medium', 'small')};
+  color: ${({theme}) => theme.palette.Grey30};
   cursor: pointer;
 `;
