@@ -80,7 +80,7 @@ export const CategoryTitle = styled(Text)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: ${({theme}) => theme.palette.White};
+  color: '#fff';
   z-index: 2;
 `;
 

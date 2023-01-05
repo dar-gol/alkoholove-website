@@ -10,7 +10,7 @@ export const CategoryWrapper = styled.div<{active?: boolean}>`
   &:hover {
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     &:before {
-      background-color: ${({theme}) => theme.palette.BackgroundTransparency50};
+      background-color: '#00000066';
     }
   }
   &:before {
@@ -20,9 +20,7 @@ export const CategoryWrapper = styled.div<{active?: boolean}>`
     top: 0;
     left: 0;
     background-color: ${({theme, active}) =>
-      active
-        ? theme.palette.BackgroundTransparency20
-        : theme.palette.BackgroundTransparency40};
+      active ? '#47474A33' : '#47474A66'};
     width: 100%;
     height: 100%;
     z-index: 1;
