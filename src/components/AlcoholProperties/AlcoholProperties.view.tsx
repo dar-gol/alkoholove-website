@@ -84,7 +84,10 @@ const AlcoholPropertiesView = ({
     }, false);
 
   return (
-    <Col position="relative" backgroundColor={theme.palette.White}>
+    <Col
+      position="relative"
+      backgroundColor={theme.palette.White}
+      padding="0 0 50px 0">
       <Container>
         <Text
           as="h2"

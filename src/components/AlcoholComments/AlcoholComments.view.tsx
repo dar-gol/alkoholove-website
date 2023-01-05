@@ -83,7 +83,7 @@ const AlcoholCommentsView = ({
           type="h3"
           size="large"
           weight="medium"
-          margin="50px 0 50px 0">
+          margin="0 0 50px 0">
           Opinię społeczności
         </Text>
         <Row>

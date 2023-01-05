@@ -16,6 +16,8 @@ import {
   updateReview,
 } from './AlcoholComments.api';
 import AlcoholCommentsLogic from './AlcoholComments.logic';
+import Loader from '../Loader/loader';
+import {Row} from '../../styles/global.styled';
 
 interface IProps {
   alcohol: IAlcohol;
@@ -123,6 +125,13 @@ const AlcoholCommentsApollo = ({alcohol, refresh}: IProps) => {
   }, [comments.page_info.limit]);
 
   const AddComment = async (review: string, rating: number) => {
+    if (!rating) {
+      toast.pushWarning(
+        'Wybierz ocenę alkoholu',
+        'Poniżej Twojej opinii znajdują się gwiazdki. Należy wybrać jedną z nich.',
+      );
+      return;
+    }
     addCommentsMutation.mutate({rating, review});
   };
 
@@ -142,7 +151,15 @@ const AlcoholCommentsApollo = ({alcohol, refresh}: IProps) => {
     commentsMutation.isIdle ||
     addCommentsMutation.isLoading
   )
-    return null;
+    return (
+      <Row
+        justifyContent="center"
+        alignItems="center"
+        height="400px"
+        margin="20px 0">
+        <Loader />
+      </Row>
+    );
 
   return (
     <AlcoholCommentsLogic

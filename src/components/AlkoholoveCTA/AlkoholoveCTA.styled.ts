@@ -27,7 +27,7 @@ export const Advantage = styled(Col)`
 export const AdvantageTextWrapper = styled(Row)`
   background-color: ${({theme}) => theme.palette.White};
   border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   padding: 10px 0;
   z-index: 1;
   @media (max-width: 992px) and (min-width: 768px) {
