@@ -305,7 +305,7 @@ const getFontStyle = (
 ) => {
   if (type === 'body') return Body(weight, size);
   if (type === 'caption')
-    return Caption(weight, size === 'medium' ? undefined : size);
+    return Caption(weight, size);
   if (type === 'footer') return Footer(weight);
 
   if (type === 'h1' && size === 'large')
