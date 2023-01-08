@@ -14,7 +14,7 @@ const AdMobile = () => {
         </H3>
         <H4>
           Pobierz aplikację, zarejestruj się i ciesz się wszystkimi
-          możliwosciami AlkohoLove.
+          możliwościami AlkohoLove.
         </H4>
         <BtnPrimary
           width="220px"
