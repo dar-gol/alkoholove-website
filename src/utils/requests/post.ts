@@ -44,6 +44,12 @@ export const postError = ({description}: ErrorVariables) =>
     true,
   );
 
+export const postAccountDelete = () =>
+  request(
+    {method: 'POST', url: `${API}${URL.ME_DELETE_ACCOUNT}`},
+    true,
+  );
+
 export const addFollowing = (userId: string) =>
   request(
     {

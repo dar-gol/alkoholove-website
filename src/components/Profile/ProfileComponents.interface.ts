@@ -11,4 +11,5 @@ export interface IListsView {
 }
 export interface ISettingsView {
   sendError: (description: string) => void;
+  deleteAccount: () => void;
 }

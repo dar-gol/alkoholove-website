@@ -14,7 +14,7 @@ import RemoveUser from '../RemoveUser/RemoveUser.view';
 import SuggestChanges from '../SuggestChanges/SuggestChanges.view';
 import {ISettingsView} from './ProfileComponents.interface';
 
-const SettingsView = ({sendError}: ISettingsView) => {
+const SettingsView = ({sendError, deleteAccount}: ISettingsView) => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [open, setOpen] = useState({
@@ -112,7 +112,6 @@ const SettingsView = ({sendError}: ISettingsView) => {
         </Row>
         <Row>
           <Button
-            visible={false}
             width="200px"
             buttonType="Critical"
             onClick={() => openRemove(true)}>
@@ -133,7 +132,7 @@ const SettingsView = ({sendError}: ISettingsView) => {
       <RemoveUser
         isOpen={open.remove}
         onClose={() => openRemove(false)}
-        removeUser={() => {}}
+        removeUser={deleteAccount}
       />
     </Col>
   );
