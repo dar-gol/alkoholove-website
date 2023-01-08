@@ -13,8 +13,11 @@ import {
   ScrollContainer,
   Text,
 } from '../../styles/global.styled';
+import {getCookie} from "../../utils/cookies";
+import {RecommendationListApollo} from "../../components/RecommendationList/RecommendationList.apollo";
 
 const HomeView = () => {
+  const isLogged = getCookie('auth');
   const theme = useTheme() as {palette: {[k: string]: string}};
   return (
     <>
@@ -39,11 +42,11 @@ const HomeView = () => {
             margin="0 0 20px 0"
             color={theme.palette.Grey60}
             as="h4">
-            Lista najpopularniejszych alkohol.
+            {isLogged ? "Rekomendacje dla Ciebie." : "Lista najpopularniejszych alkoholi."}
           </Text>
         </Container>
         <ScrollContainer>
-          <TopListApollo />
+          {isLogged ? <RecommendationListApollo /> : <TopListApollo />}
         </ScrollContainer>
       </Col>
       <Col backgroundColor={theme.palette.Grey5} alignItems="center">

@@ -49,7 +49,7 @@ const AlkoholoveCTAView = () => {
                 textAlign="center"
                 zIndex={2}
                 width="100%">
-                Skorzystaj z możliwosci rekomendacji.
+                Skorzystaj z możliwości rekomendacji.
               </Text>
             </AdvantageTextWrapper>
           </Advantage>
@@ -94,7 +94,7 @@ const AlkoholoveCTAView = () => {
                 textAlign="center"
                 zIndex={2}
                 width="100%">
-                Dane dostepne na każdym urzadzeniu.
+                Dane dostępne na każdym urządzeniu.
               </Text>
             </AdvantageTextWrapper>
           </Advantage>
@@ -108,7 +108,7 @@ const AlkoholoveCTAView = () => {
                 textAlign="center"
                 zIndex={2}
                 width="100%">
-                Możliwosc obserwowania znajomych.
+                Możliwość obserwowania znajomych.
               </Text>
             </AdvantageTextWrapper>
           </Advantage>
@@ -122,7 +122,7 @@ const AlkoholoveCTAView = () => {
                 textAlign="center"
                 zIndex={2}
                 width="100%">
-                Zapomnij o zle wybranym alkoholu.
+                Zapomnij o źle wybranym alkoholu.
               </Text>
             </AdvantageTextWrapper>
           </Advantage>

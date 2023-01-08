@@ -10,7 +10,7 @@ type bodyWeight = 'bold' | 'medium' | 'regular';
 
 type bodySize = 'large' | 'medium' | 'small';
 
-type captionSize = 'large' | 'small';
+type captionSize = 'large' | 'small'| 'medium';
 
 type captionWeight = 'bold' | 'medium' | 'regular';
 
@@ -23,7 +23,8 @@ const setFooterWeight = (weight: footerWeight) => {
 };
 
 const setCaptionSize = (size: captionSize) => {
-  if (size === 'large') return '11px';
+  if (size === 'large') return '13px';
+  if (size === 'medium') return '12px';
   return '10px';
 };
 

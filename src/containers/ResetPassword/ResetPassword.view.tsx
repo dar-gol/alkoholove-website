@@ -71,8 +71,8 @@ const ResetPasswordView = ({form, onSubmit}: Props) => {
               <InfoBar>
                 <span className="icon-Info" />
                 <p>
-                  Podaj email na którym masz konto AlkohoLove <br />a my wyslemy
-                  Ci dalsze instrukcję.
+                  Podaj email, na którym masz konto AlkohoLove, <br />a my wyślemy
+                  Ci dalsze instrukcje.
                 </p>
               </InfoBar>
               <Row width="100%">
