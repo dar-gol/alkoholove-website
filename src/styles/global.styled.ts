@@ -525,7 +525,7 @@ export const Container = styled.article<{
   overflowY?: string;
   margin?: string;
 }>`
-  max-width: 1320px;
+  max-width: 1420px;
   padding: 0 80px;
   overflow-x: ${({overflowX}) => overflowX || 'unset'};
   overflow-y: ${({overflowY}) => overflowY || 'unset'};
