@@ -27,8 +27,8 @@ const ChangePassword = ({isOpen, onClose, sendChangePassword}: Props) => {
         <InfoBar minWidth="350px">
           <span className="icon-Info" />
           <p>
-            Wyslemy Ci mailowe instrukcje jak zmienic hasło. Wystarczy nacisnac
-            ponizszy przycisk.
+            Wyślemy Ci mailowe instrukcje jak zmienić hasło. Wystarczy nacisnąć
+            poniższy przycisk.
           </p>
         </InfoBar>
         <BtnPrimary onClick={sendChangePassword}>Zmieniam hasło</BtnPrimary>

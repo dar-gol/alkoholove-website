@@ -16,6 +16,7 @@ const ProfileView = ({
   user,
   tags,
   sendError,
+  sendPasswordChange,
   createTag,
 }: IProfileView) => {
   const theme = useTheme();
@@ -24,7 +25,7 @@ const ProfileView = ({
     if (tab === 'data') return <DataView user={user} />;
     if (tab === 'lists')
       return <ListsView tags={tags} user={user} createTag={createTag} />;
-    if (tab === 'settings') return <SettingsView sendError={sendError} />;
+    if (tab === 'settings') return <SettingsView sendError={sendError} sendPasswordChange={sendPasswordChange} />;
     return null;
   };
   return (
