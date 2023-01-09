@@ -14,7 +14,7 @@ import RemoveUser from '../RemoveUser/RemoveUser.view';
 import SuggestChanges from '../SuggestChanges/SuggestChanges.view';
 import {ISettingsView} from './ProfileComponents.interface';
 
-const SettingsView = ({sendError}: ISettingsView) => {
+const SettingsView = ({sendError, deleteAccount, sendPasswordChange}: ISettingsView) => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [open, setOpen] = useState({
@@ -95,7 +95,6 @@ const SettingsView = ({sendError}: ISettingsView) => {
         </Row>
         <Row>
           <Button
-            visible={false}
             width="200px"
             buttonType="Secondary"
             onClick={() => openPassword(true)}>
@@ -112,7 +111,6 @@ const SettingsView = ({sendError}: ISettingsView) => {
         </Row>
         <Row>
           <Button
-            visible={false}
             width="200px"
             buttonType="Critical"
             onClick={() => openRemove(true)}>
@@ -128,12 +126,12 @@ const SettingsView = ({sendError}: ISettingsView) => {
       <ChangePassword
         isOpen={open.password}
         onClose={() => openPassword(false)}
-        sendChangePassword={() => {}}
+        sendChangePassword={() => sendPasswordChange(openPassword)}
       />
       <RemoveUser
         isOpen={open.remove}
         onClose={() => openRemove(false)}
-        removeUser={() => {}}
+        removeUser={deleteAccount}
       />
     </Col>
   );

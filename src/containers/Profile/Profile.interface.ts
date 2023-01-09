@@ -6,6 +6,8 @@ export type TabType = 'data' | 'lists' | 'settings';
 export interface IProfileView {
   handleTab: (tab: TabType) => void;
   sendError: (description: string) => void;
+  deleteAccount: () => void;
+  sendPasswordChange: (openPassword: (password: boolean) => void) => void;
   createTag: (tagName: string) => void;
   tab: TabType;
   user: IUser;
@@ -14,6 +16,8 @@ export interface IProfileView {
 
 export interface IProfileLogic {
   sendError: (description: string) => void;
+  deleteAccount: () => void;
+  sendPasswordChange: (openPassword: (password: boolean) => void) => void;
   createTag: (tagName: string) => void;
   user: IUser;
   tags: IdentifyTags;

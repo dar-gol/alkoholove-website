@@ -11,4 +11,6 @@ export interface IListsView {
 }
 export interface ISettingsView {
   sendError: (description: string) => void;
+  deleteAccount: () => void;
+  sendPasswordChange: (openPassword: (password: boolean) => void) => void;
 }

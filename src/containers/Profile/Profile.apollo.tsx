@@ -5,8 +5,9 @@ import LoadingModal from '../../components/modal/LoadingModal';
 import {getCookie} from '../../utils/cookies';
 import useToast from '../../utils/hooks/useToast';
 import {getTags, getUserInfo} from '../../utils/requests/get';
-import {addTag, postError} from '../../utils/requests/post';
+import {addTag, postError, postAccountDelete} from '../../utils/requests/post';
 import ProfileLogic from './Profile.logic';
+import {resetPassword} from "../ResetPassword/ResetPassword.api";
 
 const ProfileApollo = () => {
   const {id} = useParams();
@@ -14,6 +15,21 @@ const ProfileApollo = () => {
   const {data: user} = useQuery(['userInfo', id], getUserInfo);
   const {data: tags, refetch: refetchTags} = useQuery(['tags'], getTags);
   const toast = useToast();
+
+  const deleteAccountMutation = useMutation({
+    mutationFn: postAccountDelete,
+    onSuccess(data, variables) {
+      toast.pushSuccess('Usuń konto', 'Wyślemy Ci mailowe instrukcje jak usunąć konto. Wystarczy nacisnąć poniższy przycisk.');
+      navigate('/logout')
+    },
+    onError() {
+      toast.pushError('Usuń konto', 'Problem z usunięciem konta.');
+    },
+  });
+
+  const deleteAccount = () => {
+    deleteAccountMutation.mutate();
+  };
 
   const errorMutation = useMutation({
     mutationFn: postError,
@@ -34,6 +50,27 @@ const ProfileApollo = () => {
     await refetchTags();
   };
 
+  const passwordChangeMutation = useMutation({
+    mutationFn: resetPassword,
+    onSuccess: (data, variables) => {
+      toast.pushSuccess(
+        'Mail został wysłany',
+        'Wykonaj kolejne kroki, w celu zmiany hasła.',
+      );
+    },
+    onError: (e: unknown) => {
+      toast.pushError(
+        'Mail nie został wysłany',
+        'Nastąpił nieoczekiwany błąd, spróbuj ponownie później lub skontaktuj się z nami mailowo: alkoholove.official@gmail.com.',
+      );
+    },
+  });
+
+  const sendPasswordChange = async (openPassword: (password: boolean) => void) => {
+    await passwordChangeMutation.mutateAsync(user!.data.email);
+    openPassword(false);
+  };
+
   useEffect(() => {
     if (!getCookie('auth')) navigate('/login');
   }, []);
@@ -45,6 +82,8 @@ const ProfileApollo = () => {
       user={user.data}
       tags={tags.data}
       sendError={sendError}
+      deleteAccount={deleteAccount}
+      sendPasswordChange={sendPasswordChange}
       createTag={createTag}
     />
   );

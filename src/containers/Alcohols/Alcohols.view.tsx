@@ -110,6 +110,7 @@ const AlcoholsView = ({
             flexWrap="wrap"
             gap="20px"
             justifyContent="center"
+            maxWidth="100%"
             margin="0 0 20px 0">
             {alcohols.map(alcohol => (
               <TileView
