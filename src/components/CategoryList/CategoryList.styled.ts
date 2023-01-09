@@ -10,7 +10,7 @@ export const CategoryWrapper = styled.div<{active?: boolean}>`
   &:hover {
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     &:before {
-      background-color: '#00000066';
+      background-color: #00000066;
     }
   }
   &:before {
