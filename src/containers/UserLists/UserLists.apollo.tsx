@@ -104,6 +104,10 @@ const UserListsApollo = () => {
       ratedMutation.mutate({
         queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
       });
+    } else if (listId === 'favourites' || listId === 'wishlists') {
+      standardMutation.mutate({
+        queryKey: ['', userId, lists?.page_info?.limit.toString() || '10'],
+      });
     } else
       standardMutation.mutate({
         queryKey: ['', listId, lists?.page_info?.limit.toString() || '10'],
