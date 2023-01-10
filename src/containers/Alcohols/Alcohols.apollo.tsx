@@ -54,7 +54,7 @@ const AlcoholsApollo = () => {
   useEffect(() => {
     const {phrase, kind} = query;
     if (!query.filters) {
-      getAlcohols(phrase, {kind});
+      getAlcohols(phrase, {kind}, query.limit);
       setFilters({filters: [], phrase, kind});
     } else {
       const rawBody = JSON.parse(

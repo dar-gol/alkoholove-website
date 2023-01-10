@@ -64,9 +64,9 @@ const AlcoholsLogic = ({alcohols, filters, page}: Props) => {
     const {phrase, kind} = query;
     const limit = query.limit ? Number(query.limit) + 10 : 20;
     const params = createSearchParams({
-      phrase,
+      phrase: phrase || '',
       kind,
-      filters: query.filters,
+      filters: query.filters || '',
       limit: limit.toString(),
     });
     navigate(`/alcohols?${params}`);
