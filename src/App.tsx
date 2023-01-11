@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ThemeProvider} from 'styled-components';
@@ -21,7 +21,9 @@ import LogoutView from './containers/Logout/Logout.view';
 import ProfileApollo from './containers/Profile/Profile.apollo';
 import UserListsApollo from './containers/UserLists/UserLists.apollo';
 import {LOCATION} from './utils/constant';
-import SocialsApollo from "./containers/Socials/Socials.apollo";
+import SocialsApollo from './containers/Socials/Socials.apollo';
+import CheckMajority from './components/CheckMajority.view';
+import {getCookie, setCookie} from './utils/cookies';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -29,11 +31,36 @@ const queryClient = new QueryClient();
 const App = () => {
   const [cookie] = useCookies();
   const theme = createTheme(cookie?.mode, cookie?.isHighContrast === 'true');
+  const [isMajority, setIsMajority] = useState<boolean | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const getMajority = () => {
+    const majorityCookie = getCookie('isMajority');
+    if (majorityCookie === 'true') return true;
+    if (majorityCookie === 'false') return false;
+    return majorityCookie;
+  };
+
+  const onChooseMajority = (isMajor: boolean, isRemember: boolean) => {
+    if (isRemember) setCookie('isMajority', isMajor.toString());
+    setIsMajority(isMajor);
+  };
+
+  useEffect(() => {
+    const majorityCookie = getMajority();
+    const isMajor = majorityCookie !== undefined ? majorityCookie : isMajority;
+    setIsOpen(!isMajor);
+  }, [isMajority]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <Toaster position="top-center" gutter={20} />
+        <CheckMajority
+          isOpen={isOpen}
+          onChooseMajority={onChooseMajority}
+          isMajority={isMajority}
+        />
         <Main>
           <Routes>
             <Route path={LOCATION.ALCOHOLS} element={<AlcoholsApollo />} />
@@ -151,10 +178,7 @@ const App = () => {
                 />
               }
             />
-          <Route
-              path={LOCATION.SOCIAL}
-              element={<SocialsApollo/>}
-          />
+            <Route path={LOCATION.SOCIAL} element={<SocialsApollo />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Main>

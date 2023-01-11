@@ -7,7 +7,7 @@ import useToast from '../../utils/hooks/useToast';
 import {getTags, getUserInfo} from '../../utils/requests/get';
 import {addTag, postError, postAccountDelete} from '../../utils/requests/post';
 import ProfileLogic from './Profile.logic';
-import {resetPassword} from "../ResetPassword/ResetPassword.api";
+import {resetPassword} from '../ResetPassword/ResetPassword.api';
 
 const ProfileApollo = () => {
   const {id} = useParams();
@@ -19,8 +19,10 @@ const ProfileApollo = () => {
   const deleteAccountMutation = useMutation({
     mutationFn: postAccountDelete,
     onSuccess(data, variables) {
-      toast.pushSuccess('Usuń konto', 'Wyślemy Ci mailowe instrukcje jak usunąć konto. Wystarczy nacisnąć poniższy przycisk.');
-      navigate('/logout')
+      toast.pushSuccess(
+        'Usuń konto',
+        'Wyślemy Ci mailowe instrukcje jak usunąć konto. Wystarczy nacisnąć poniższy przycisk.',
+      );
     },
     onError() {
       toast.pushError('Usuń konto', 'Problem z usunięciem konta.');
@@ -66,7 +68,9 @@ const ProfileApollo = () => {
     },
   });
 
-  const sendPasswordChange = async (openPassword: (password: boolean) => void) => {
+  const sendPasswordChange = async (
+    openPassword: (password: boolean) => void,
+  ) => {
     await passwordChangeMutation.mutateAsync(user!.data.email);
     openPassword(false);
   };
