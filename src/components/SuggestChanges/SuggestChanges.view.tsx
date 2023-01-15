@@ -48,6 +48,7 @@ const SuggestChanges = ({alcohol, isOpen, onClose, sendError}: Props) => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setDescription(e.target.value)
             }
+            icon="icon-Flagged_comment"
             type="textarea"
             title="Opisz problem"
             placeholder="Niepoprawny typ"

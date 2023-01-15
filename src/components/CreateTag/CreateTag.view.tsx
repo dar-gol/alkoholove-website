@@ -42,6 +42,7 @@ const CreateTagView = ({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setTagName(e.target.value)
               }
+              icon="icon-Tag"
               title="Nazwa tagu"
               placeholder="Moje top alkohole"
               state=""
