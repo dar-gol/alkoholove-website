@@ -45,7 +45,7 @@ const DataView = ({user}: IDataView) => {
     getIsFollowing();
   }, []);
   const createTuple = (key: string, value: string | number) => (
-    <Tuple padding="10px">
+    <Tuple padding="10px" visible={value !== undefined}>
       <Text
         type="body"
         size="medium"

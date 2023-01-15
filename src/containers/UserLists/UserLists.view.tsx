@@ -12,15 +12,16 @@ import {TileView} from '../../components/Tile/Tile.view';
 import {
   BtnSecondary,
   Col,
-  Container, Img,
+  Container,
+  Img,
   Row,
   Text,
 } from '../../styles/global.styled';
 import {createImageName, getTagOrLists} from '../../utils/utils';
 import {IUserListsView} from './UserLists.interface';
-import {URL} from "../../utils/constant";
-import {AlcoholTileBody} from "../../components/AlcoholTile/AlcoholTileBody.view";
-import {AlcoholTileFooter} from "../../components/AlcoholTile/AlcoholTileFooter.view";
+import {URL} from '../../utils/constant';
+import {AlcoholTileBody} from '../../components/AlcoholTile/AlcoholTileBody.view';
+import {AlcoholTileFooter} from '../../components/AlcoholTile/AlcoholTileFooter.view';
 
 const UserListsView = ({
   lists,
@@ -36,25 +37,28 @@ const UserListsView = ({
   const theme = useTheme();
   const navigate = useNavigate();
   const createTile = (alcohol: IAlcohol, comment?: IComment) => (
-      <TileView
-          key={alcohol.id}
-          title={alcohol.name}
-          subtitle={`${alcohol.kind}, ${alcohol.type}`}
-          onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}
-          renderImage={() => (
-              <Img
-                  width="150px"
-                  height="175px"
-                  src={`${URL.GET_IMAGE}/${createImageName(alcohol.id, 'md')}`}
-              />
-          )}
-          renderBody={() => <AlcoholTileBody alcohol={alcohol} />}
-          renderFooter={() => <AlcoholTileFooter alcohol={alcohol} review={comment} />}
-      />
+    <TileView
+      key={alcohol.id}
+      title={alcohol.name}
+      subtitle={`${alcohol.kind}, ${alcohol.type}`}
+      onClick={() => navigate(`/alcohol/${alcohol.barcode[0]}`)}
+      renderImage={() => (
+        <Img
+          width="150px"
+          height="175px"
+          src={`${URL.GET_IMAGE}/${createImageName(alcohol.id, 'md')}`}
+        />
+      )}
+      renderBody={() => <AlcoholTileBody alcohol={alcohol} />}
+      renderFooter={() => (
+        <AlcoholTileFooter alcohol={alcohol} review={comment} />
+      )}
+    />
   );
   const createTiles = (alcohols: ListsAlcohols) => {
     const {type} = alcohols;
-    if (type === 'standard' || type === 'recommendations') return alcohols.alcohols.map(a => createTile(a));
+    if (type === 'standard' || type === 'recommendations')
+      return alcohols.alcohols.map(a => createTile(a));
     if (type === 'history')
       return alcohols.alcohols.map(a =>
         createTile({...a.alcohol, searchDate: a.date}),
@@ -122,7 +126,8 @@ const UserListsView = ({
         isOpen={isOpentag}
         onClose={() => handleOpenTag(false)}
         createTag={createTag}
-        title="Zmień nazwę"
+        title="Zmień nazwę tagu"
+        buttonText="Zmień nazwę"
       />
       <RemoveTagView
         isOpen={isOpenRemovetag}
