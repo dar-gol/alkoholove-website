@@ -42,7 +42,7 @@ const App = () => {
   };
 
   const onChooseMajority = (isMajor: boolean, isRemember: boolean) => {
-    if (isRemember) setCookie('isMajority', isMajor.toString());
+    if (isRemember) setCookie('isMajority', isMajor.toString(), 31);
     setIsMajority(isMajor);
   };
 
