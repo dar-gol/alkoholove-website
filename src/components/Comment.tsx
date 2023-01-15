@@ -26,7 +26,6 @@ const CommentView = ({
   padding,
 }: Props) => {
   const theme = useTheme();
-  console.log({comment});
   return (
     <Review key={comment.id} padding={padding || '0'}>
       <Row justifyContent="space-between">
