@@ -171,6 +171,7 @@ const AlcoholCommentsView = ({
               <TextInput
                 title="Twoja opinia"
                 type="textarea"
+                icon="icon-Rate"
                 state=""
                 placeholder="Lorem ipsum..."
                 error=""
