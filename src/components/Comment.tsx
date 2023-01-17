@@ -32,6 +32,8 @@ const CommentView = ({
         <Row flex="1" alignItems="center" gap="10px">
           <UserIconView size="30px" />
           <Text
+            as="a"
+            href={`/profile/${comment.user_id}`}
             type="body"
             size="large"
             weight="bold"

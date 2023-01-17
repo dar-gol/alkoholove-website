@@ -19,6 +19,7 @@ const defaultReview = (username: string, alcohol_id: string) => ({
   rating: 0,
   id: '',
   username,
+  user_id: '/profile',
   date: '',
   alcohol_id,
   helpful_count: 0,

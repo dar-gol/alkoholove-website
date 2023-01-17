@@ -78,6 +78,7 @@ export type RatedAlcohols = {
   type: 'rated';
   reviews: {
     alcohol: IAlcohol;
+    user_id: string;
     review: string;
     rating: number;
     id: string;
@@ -94,6 +95,10 @@ export type RecommendationAlcohols = {
   type: 'recommendations';
   alcohols: IAlcohol[];
   page_info?: never;
-}
+};
 
-export type ListsAlcohols = StandardAlcohols | HistoryAlcohols | RatedAlcohols | RecommendationAlcohols;
+export type ListsAlcohols =
+  | StandardAlcohols
+  | HistoryAlcohols
+  | RatedAlcohols
+  | RecommendationAlcohols;

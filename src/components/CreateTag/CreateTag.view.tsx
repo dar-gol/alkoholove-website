@@ -9,6 +9,7 @@ interface Props {
   onClose: () => void;
   title?: string;
   createTag: (tagName: string) => void;
+  buttonText?: string;
 }
 
 const CreateTagView = ({
@@ -16,6 +17,7 @@ const CreateTagView = ({
   onClose,
   createTag,
   title = 'Tworzenie tagu',
+  buttonText = 'Utwórz tag',
 }: Props) => {
   const theme = useTheme();
   const [tagName, setTagName] = useState('');
@@ -50,7 +52,7 @@ const CreateTagView = ({
           </Row>
         </Col>
         <BtnPrimary margin="10px 0 0 0" onClick={handleClick}>
-          Utwórz tag
+          {buttonText}
         </BtnPrimary>
       </Col>
     </Modal>
