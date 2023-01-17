@@ -14,7 +14,7 @@ const LoginApollo = () => {
   const mutation = useMutation({
     mutationFn: login,
     onSuccess: (data, variables) => {
-      setCookie('auth', data.data);
+      setCookie('auth', data.data, 31);
       toast.pushSuccess(
         'Logowanie powiodło się',
         'Zostałeś przekierowany na stronę główną.',

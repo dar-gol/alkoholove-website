@@ -9,7 +9,7 @@ const HeaderApollo = () => {
   const refreshMutation = useMutation({
     mutationFn: refreshTokens,
     onSuccess: (data, variables) => {
-      setCookie('auth', data.data);
+      setCookie('auth', data.data, 31);
       document.location.reload();
     },
     onError: e => {

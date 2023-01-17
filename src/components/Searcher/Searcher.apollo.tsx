@@ -144,7 +144,7 @@ const SearcherApollo = ({show, handleShow}: Props) => {
       kind: choosenFilter?.value || '',
     };
     const params = createSearchParams(paramObject);
-    setCookie('lastSearch', JSON.stringify(paramObject));
+    setCookie('lastSearch', JSON.stringify(paramObject), 365);
     navigate(`/alcohols?${params}`);
   };
 
