@@ -32,6 +32,7 @@ const SuggestChanges = ({alcohol, isOpen, onClose, sendError}: Props) => {
   const form = useForm({ defaultValues });
   const onSubmit = (data: SuggestChange) => {
     sendError(data.description);
+    form.reset()
     onClose();
   };
   return (
