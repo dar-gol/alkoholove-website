@@ -7,12 +7,24 @@ This project is for manage Alkoholove app. By this site you can manage alkohol's
 
 - [Admin Alkoholove](#admin-alkoholove)
   - [Table of contents](#table-of-contents)
+  - [Features](#features)
   - [Technologies](#technologies)
   - [Launch](#launch)
   - [AlkohoLove’s Source Code License Agreement](#alkoholoves-source-code-license-agreement)
     - [Between](#between)
     - [Definitions](#definitions)
     - [License Agreement](#license-agreement)
+   
+## Features
+
+- **Browsing Alcohols**: A comprehensive database segmented into different categories, allows you to discover new tastes and experiences.
+- **Barcode scanning**: With this feature, you can instantly check information about a product at the shop, gain quick insight into reviews, and more.
+- **Rating and reviewing Alcohols**: Share your opinion and experiences with other users in the app.
+- **Detailed information about products**: Each alcohol comes with a detailed description and a picture.
+- **Following other users**: Discover other user's favorite drinks and find new inspirations.
+- **Advanced filtering**: Search for drinks according to their type, tasting attributes, color, and other criteria.
+- **Recommendations**: Our AI system will suggest you what to try based on your previous decisions and tastes.
+- **Tagging and adding to favorites**: Create your own sets of favorite alcohols and group them according to chosen criteria.
 
 ## Technologies
 
