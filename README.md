@@ -1,7 +1,4 @@
-# Admin Alkoholove
-
-This project is for manage Alkoholove app. By this site you can manage alkohol's list
-(add, edit, delete) and also you can manage users, category, comments and suggestions.
+# Alkoholove
 
 ## Table of contents
 
